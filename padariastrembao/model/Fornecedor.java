@@ -10,11 +10,13 @@ package padariastrembao.model;
  * @author Lucas
  */
 public class Fornecedor extends Pessoa{
-    
-    public Fornecedor(String nome, String documento, String endereco) {
-        super(nome, documento, endereco);
-    }
+    protected boolean recorrente;
 
+    public Fornecedor(boolean recorrente, String nome, String documento, String endereco) {
+        super(nome, documento, endereco);
+        this.recorrente = recorrente;
+    }
+    
     @Override
     public String getNome() {
         return nome;

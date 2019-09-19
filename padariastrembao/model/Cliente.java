@@ -12,7 +12,7 @@ package padariastrembao.model;
 public final class Cliente extends Pessoa{
     
     protected String telefone;
-
+     
     public Cliente(String nome, String documento, String endereco, String telefone) {
         super(nome, documento, endereco);
         this.telefone = telefone;

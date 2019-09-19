@@ -11,9 +11,9 @@ package padariastrembao.model;
  */
 public final class Padeiro extends Funcionario{
     
-    protected String hrsTrabalhadas;
+    protected int hrsTrabalhadas;
     
-    public Padeiro(String nome, String documento, String endereco, String telefone, float salario, String hrsTrabalhadas) {
+    public Padeiro(String nome, String documento, String endereco, String telefone, float salario, int hrsTrabalhadas) {
         super(nome, documento, endereco, telefone, salario);
         this.hrsTrabalhadas = hrsTrabalhadas;
     }
