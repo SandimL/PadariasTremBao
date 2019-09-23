@@ -5,6 +5,20 @@
  */
 package padariastrembao.model;
 
+
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.json.
+
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
+
+
 /**
  *
  * @author Lucas
@@ -12,14 +26,18 @@ package padariastrembao.model;
 public final class Cliente extends Pessoa{
     
     protected String telefone;
-     
+    protected JSONObject jsonObject;
+    
     public Cliente(String nome, String documento, String endereco, String telefone) {
         super(nome, documento, endereco);
         this.telefone = telefone;
+        jsonObject = (JSONObject) parser.parse(new FileReader(
+                    "saida.json"));
     }
 
-    public String getTelefone() {
-        return telefone;
+    public String getTelefone() throws JSONException {
+        String tel = (String) jsonObject.get("telefone");
+        return tel;
     }
 
     public void setTelefone(String telefone) {
