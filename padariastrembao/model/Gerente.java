@@ -1,68 +1,56 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * 
+ * 
+ * 
  */
-package padariastrembao.model;
+package padaria.model;
+
+import padaria.json.JSONObject;
 
 /**
  *
- * @author Lucas
+ *
  */
 public class Gerente extends Funcionario{
-    
-    public Gerente(String nome, String documento, String endereco, String telefone, float salario) {
-        super(nome, documento, endereco, telefone, salario);
+    private boolean recorrente;
+
+    public Gerente(String nome, String telefone, String documento, String rua, String numero, String bairro, String cidade, String estado, String senha, boolean recorrente) {
+        super(nome, telefone, documento, rua, numero, bairro, cidade, estado, 2500f, senha);
+        this.recorrente = recorrente;
     }
 
-    @Override
-    public float getSalario() {
-        return salario;
+    public boolean isRecorrente() {
+        return recorrente;
     }
 
-    @Override
-    public void setSalario(float salario) {
-        this.salario = salario;
-    }
-
-    @Override
-    public String getTelefone() {
-        return telefone;
-    }
-
-    @Override
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
-    }
-
-    @Override
-    public String getNome() {
-        return nome;
-    }
-
-    @Override
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    @Override
-    public String getDocumento() {
-        return documento;
-    }
-
-    @Override
-    public void setDocumento(String documento) {
-        this.documento = documento;
-    }
-
-    @Override
-    public String getEndereco() {
-        return endereco;
-    }
-
-    @Override
-    public void setEndereco(String endereco) {
-        this.endereco = endereco;
+    public void setRecorrente(boolean recorrente) {
+        this.recorrente = recorrente;
     }
     
+    public Gerente(JSONObject json){
+        super (json.getString("nome"),
+                json.getString("telefone"), json.getString("documento"), 
+                json.getString("rua"), json.getString("numero"), 
+                json.getString("bairro"), json.getString("cidade"),
+                json.getString("estado"), Float.parseFloat(json.getString("salario")), 
+                json.getString("senha"));
+        this.recorrente = json.getBoolean("recorrente");
+    }
+    
+    //Método que cria um objeto Json, associa os valores e retorna o objeto
+    public JSONObject toJson(){
+        JSONObject json = new JSONObject();
+        json.put("nome", this.nome);
+        json.put ("documento", this.documento);
+        json.put ("telefone", this.telefone);
+        json.put ("salario", this.salario);
+        json.put ("rua", this.rua);
+        json.put ("numero", this.numero);
+        json.put ("bairro", this.bairro);
+        json.put ("cidade", this.cidade);
+        json.put ("estado", this.estado);
+        json.put ("recorrente", this.recorrente);
+        
+        return json;
+    }
 }

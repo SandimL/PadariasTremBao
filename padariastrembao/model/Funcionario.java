@@ -1,25 +1,42 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * 
+ * 
+ * 
  */
-package padariastrembao.model;
-
+package padaria.model;
 /**
- *
- * @author Lucas
+ * Classe Funcionário que extende a classe Pessoa por meio de Herança
+ * Atributos adicionais Salario e Senha
+ * Todo e qualquer funcionario da Padaria
+ * Será extendida pelas classes Padeiro, Vendedor e Gerente
  */
-public abstract class Funcionario extends Pessoa{
-    
-    protected float salario;
-    protected String telefone;
+public class Funcionario extends Pessoa{
+    //Declaração dos atributos todos protected
+    protected float salario;//Atributo salario
+    protected String senha;//Atributo senha
 
-    public Funcionario(String nome, String documento, String endereco, String telefone, float salario) {
-        super(nome, documento, endereco);
+    //Construtor da classe Funcionario atribuindo todos os valores aos atributos
+    public Funcionario(String nome, String telefone, String documento, 
+            String rua, String numero, String bairro, String cidade, 
+            String estado, float salario, String senha) {
+        //Através do prefixo Super chama o construtor da classe Pessoa
+        super(nome, telefone, documento, rua, numero, bairro, cidade, estado);
         this.salario = salario;
-        this.telefone = telefone;
+        this.senha = senha;
     }
 
+    //Construtor da classe Funcionario atribuindo somente valores aos atributos
+    //Documento e Senha
+    public Funcionario(String documento, String senha) {
+        super(documento);
+        this.senha = senha;
+    }
+
+    //Construtor da classe Funcionario vazio
+    public Funcionario() {
+    }
+
+    //Métodos GETTERS e SETTERS dos atributos
     public float getSalario() {
         return salario;
     }
@@ -28,42 +45,19 @@ public abstract class Funcionario extends Pessoa{
         this.salario = salario;
     }
 
-    public String getTelefone() {
-        return telefone;
+    public String getSenha() {
+        return senha;
     }
 
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
+    public void setSenha(String senha) {
+        this.senha = senha;
     }
-
-    @Override
-    public String getNome() {
-        return nome;
+    
+    //Método que verifica se o usuario e senha são iguais
+    //Caso afirmativo retorna Verdadeiro
+    //Caso contrário retorna Falso
+    public boolean chekcLogin(Funcionario check){
+        boolean valido = documento.equals(check.getDocumento()) && senha.equals(check.getSenha());
+        return valido;
     }
-
-    @Override
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    @Override
-    public String getDocumento() {
-        return documento;
-    }
-
-    @Override
-    public void setDocumento(String documento) {
-        this.documento = documento;
-    }
-
-    @Override
-    public String getEndereco() {
-        return endereco;
-    }
-
-    @Override
-    public void setEndereco(String endereco) {
-        this.endereco = endereco;
-    }
-  
 }

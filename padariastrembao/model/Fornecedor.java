@@ -3,48 +3,30 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package padariastrembao.model;
-
+package padaria.model;
 /**
- *
- * @author Lucas
+ * @author Paulo
  */
 public class Fornecedor extends Pessoa{
-    protected boolean recorrente;
+    private boolean recorrente;
 
-    public Fornecedor(boolean recorrente, String nome, String documento, String endereco) {
-        super(nome, documento, endereco);
+    public Fornecedor(String nome, String telefone, String documento, String enderecoRua, String enderecoNumero, String enderecoBairro, String enderecoCidade, String enderecoEstado) {
+        super(nome, telefone, documento, enderecoRua, enderecoNumero, enderecoBairro, enderecoCidade, enderecoEstado);
+        this.recorrente = false;
+    }    
+
+    public Fornecedor(String documento) {
+        super(documento);
+    }
+
+    public Fornecedor() {
+    }
+
+    public boolean isRecorrente() {
+        return recorrente;
+    }
+
+    public void setRecorrente(boolean recorrente) {
         this.recorrente = recorrente;
     }
-    
-    @Override
-    public String getNome() {
-        return nome;
-    }
-
-    @Override
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    @Override
-    public String getDocumento() {
-        return documento;
-    }
-
-    @Override
-    public void setDocumento(String documento) {
-        this.documento = documento;
-    }
-
-    @Override
-    public String getEndereco() {
-        return endereco;
-    }
-
-    @Override
-    public void setEndereco(String endereco) {
-        this.endereco = endereco;
-    }
-    
 }
