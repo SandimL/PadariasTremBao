@@ -70,48 +70,4 @@ public final class Padeiro extends Funcionario{
     public void setHorasTrabalhadas(int horasTrabalhadas) {
         this.horasTrabalhadas += horasTrabalhadas;
     }
-    
-    //Método que tenta salvar um Padeiro na base de dados através da Classe Arquivo
-    //Retorna a descrição da tentativa
-    //
-    /**
-    public String setPadeiro(){
-        String situacao = "";
-        JSONObject json = this.toJson();//Cria um objeto Json
-        boolean contratado = false;//Cria uma variavel que retorno falso ou verdadeiro
-        String base = Arquivo.read();//Le toda a base de dados salva
-        JSONArray jA = new JSONArray();//Cria um Array de objetos Json
-        if(!base.isEmpty())/*Testa se a base não está vazia{
-            jA = new JSONArray(base);//Atribui os dados da base ao Array de objetos Json
-            situacao = "A base de dados está vazia";
-        }
-        for(int i=0; i<jA.length()&&!contratado;i++)/*Percorre todo o Array de Json{
-            //Verifica se o objeto Json na posição i do Array tem o documento igual ao do Padeiro a ser contratado
-            //Se for retorna messagem de que já é um funcionário
-            if(jA.getJSONObject(i).get("documento").equals(documento)){
-               situacao = jA.getJSONObject(i).getString("nome") + " já é um funcionário";
-            }else/*Caso contrário salva no Array de Json{
-               jA.put(json);
-               contratado = true;
-               situacao = "Padeiro contratado com sucesso";
-            }
-        }
-        Arquivo.write(jA.toString());//Salva na base de dados
-        return situacao;
-    }
-    
-    //Método que pega todos os Padeiros salvos na base de 
-    public static Padeiro[] getPadeiros(){
-        Padeiro[] padeiro = new Padeiro[5];
-        String base = Arquivo.read();
-        if(!base.isEmpty()){
-            JSONArray jA = new JSONArray(base);
-            for(int i=0; i<jA.length();i++){
-                Padeiro p = new Padeiro(jA.getJSONObject(i));
-                padeiro[i] = p; 
-            }
-        }
-        return padeiro;
-    }
-    **/
-}
+ }
