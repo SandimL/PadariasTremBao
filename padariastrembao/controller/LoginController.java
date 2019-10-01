@@ -4,46 +4,49 @@
  */
 package padaria.controller;
 
+import java.util.ArrayList;
 import padaria.model.Banco;
+import padaria.model.Funcionario;
 import padaria.model.Padeiro;
-import padaria.view.Login;
+import padaria.model.Vendedor;
+import padaria.view.LoginView;
 import padaria.view.PadeiroView;
+import padaria.view.VendedorView;
 
 /**
  *
  * 
  */
 public class LoginController {
-    private final Login view;
+    private final LoginView view;
     
-    public LoginController(Login view){
+    public LoginController(LoginView view){
         this.view = view;
     }
     
     public void checkLogin(){
         boolean encontrou = false;
-        Padeiro usuario = new Padeiro(view.getTxt_login().getText(), new String(view.getTxt_senha().getPassword()));
-        Padeiro[] padeiro = new Padeiro[5];
-        padeiro = Banco.getPadeiro();
-        for(int i=0; i<padeiro.length&&!encontrou; i++){
-            if(padeiro[i]!=null){
-                if(padeiro[i].equals(usuario)){
-                    encontrou = true;
-                    if(padeiro[i].getSenha().equals(usuario.getSenha())){
-                        view.exibirMessagem("Seja bem vindo");
-                        //Chama Tela Padeiro passando o usuário;
-                        PadeiroView padeiroView = new PadeiroView(padeiro[i].getDocumento());
-                        padeiroView.setVisible(true);
-                        view.dispose();
-                    }else{
-                        view.exibirMessagem("Senha incorreta");
-                    }
-                }
+        String login = view.getTxt_login().getText();
+        String senha = new String(view.getTxt_senha().getPassword());
+        if(Banco.procuraPadeiro(login)!=null){
+            if(Banco.procuraPadeiro(login).getSenha().equals(senha)){
+                view.exibirMessagem("Seja bem vindo!");
+                PadeiroView padeiroView = new PadeiroView(Banco.procuraPadeiro(login));
+                padeiroView.setVisible(true);
+                view.dispose();
+            }else{
+                view.exibirMessagem("Senha incorreta");
             }
-        }
-        if(!encontrou){
-            view.exibirMessagem("Usuário não encontrado");
-        }
+        }else if(Banco.procuraVendedor(login)!=null){
+            if(Banco.procuraVendedor(login).getSenha().equals(senha)){
+                view.exibirMessagem("Seja bem vindo!");
+                VendedorView vendedorView = new VendedorView(Banco.procuraVendedor(login));
+                vendedorView.setVisible(true);
+                view.dispose();
+            }else{
+                view.exibirMessagem("Senha incorreta");
+            }
+        }       
         
     }
    

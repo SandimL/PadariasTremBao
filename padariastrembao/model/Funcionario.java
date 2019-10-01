@@ -14,6 +14,7 @@ public class Funcionario extends Pessoa{
     //Declaração dos atributos todos protected
     protected float salario;//Atributo salario
     protected String senha;//Atributo senha
+    protected int horasTrabalhadas;
 
     //Construtor da classe Funcionario atribuindo todos os valores aos atributos
     public Funcionario(String nome, String telefone, String documento, 
@@ -52,6 +53,15 @@ public class Funcionario extends Pessoa{
     public void setSenha(String senha) {
         this.senha = senha;
     }
+
+    public int getHorasTrabalhadas() {
+        return horasTrabalhadas;
+    }
+
+    public void setHorasTrabalhadas(int horasTrabalhadas) {
+        this.horasTrabalhadas += horasTrabalhadas;
+    }
+    
     
     //Método que verifica se o usuario e senha são iguais
     //Caso afirmativo retorna Verdadeiro

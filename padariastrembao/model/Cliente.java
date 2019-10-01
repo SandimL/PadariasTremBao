@@ -5,7 +5,7 @@
  */
 package padaria.model;
 
-import padaria.json.JSONObject;
+
 
 /**
  * @author Paulo
@@ -57,31 +57,4 @@ public class Cliente extends Pessoa{
         this.valorCompras += valorDaCompra;
     }
     
-    //Construtor da classe Padeiro que atribui valores de um objeto Json aos atributos
-    public Cliente(JSONObject json){
-        super (json.getString("nome"),
-                json.getString("telefone"), json.getString("documento"), 
-                json.getString("rua"), json.getString("numero"), 
-                json.getString("bairro"), json.getString("cidade"),
-                json.getString("estado"));
-        this.gold = json.getBoolean("gold");
-        this.platina = json.getBoolean("platina");
-        this.valorCompras = Float.parseFloat(json.getString("valorCompras"));
-    }
-    
-    public JSONObject toJson(){
-        JSONObject json = new JSONObject();
-        json.put("nome", this.nome);
-        json.put ("documento", this.documento);
-        json.put ("telefone", this.telefone);
-        json.put ("rua", this.rua);
-        json.put ("numero", this.numero);
-        json.put ("bairro", this.bairro);
-        json.put ("cidade", this.cidade);
-        json.put ("estado", this.estado);
-        json.put ("gold", this.gold);
-        json.put ("platina", this.platina);
-        json.put ("valorCompras", this.valorCompras);
-        return json;
-    }
 }

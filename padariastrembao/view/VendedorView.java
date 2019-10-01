@@ -5,19 +5,44 @@
  */
 package padaria.view;
 
+import java.awt.CardLayout;
+import javax.swing.JButton;
+import javax.swing.JFormattedTextField;
+import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import padaria.controller.VendedorController;
+import padaria.model.Banco;
+import padaria.model.Vendedor;
+import padaria.util.Validacao;
+
 /**
  *
  * @author Paulo
  */
 public class VendedorView extends javax.swing.JFrame {
-
+    private Vendedor usuario;
+    private VendedorController controller = new VendedorController(this);
     /**
-     * Creates new form VendedorView
+     * Creates new form PadeiroView
+     * @param usuario
      */
-    public VendedorView() {
+    public VendedorView(Vendedor usuario) {
         initComponents();
+        this.usuario = usuario;
     }
 
+    private VendedorView() {
+        initComponents();
+    }
+    public void exibirMessagem(String mensagem){
+        JOptionPane.showMessageDialog(this, mensagem);
+    }
+   
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -27,32 +52,889 @@ public class VendedorView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jP_principal = new javax.swing.JPanel();
+        jP_inicio = new javax.swing.JPanel();
+        jP_registrarPonto = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        txt_dataEntrada = new javax.swing.JFormattedTextField();
+        jLabel3 = new javax.swing.JLabel();
+        txt_horaEntrada = new javax.swing.JFormattedTextField();
+        jLabel4 = new javax.swing.JLabel();
+        txt_dataSaida = new javax.swing.JFormattedTextField();
+        jLabel5 = new javax.swing.JLabel();
+        txt_horaSaida = new javax.swing.JFormattedTextField();
+        btn_salvar = new javax.swing.JButton();
+        jP_cadastro = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
+        txt_nome = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        txt_cpf = new javax.swing.JFormattedTextField();
+        jLabel8 = new javax.swing.JLabel();
+        txt_telefone = new javax.swing.JFormattedTextField();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        txt_rua = new javax.swing.JTextField();
+        jLabel11 = new javax.swing.JLabel();
+        txt_numero = new javax.swing.JTextField();
+        jLabel12 = new javax.swing.JLabel();
+        txt_bairro = new javax.swing.JTextField();
+        jLabel13 = new javax.swing.JLabel();
+        txt_cidade = new javax.swing.JTextField();
+        jLabel14 = new javax.swing.JLabel();
+        txt_estado = new javax.swing.JTextField();
+        jLabel15 = new javax.swing.JLabel();
+        btn_cadastro_editar = new javax.swing.JButton();
+        btn_cadastro_salvar = new javax.swing.JButton();
+        btn_cadastro_cancelar = new javax.swing.JButton();
+        jLabel17 = new javax.swing.JLabel();
+        txt_funcao = new javax.swing.JTextField();
+        jLabel18 = new javax.swing.JLabel();
+        txt_salario = new javax.swing.JFormattedTextField();
+        jLabel19 = new javax.swing.JLabel();
+        txt_vendasRealizadas = new javax.swing.JFormattedTextField();
+        txt_cargaHora_mes = new javax.swing.JTextField();
+        jP_realizarVenda = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        jCB_cliente = new javax.swing.JComboBox();
+        jLabel21 = new javax.swing.JLabel();
+        txt_vendedor = new javax.swing.JTextField();
+        jLabel22 = new javax.swing.JLabel();
+        jFormattedTextField1 = new javax.swing.JFormattedTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jT_estoque = new javax.swing.JTable();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jT_carrinho = new javax.swing.JTable();
+        jLabel24 = new javax.swing.JLabel();
+        jLabel25 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jTextField1 = new javax.swing.JTextField();
+        jLabel23 = new javax.swing.JLabel();
+        jTextField2 = new javax.swing.JTextField();
+        jLabel26 = new javax.swing.JLabel();
+        jButton3 = new javax.swing.JButton();
+        jP_consultarVenda = new javax.swing.JPanel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jM_inicio = new javax.swing.JMenu();
+        jM_registrarPonto = new javax.swing.JMenuItem();
+        jM_sair = new javax.swing.JMenuItem();
+        jM_cadastro = new javax.swing.JMenu();
+        jM_consultarCadastro = new javax.swing.JMenuItem();
+        jMenu1 = new javax.swing.JMenu();
+        jM_realizarVenda = new javax.swing.JMenuItem();
+        jM_consultarVenda = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
-        jLabel1.setText("view vendedor");
+        jP_principal.setLayout(new java.awt.CardLayout());
+
+        jP_inicio.setBackground(new java.awt.Color(100, 100, 100));
+        jP_inicio.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        javax.swing.GroupLayout jP_inicioLayout = new javax.swing.GroupLayout(jP_inicio);
+        jP_inicio.setLayout(jP_inicioLayout);
+        jP_inicioLayout.setHorizontalGroup(
+            jP_inicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 685, Short.MAX_VALUE)
+        );
+        jP_inicioLayout.setVerticalGroup(
+            jP_inicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 648, Short.MAX_VALUE)
+        );
+
+        jP_principal.add(jP_inicio, "Inicio");
+
+        jP_registrarPonto.setBackground(new java.awt.Color(100, 100, 100));
+        jP_registrarPonto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel1.setText("Registre seu ponto");
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel2.setText("Data de entrada");
+
+        txt_dataEntrada.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        try {
+            txt_dataEntrada.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        txt_dataEntrada.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txt_dataEntrada.setFocusLostBehavior(javax.swing.JFormattedTextField.PERSIST);
+        txt_dataEntrada.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txt_dataEntrada.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txt_dataEntradaFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txt_dataEntradaFocusLost(evt);
+            }
+        });
+        txt_dataEntrada.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_dataEntradaActionPerformed(evt);
+            }
+        });
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel3.setText("Hora Entrada");
+
+        txt_horaEntrada.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        try {
+            txt_horaEntrada.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##:##")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        txt_horaEntrada.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txt_horaEntrada.setFocusLostBehavior(javax.swing.JFormattedTextField.PERSIST);
+        txt_horaEntrada.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txt_horaEntrada.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txt_horaEntradaFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txt_horaEntradaFocusLost(evt);
+            }
+        });
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel4.setText("Data de saída");
+
+        txt_dataSaida.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        try {
+            txt_dataSaida.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        txt_dataSaida.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txt_dataSaida.setFocusLostBehavior(javax.swing.JFormattedTextField.PERSIST);
+        txt_dataSaida.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txt_dataSaida.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txt_dataSaidaFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txt_dataSaidaFocusLost(evt);
+            }
+        });
+        txt_dataSaida.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_dataSaidaActionPerformed(evt);
+            }
+        });
+
+        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel5.setText("Hora Entrada");
+
+        txt_horaSaida.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        try {
+            txt_horaSaida.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##:##")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        txt_horaSaida.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txt_horaSaida.setFocusLostBehavior(javax.swing.JFormattedTextField.PERSIST);
+        txt_horaSaida.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txt_horaSaida.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txt_horaSaidaFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txt_horaSaidaFocusLost(evt);
+            }
+        });
+
+        btn_salvar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btn_salvar.setText("Salvar");
+        btn_salvar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btn_salvar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_salvarActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addComponent(txt_dataEntrada))
+                            .addComponent(jLabel2))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(38, 38, 38)
+                                .addComponent(txt_horaEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(26, 26, 26)
+                                .addComponent(jLabel3))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(39, 39, 39)
+                        .addComponent(jLabel1))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel4)
+                                .addGap(43, 43, 43))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addComponent(txt_dataSaida)
+                                .addGap(26, 26, 26)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addComponent(txt_horaSaida, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(83, 83, 83)
+                        .addComponent(btn_salvar, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(20, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(jLabel1)
+                .addGap(34, 34, 34)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txt_dataEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txt_horaEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(31, 31, 31)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel5))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txt_dataSaida, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txt_horaSaida, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(32, 32, 32)
+                .addComponent(btn_salvar, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 50, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout jP_registrarPontoLayout = new javax.swing.GroupLayout(jP_registrarPonto);
+        jP_registrarPonto.setLayout(jP_registrarPontoLayout);
+        jP_registrarPontoLayout.setHorizontalGroup(
+            jP_registrarPontoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jP_registrarPontoLayout.createSequentialGroup()
+                .addGap(162, 162, 162)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(285, Short.MAX_VALUE))
+        );
+        jP_registrarPontoLayout.setVerticalGroup(
+            jP_registrarPontoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jP_registrarPontoLayout.createSequentialGroup()
+                .addGap(131, 131, 131)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(216, Short.MAX_VALUE))
+        );
+
+        jP_principal.add(jP_registrarPonto, "Registrar Ponto");
+
+        jP_cadastro.setBackground(new java.awt.Color(100, 100, 100));
+        jP_cadastro.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel2.setLayout(null);
+
+        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel6.setText("Nome");
+        jPanel2.add(jLabel6);
+        jLabel6.setBounds(11, 12, 36, 17);
+
+        txt_nome.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txt_nome.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        txt_nome.setMinimumSize(new java.awt.Dimension(2, 28));
+        txt_nome.setPreferredSize(new java.awt.Dimension(2, 28));
+        jPanel2.add(txt_nome);
+        txt_nome.setBounds(11, 35, 363, 28);
+
+        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel7.setText("CPF");
+        jPanel2.add(jLabel7);
+        jLabel7.setBounds(11, 65, 24, 17);
+
+        txt_cpf.setEditable(false);
+        txt_cpf.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        try {
+            txt_cpf.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        txt_cpf.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txt_cpf.setFocusLostBehavior(javax.swing.JFormattedTextField.PERSIST);
+        txt_cpf.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jPanel2.add(txt_cpf);
+        txt_cpf.setBounds(11, 88, 131, 28);
+
+        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel8.setText("Telefone");
+        jPanel2.add(jLabel8);
+        jLabel8.setBounds(170, 65, 51, 17);
+
+        txt_telefone.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        try {
+            txt_telefone.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)#####-####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        txt_telefone.setFocusLostBehavior(javax.swing.JFormattedTextField.PERSIST);
+        txt_telefone.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txt_telefone.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txt_telefoneFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txt_telefoneFocusLost(evt);
+            }
+        });
+        jPanel2.add(txt_telefone);
+        txt_telefone.setBounds(170, 88, 127, 28);
+
+        jLabel9.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel9.setText("Endereço");
+        jPanel2.add(jLabel9);
+        jLabel9.setBounds(11, 122, 58, 17);
+
+        jLabel10.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        jLabel10.setText("Rua");
+        jPanel2.add(jLabel10);
+        jLabel10.setBounds(21, 145, 22, 16);
+
+        txt_rua.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        txt_rua.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel2.add(txt_rua);
+        txt_rua.setBounds(21, 168, 145, 28);
+
+        jLabel11.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        jLabel11.setText("Número");
+        jPanel2.add(jLabel11);
+        jLabel11.setBounds(246, 145, 45, 16);
+
+        txt_numero.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        txt_numero.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        txt_numero.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_numeroActionPerformed(evt);
+            }
+        });
+        jPanel2.add(txt_numero);
+        txt_numero.setBounds(246, 171, 55, 28);
+
+        jLabel12.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        jLabel12.setText("Bairro");
+        jPanel2.add(jLabel12);
+        jLabel12.setBounds(20, 220, 34, 16);
+
+        txt_bairro.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        txt_bairro.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel2.add(txt_bairro);
+        txt_bairro.setBounds(20, 240, 140, 28);
+
+        jLabel13.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        jLabel13.setText("Cidade");
+        jPanel2.add(jLabel13);
+        jLabel13.setBounds(180, 220, 39, 16);
+
+        txt_cidade.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        txt_cidade.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel2.add(txt_cidade);
+        txt_cidade.setBounds(180, 240, 110, 28);
+
+        jLabel14.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        jLabel14.setText("Estado");
+        jPanel2.add(jLabel14);
+        jLabel14.setBounds(320, 220, 38, 16);
+
+        txt_estado.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        txt_estado.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        txt_estado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_estadoActionPerformed(evt);
+            }
+        });
+        jPanel2.add(txt_estado);
+        txt_estado.setBounds(320, 240, 38, 28);
+
+        jLabel15.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel15.setText("Carga horária/mês");
+        jPanel2.add(jLabel15);
+        jLabel15.setBounds(11, 335, 112, 17);
+
+        btn_cadastro_editar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btn_cadastro_editar.setText("Editar");
+        btn_cadastro_editar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btn_cadastro_editar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_cadastro_editarActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btn_cadastro_editar);
+        btn_cadastro_editar.setBounds(26, 416, 59, 28);
+
+        btn_cadastro_salvar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btn_cadastro_salvar.setText("Salvar");
+        btn_cadastro_salvar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btn_cadastro_salvar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_cadastro_salvarActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btn_cadastro_salvar);
+        btn_cadastro_salvar.setBounds(150, 420, 63, 28);
+
+        btn_cadastro_cancelar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btn_cadastro_cancelar.setText("Cancelar");
+        btn_cadastro_cancelar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btn_cadastro_cancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_cadastro_cancelarActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btn_cadastro_cancelar);
+        btn_cadastro_cancelar.setBounds(280, 420, 69, 28);
+
+        jLabel17.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel17.setText("Função");
+        jPanel2.add(jLabel17);
+        jLabel17.setBounds(11, 278, 45, 17);
+
+        txt_funcao.setEditable(false);
+        txt_funcao.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txt_funcao.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        txt_funcao.setMinimumSize(new java.awt.Dimension(2, 28));
+        jPanel2.add(txt_funcao);
+        txt_funcao.setBounds(11, 301, 89, 28);
+
+        jLabel18.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel18.setText("Salário");
+        jPanel2.add(jLabel18);
+        jLabel18.setBounds(240, 280, 39, 17);
+
+        txt_salario.setEditable(false);
+        txt_salario.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        txt_salario.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(java.text.NumberFormat.getCurrencyInstance())));
+        txt_salario.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jPanel2.add(txt_salario);
+        txt_salario.setBounds(240, 300, 87, 28);
+
+        jLabel19.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel19.setText("Vendas Realizadas");
+        jPanel2.add(jLabel19);
+        jLabel19.setBounds(190, 340, 110, 17);
+
+        txt_vendasRealizadas.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        txt_vendasRealizadas.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(java.text.NumberFormat.getCurrencyInstance())));
+        jPanel2.add(txt_vendasRealizadas);
+        txt_vendasRealizadas.setBounds(190, 360, 120, 28);
+
+        txt_cargaHora_mes.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txt_cargaHora_mes.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txt_cargaHora_mes.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel2.add(txt_cargaHora_mes);
+        txt_cargaHora_mes.setBounds(30, 360, 50, 28);
+
+        javax.swing.GroupLayout jP_cadastroLayout = new javax.swing.GroupLayout(jP_cadastro);
+        jP_cadastro.setLayout(jP_cadastroLayout);
+        jP_cadastroLayout.setHorizontalGroup(
+            jP_cadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jP_cadastroLayout.createSequentialGroup()
+                .addGap(94, 94, 94)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 399, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(192, Short.MAX_VALUE))
+        );
+        jP_cadastroLayout.setVerticalGroup(
+            jP_cadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jP_cadastroLayout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 487, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(121, Short.MAX_VALUE))
+        );
+
+        jP_principal.add(jP_cadastro, "Cadastro");
+
+        jP_realizarVenda.setBackground(new java.awt.Color(100, 100, 100));
+
+        jPanel3.setLayout(null);
+
+        jLabel16.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel16.setText("Sistema Padarias Trem Bão");
+        jPanel3.add(jLabel16);
+        jLabel16.setBounds(260, 0, 187, 17);
+
+        jLabel20.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel20.setText("Cliente");
+        jPanel3.add(jLabel20);
+        jLabel20.setBounds(20, 40, 50, 28);
+
+        jCB_cliente.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel3.add(jCB_cliente);
+        jCB_cliente.setBounds(90, 40, 220, 28);
+
+        jLabel21.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel21.setText("Vendedor");
+        jPanel3.add(jLabel21);
+        jLabel21.setBounds(20, 80, 60, 28);
+        jPanel3.add(txt_vendedor);
+        txt_vendedor.setBounds(90, 80, 220, 28);
+
+        jLabel22.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel22.setText("Data");
+        jPanel3.add(jLabel22);
+        jLabel22.setBounds(460, 60, 40, 28);
+
+        try {
+            jFormattedTextField1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        jFormattedTextField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jFormattedTextField1.setFocusLostBehavior(javax.swing.JFormattedTextField.PERSIST);
+        jFormattedTextField1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jPanel3.add(jFormattedTextField1);
+        jFormattedTextField1.setBounds(510, 60, 100, 28);
+
+        jT_estoque.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Produto", "Quantidade", "Valor/unidade"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.Integer.class, java.lang.Object.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(jT_estoque);
+
+        jPanel3.add(jScrollPane1);
+        jScrollPane1.setBounds(20, 180, 270, 460);
+
+        jT_carrinho.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Produto", "Quantidade", "Valor Total"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.Integer.class, java.lang.Float.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane2.setViewportView(jT_carrinho);
+
+        jPanel3.add(jScrollPane2);
+        jScrollPane2.setBounds(370, 180, 300, 460);
+
+        jLabel24.setText("Estoque");
+        jPanel3.add(jLabel24);
+        jLabel24.setBounds(110, 160, 40, 14);
+
+        jLabel25.setText("Carrinho");
+        jPanel3.add(jLabel25);
+        jLabel25.setBounds(490, 160, 60, 14);
+
+        jButton1.setText("Adicionar ao Carrinho");
+        jPanel3.add(jButton1);
+        jButton1.setBounds(80, 130, 140, 23);
+
+        jButton2.setText("Remover do Carrinho");
+        jPanel3.add(jButton2);
+        jButton2.setBounds(480, 130, 140, 23);
+        jPanel3.add(jTextField1);
+        jTextField1.setBounds(30, 130, 40, 20);
+
+        jLabel23.setText("Unidades");
+        jPanel3.add(jLabel23);
+        jLabel23.setBounds(30, 110, 50, 14);
+        jPanel3.add(jTextField2);
+        jTextField2.setBounds(420, 130, 40, 20);
+
+        jLabel26.setText("Unidades");
+        jPanel3.add(jLabel26);
+        jLabel26.setBounds(420, 110, 44, 14);
+
+        jButton3.setText("Pagamento");
+        jPanel3.add(jButton3);
+        jButton3.setBounds(280, 130, 100, 23);
+
+        javax.swing.GroupLayout jP_realizarVendaLayout = new javax.swing.GroupLayout(jP_realizarVenda);
+        jP_realizarVenda.setLayout(jP_realizarVendaLayout);
+        jP_realizarVendaLayout.setHorizontalGroup(
+            jP_realizarVendaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 687, Short.MAX_VALUE)
+        );
+        jP_realizarVendaLayout.setVerticalGroup(
+            jP_realizarVendaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 650, Short.MAX_VALUE)
+        );
+
+        jP_principal.add(jP_realizarVenda, "Realizar venda");
+
+        javax.swing.GroupLayout jP_consultarVendaLayout = new javax.swing.GroupLayout(jP_consultarVenda);
+        jP_consultarVenda.setLayout(jP_consultarVendaLayout);
+        jP_consultarVendaLayout.setHorizontalGroup(
+            jP_consultarVendaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 687, Short.MAX_VALUE)
+        );
+        jP_consultarVendaLayout.setVerticalGroup(
+            jP_consultarVendaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 650, Short.MAX_VALUE)
+        );
+
+        jP_principal.add(jP_consultarVenda, "card6");
+
+        jMenuBar1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        jM_inicio.setBorder(null);
+        jM_inicio.setText("Inicio");
+        jM_inicio.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+
+        jM_registrarPonto.setText("Registrar Ponto");
+        jM_registrarPonto.setBorder(null);
+        jM_registrarPonto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jM_registrarPontoActionPerformed(evt);
+            }
+        });
+        jM_inicio.add(jM_registrarPonto);
+
+        jM_sair.setText("Sair");
+        jM_sair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jM_sairActionPerformed(evt);
+            }
+        });
+        jM_inicio.add(jM_sair);
+
+        jMenuBar1.add(jM_inicio);
+
+        jM_cadastro.setBorder(null);
+        jM_cadastro.setText("Cadastro");
+        jM_cadastro.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+
+        jM_consultarCadastro.setText("Consultar Cadastro");
+        jM_consultarCadastro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jM_consultarCadastroActionPerformed(evt);
+            }
+        });
+        jM_cadastro.add(jM_consultarCadastro);
+
+        jMenuBar1.add(jM_cadastro);
+
+        jMenu1.setBorder(null);
+        jMenu1.setText("Vendas");
+        jMenu1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+
+        jM_realizarVenda.setText("Realizar Venda");
+        jMenu1.add(jM_realizarVenda);
+
+        jM_consultarVenda.setText("Consultar Vendas");
+        jMenu1.add(jM_consultarVenda);
+
+        jMenuBar1.add(jMenu1);
+
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(180, 180, 180)
-                .addComponent(jLabel1)
-                .addContainerGap(149, Short.MAX_VALUE))
+            .addComponent(jP_principal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(83, 83, 83)
-                .addComponent(jLabel1)
-                .addContainerGap(203, Short.MAX_VALUE))
+            .addComponent(jP_principal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jM_sairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jM_sairActionPerformed
+        // TODO add your handling code here:
+        LoginView lv = new LoginView();
+        lv.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jM_sairActionPerformed
+
+    private void txt_dataEntradaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_dataEntradaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_dataEntradaActionPerformed
+
+    private void txt_dataSaidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_dataSaidaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_dataSaidaActionPerformed
+
+    private void txt_dataEntradaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_dataEntradaFocusGained
+        // TODO add your handling code here:
+        txt_dataEntrada.setText("");
+    }//GEN-LAST:event_txt_dataEntradaFocusGained
+
+    private void txt_dataEntradaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_dataEntradaFocusLost
+        // TODO add your handling code here:
+        if(txt_dataEntrada.getText().trim().length()<10){
+            txt_dataEntrada.setText("");
+        }else{
+            String retorno = Validacao.validarData(txt_dataEntrada.getText());
+            if(retorno.equals("Data inválida")){
+                JOptionPane.showMessageDialog(this, retorno);
+                txt_dataEntrada.setText("");
+            }
+        }
+    }//GEN-LAST:event_txt_dataEntradaFocusLost
+
+    private void txt_horaEntradaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_horaEntradaFocusGained
+        // TODO add your handling code here:
+        txt_horaEntrada.setText("");
+    }//GEN-LAST:event_txt_horaEntradaFocusGained
+
+    private void txt_horaEntradaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_horaEntradaFocusLost
+        // TODO add your handling code here:
+        if(txt_horaEntrada.getText().trim().length()<5){
+            txt_horaEntrada.setText("");
+        }else{
+            String retorno = Validacao.validarHora(txt_horaEntrada.getText());
+            if(retorno.equals("Hora inválida")){
+                JOptionPane.showMessageDialog(this, retorno);
+                txt_horaEntrada.setText("");
+            }
+        }
+    }//GEN-LAST:event_txt_horaEntradaFocusLost
+
+    private void txt_dataSaidaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_dataSaidaFocusGained
+        // TODO add your handling code here:
+        txt_dataSaida.setText("");
+    }//GEN-LAST:event_txt_dataSaidaFocusGained
+
+    private void txt_dataSaidaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_dataSaidaFocusLost
+        // TODO add your handling code here:
+        if(txt_dataSaida.getText().trim().length()<10){
+            txt_dataSaida.setText("");
+        }else{
+            String retorno = Validacao.validarData(txt_dataSaida.getText());
+            if(retorno.equals("Data inválida")){
+                JOptionPane.showMessageDialog(this, retorno);
+                txt_dataSaida.setText("");
+            }
+        }
+    }//GEN-LAST:event_txt_dataSaidaFocusLost
+
+    private void txt_horaSaidaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_horaSaidaFocusGained
+        // TODO add your handling code here:
+        txt_horaSaida.setText("");
+    }//GEN-LAST:event_txt_horaSaidaFocusGained
+
+    private void txt_horaSaidaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_horaSaidaFocusLost
+        // TODO add your handling code here:
+        if(txt_horaSaida.getText().trim().length()<5){
+            txt_horaSaida.setText("");
+        }else{
+            String retorno = Validacao.validarHora(txt_horaSaida.getText());
+            if(retorno.equals("Hora inválida")){
+                JOptionPane.showMessageDialog(this, retorno);
+                txt_horaSaida.setText("");
+            }
+        }
+    }//GEN-LAST:event_txt_horaSaidaFocusLost
+
+    private void jM_registrarPontoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jM_registrarPontoActionPerformed
+        // TODO add your handling code here:
+        //CardLayout cd = CardLayout
+        CardLayout cl = (CardLayout)jP_principal.getLayout();
+        cl.show(jP_principal, "Registrar Ponto");
+        
+    }//GEN-LAST:event_jM_registrarPontoActionPerformed
+
+    private void txt_numeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_numeroActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_numeroActionPerformed
+
+    private void btn_cadastro_editarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cadastro_editarActionPerformed
+        // TODO add your handling code here:
+        btn_cadastro_salvar.setEnabled(true);
+        btn_cadastro_editar.setEnabled(true);
+        btn_cadastro_cancelar.setEnabled(true);
+        controller.editarCampos(true);
+    }//GEN-LAST:event_btn_cadastro_editarActionPerformed
+
+    private void btn_cadastro_salvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cadastro_salvarActionPerformed
+        // TODO add your handling code here:
+        controller.editarCadastro();
+        btn_cadastro_salvar.setEnabled(false);
+    }//GEN-LAST:event_btn_cadastro_salvarActionPerformed
+
+    private void txt_estadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_estadoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_estadoActionPerformed
+
+    private void btn_cadastro_cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cadastro_cancelarActionPerformed
+        // TODO add your handling code here:
+        CardLayout cl = (CardLayout)jP_principal.getLayout();
+        cl.show(jP_principal, "Inicio");
+    }//GEN-LAST:event_btn_cadastro_cancelarActionPerformed
+
+    private void jM_consultarCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jM_consultarCadastroActionPerformed
+        // TODO add your handling code here:
+        controller.setarCadastro();
+        controller.editarCampos(false);
+        btn_cadastro_salvar.setEnabled(false);
+        btn_cadastro_cancelar.setEnabled(true);
+        btn_cadastro_editar.setEnabled(true);
+        CardLayout cl = (CardLayout)jP_principal.getLayout();
+        cl.show(jP_principal, "Cadastro");
+    }//GEN-LAST:event_jM_consultarCadastroActionPerformed
+
+    private void txt_telefoneFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_telefoneFocusGained
+        // TODO add your handling code here:
+        txt_telefone.setText("");
+    }//GEN-LAST:event_txt_telefoneFocusGained
+
+    private void txt_telefoneFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_telefoneFocusLost
+        // TODO add your handling code here:
+        if(txt_telefone.getText().trim().length()<14){
+            txt_telefone.setText("");
+        }
+    }//GEN-LAST:event_txt_telefoneFocusLost
+
+    private void btn_salvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salvarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_salvarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -80,6 +962,9 @@ public class VendedorView extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(VendedorView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -89,7 +974,491 @@ public class VendedorView extends javax.swing.JFrame {
         });
     }
 
+    public Vendedor getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Vendedor usuario) {
+        this.usuario = usuario;
+    }
+
+    public JButton getBtn_cadastro_cancelar() {
+        return btn_cadastro_cancelar;
+    }
+
+    public void setBtn_cadastro_cancelar(JButton btn_cadastro_cancelar) {
+        this.btn_cadastro_cancelar = btn_cadastro_cancelar;
+    }
+
+    public JButton getBtn_cadastro_editar() {
+        return btn_cadastro_editar;
+    }
+
+    public void setBtn_cadastro_editar(JButton btn_cadastro_editar) {
+        this.btn_cadastro_editar = btn_cadastro_editar;
+    }
+
+    public JButton getBtn_cadastro_salvar() {
+        return btn_cadastro_salvar;
+    }
+
+    public void setBtn_cadastro_salvar(JButton btn_cadastro_salvar) {
+        this.btn_cadastro_salvar = btn_cadastro_salvar;
+    }
+
+    public JButton getBtn_salvar() {
+        return btn_salvar;
+    }
+
+    public void setBtn_salvar(JButton btn_salvar) {
+        this.btn_salvar = btn_salvar;
+    }
+
+    public JLabel getjLabel1() {
+        return jLabel1;
+    }
+
+    public void setjLabel1(JLabel jLabel1) {
+        this.jLabel1 = jLabel1;
+    }
+
+    public JLabel getjLabel10() {
+        return jLabel10;
+    }
+
+    public void setjLabel10(JLabel jLabel10) {
+        this.jLabel10 = jLabel10;
+    }
+
+    public JLabel getjLabel11() {
+        return jLabel11;
+    }
+
+    public void setjLabel11(JLabel jLabel11) {
+        this.jLabel11 = jLabel11;
+    }
+
+    public JLabel getjLabel12() {
+        return jLabel12;
+    }
+
+    public void setjLabel12(JLabel jLabel12) {
+        this.jLabel12 = jLabel12;
+    }
+
+    public JLabel getjLabel13() {
+        return jLabel13;
+    }
+
+    public void setjLabel13(JLabel jLabel13) {
+        this.jLabel13 = jLabel13;
+    }
+
+    public JLabel getjLabel14() {
+        return jLabel14;
+    }
+
+    public void setjLabel14(JLabel jLabel14) {
+        this.jLabel14 = jLabel14;
+    }
+
+    public JLabel getjLabel15() {
+        return jLabel15;
+    }
+
+    public void setjLabel15(JLabel jLabel15) {
+        this.jLabel15 = jLabel15;
+    }
+
+    public JLabel getjLabel17() {
+        return jLabel17;
+    }
+
+    public void setjLabel17(JLabel jLabel17) {
+        this.jLabel17 = jLabel17;
+    }
+
+    public JLabel getjLabel18() {
+        return jLabel18;
+    }
+
+    public void setjLabel18(JLabel jLabel18) {
+        this.jLabel18 = jLabel18;
+    }
+
+    public JLabel getjLabel19() {
+        return jLabel19;
+    }
+
+    public void setjLabel19(JLabel jLabel19) {
+        this.jLabel19 = jLabel19;
+    }
+
+    public JLabel getjLabel2() {
+        return jLabel2;
+    }
+
+    public void setjLabel2(JLabel jLabel2) {
+        this.jLabel2 = jLabel2;
+    }
+
+    public JLabel getjLabel3() {
+        return jLabel3;
+    }
+
+    public void setjLabel3(JLabel jLabel3) {
+        this.jLabel3 = jLabel3;
+    }
+
+    public JLabel getjLabel4() {
+        return jLabel4;
+    }
+
+    public void setjLabel4(JLabel jLabel4) {
+        this.jLabel4 = jLabel4;
+    }
+
+    public JLabel getjLabel5() {
+        return jLabel5;
+    }
+
+    public void setjLabel5(JLabel jLabel5) {
+        this.jLabel5 = jLabel5;
+    }
+
+    public JLabel getjLabel6() {
+        return jLabel6;
+    }
+
+    public void setjLabel6(JLabel jLabel6) {
+        this.jLabel6 = jLabel6;
+    }
+
+    public JLabel getjLabel7() {
+        return jLabel7;
+    }
+
+    public void setjLabel7(JLabel jLabel7) {
+        this.jLabel7 = jLabel7;
+    }
+
+    public JLabel getjLabel8() {
+        return jLabel8;
+    }
+
+    public void setjLabel8(JLabel jLabel8) {
+        this.jLabel8 = jLabel8;
+    }
+
+    public JLabel getjLabel9() {
+        return jLabel9;
+    }
+
+    public void setjLabel9(JLabel jLabel9) {
+        this.jLabel9 = jLabel9;
+    }
+
+    public JMenu getjM_cadastro() {
+        return jM_cadastro;
+    }
+
+    public void setjM_cadastro(JMenu jM_cadastro) {
+        this.jM_cadastro = jM_cadastro;
+    }
+
+    public JMenuItem getjM_consultarCadastro() {
+        return jM_consultarCadastro;
+    }
+
+    public void setjM_consultarCadastro(JMenuItem jM_consultarCadastro) {
+        this.jM_consultarCadastro = jM_consultarCadastro;
+    }
+
+    public JMenu getjM_inicio() {
+        return jM_inicio;
+    }
+
+    public void setjM_inicio(JMenu jM_inicio) {
+        this.jM_inicio = jM_inicio;
+    }
+
+    public JMenuItem getjM_registrarPonto() {
+        return jM_registrarPonto;
+    }
+
+    public void setjM_registrarPonto(JMenuItem jM_registrarPonto) {
+        this.jM_registrarPonto = jM_registrarPonto;
+    }
+
+    public JMenuItem getjM_sair() {
+        return jM_sair;
+    }
+
+    public void setjM_sair(JMenuItem jM_sair) {
+        this.jM_sair = jM_sair;
+    }
+
+    public JMenuBar getjMenuBar1() {
+        return jMenuBar1;
+    }
+
+    public void setjMenuBar1(JMenuBar jMenuBar1) {
+        this.jMenuBar1 = jMenuBar1;
+    }
+
+    public JPanel getjP_cadastro() {
+        return jP_cadastro;
+    }
+
+    public void setjP_cadastro(JPanel jP_cadastro) {
+        this.jP_cadastro = jP_cadastro;
+    }
+
+    public JPanel getjP_inicio() {
+        return jP_inicio;
+    }
+
+    public void setjP_inicio(JPanel jP_inicio) {
+        this.jP_inicio = jP_inicio;
+    }
+
+    public JPanel getjP_principal() {
+        return jP_principal;
+    }
+
+    public void setjP_principal(JPanel jP_principal) {
+        this.jP_principal = jP_principal;
+    }
+
+    public JPanel getjP_registrarPonto() {
+        return jP_registrarPonto;
+    }
+
+    public void setjP_registrarPonto(JPanel jP_registrarPonto) {
+        this.jP_registrarPonto = jP_registrarPonto;
+    }
+
+    public JPanel getjPanel1() {
+        return jPanel1;
+    }
+
+    public void setjPanel1(JPanel jPanel1) {
+        this.jPanel1 = jPanel1;
+    }
+
+    public JPanel getjPanel2() {
+        return jPanel2;
+    }
+
+    public void setjPanel2(JPanel jPanel2) {
+        this.jPanel2 = jPanel2;
+    }
+
+    public JTextField getTxt_bairro() {
+        return txt_bairro;
+    }
+
+    public void setTxt_bairro(JTextField txt_bairro) {
+        this.txt_bairro = txt_bairro;
+    }
+
+    public JTextField getTxt_cargaHora_mes() {
+        return txt_cargaHora_mes;
+    }
+
+    public void setTxt_cargaHora_mes(JTextField txt_cargaHora_mes) {
+        this.txt_cargaHora_mes = txt_cargaHora_mes;
+    }
+
+    public JTextField getTxt_cidade() {
+        return txt_cidade;
+    }
+
+    public void setTxt_cidade(JTextField txt_cidade) {
+        this.txt_cidade = txt_cidade;
+    }
+
+    public JFormattedTextField getTxt_cpf() {
+        return txt_cpf;
+    }
+
+    public void setTxt_cpf(JFormattedTextField txt_cpf) {
+        this.txt_cpf = txt_cpf;
+    }
+
+    public JFormattedTextField getTxt_dataEntrada() {
+        return txt_dataEntrada;
+    }
+
+    public void setTxt_dataEntrada(JFormattedTextField txt_dataEntrada) {
+        this.txt_dataEntrada = txt_dataEntrada;
+    }
+
+    public JFormattedTextField getTxt_dataSaida() {
+        return txt_dataSaida;
+    }
+
+    public void setTxt_dataSaida(JFormattedTextField txt_dataSaida) {
+        this.txt_dataSaida = txt_dataSaida;
+    }
+
+    public JTextField getTxt_estado() {
+        return txt_estado;
+    }
+
+    public void setTxt_estado(JTextField txt_estado) {
+        this.txt_estado = txt_estado;
+    }
+
+    public JTextField getTxt_funcao() {
+        return txt_funcao;
+    }
+
+    public void setTxt_funcao(JTextField txt_funcao) {
+        this.txt_funcao = txt_funcao;
+    }
+
+    public JFormattedTextField getTxt_horaEntrada() {
+        return txt_horaEntrada;
+    }
+
+    public void setTxt_horaEntrada(JFormattedTextField txt_horaEntrada) {
+        this.txt_horaEntrada = txt_horaEntrada;
+    }
+
+    public JFormattedTextField getTxt_horaSaida() {
+        return txt_horaSaida;
+    }
+
+    public void setTxt_horaSaida(JFormattedTextField txt_horaSaida) {
+        this.txt_horaSaida = txt_horaSaida;
+    }
+
+    public JTextField getTxt_nome() {
+        return txt_nome;
+    }
+
+    public void setTxt_nome(JTextField txt_nome) {
+        this.txt_nome = txt_nome;
+    }
+
+    public JTextField getTxt_numero() {
+        return txt_numero;
+    }
+
+    public void setTxt_numero(JTextField txt_numero) {
+        this.txt_numero = txt_numero;
+    }
+
+    public JTextField getTxt_rua() {
+        return txt_rua;
+    }
+
+    public void setTxt_rua(JTextField txt_rua) {
+        this.txt_rua = txt_rua;
+    }
+
+    public JFormattedTextField getTxt_salario() {
+        return txt_salario;
+    }
+
+    public void setTxt_salario(JFormattedTextField txt_salario) {
+        this.txt_salario = txt_salario;
+    }
+
+    public JFormattedTextField getTxt_telefone() {
+        return txt_telefone;
+    }
+
+    public void setTxt_telefone(JFormattedTextField txt_telefone) {
+        this.txt_telefone = txt_telefone;
+    }
+
+    public JFormattedTextField getTxt_vendasRealizadas() {
+        return txt_vendasRealizadas;
+    }
+
+    public void setTxt_vendasRealizadas(JFormattedTextField txt_vendasRealizadas) {
+        this.txt_vendasRealizadas = txt_vendasRealizadas;
+    }
+    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_cadastro_cancelar;
+    private javax.swing.JButton btn_cadastro_editar;
+    private javax.swing.JButton btn_cadastro_salvar;
+    private javax.swing.JButton btn_salvar;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JComboBox jCB_cliente;
+    private javax.swing.JFormattedTextField jFormattedTextField1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JMenu jM_cadastro;
+    private javax.swing.JMenuItem jM_consultarCadastro;
+    private javax.swing.JMenuItem jM_consultarVenda;
+    private javax.swing.JMenu jM_inicio;
+    private javax.swing.JMenuItem jM_realizarVenda;
+    private javax.swing.JMenuItem jM_registrarPonto;
+    private javax.swing.JMenuItem jM_sair;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JPanel jP_cadastro;
+    private javax.swing.JPanel jP_consultarVenda;
+    private javax.swing.JPanel jP_inicio;
+    private javax.swing.JPanel jP_principal;
+    private javax.swing.JPanel jP_realizarVenda;
+    private javax.swing.JPanel jP_registrarPonto;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable jT_carrinho;
+    private javax.swing.JTable jT_estoque;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField txt_bairro;
+    private javax.swing.JTextField txt_cargaHora_mes;
+    private javax.swing.JTextField txt_cidade;
+    private javax.swing.JFormattedTextField txt_cpf;
+    private javax.swing.JFormattedTextField txt_dataEntrada;
+    private javax.swing.JFormattedTextField txt_dataSaida;
+    private javax.swing.JTextField txt_estado;
+    private javax.swing.JTextField txt_funcao;
+    private javax.swing.JFormattedTextField txt_horaEntrada;
+    private javax.swing.JFormattedTextField txt_horaSaida;
+    private javax.swing.JTextField txt_nome;
+    private javax.swing.JTextField txt_numero;
+    private javax.swing.JTextField txt_rua;
+    private javax.swing.JFormattedTextField txt_salario;
+    private javax.swing.JFormattedTextField txt_telefone;
+    private javax.swing.JFormattedTextField txt_vendasRealizadas;
+    private javax.swing.JTextField txt_vendedor;
     // End of variables declaration//GEN-END:variables
 }

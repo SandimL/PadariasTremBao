@@ -1,40 +1,70 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * 
+ * 
+ * 
  */
-package padariastrembao.model;
+package padaria.model;
 
 /**
  *
- * @author Lucas
+ * 
  */
-public abstract class Produto {
-    
-    protected String codigo;
-    protected String nome;
-    protected String apelido;
-    protected Fornecedor fornecedor;
-    protected float precoCusto;
-    protected float precoFinal;
-    protected boolean perecivel;
+public final class Produto {
+    private String nome;
+    private int idproduto;
+    private Fornecedor fornecedor;
+    private float precoCusto;
+    private boolean perecivel;
+    private String apelido;
+    private int qntProduto;
 
-    public boolean isPerecivel() {
-        return perecivel;
+    public Produto(String nome, int idproduto, Fornecedor fornecedor, float precoCusto, boolean perecivel, String apelido, int qntProduto) {
+        this.nome = nome;
+        this.idproduto = idproduto;
+        this.fornecedor = fornecedor;
+        this.precoCusto = precoCusto;
+        this.perecivel = perecivel;
+        this.apelido = apelido;
+        String retorno = this.adicionarProduto(qntProduto);
     }
-
-    public void setPerecivel(boolean perecivel) {
+    
+    public Produto(String nome, Fornecedor fornecedor, float precoCusto, String apelido, boolean perecivel) {
+        this.nome = nome;
+        this.fornecedor = fornecedor;
+        this.precoCusto = precoCusto;
+        this.apelido = apelido;
         this.perecivel = perecivel;
     }
 
-
-    public String getCodigo() {
-        return codigo;
+    public int getQntProduto() {
+        return qntProduto;
     }
 
-    public void setCodigo(String codigo) {
-        this.codigo = codigo;
+    public String adicionarProduto(int qnt) {
+        String retorno = null;
+        if(this.qntProduto+qnt>30){
+            retorno = "Limite máximo atingido";
+        }else{
+            this.qntProduto+=qnt;
+            retorno = "Adicionado";
+        }
+        return retorno;
     }
+    
+    public String removerProduto(int qnt){
+        String retorno = null;
+        if(this.qntProduto-qnt==1){
+            this.qntProduto-=qnt;
+            retorno = "Limite minímo atingido";
+        }else if(this.qntProduto-qnt>1){
+            this.qntProduto-=qnt;
+            retorno = "Removido";
+        }else{
+            retorno = "Estoque não possui essa quantidade";
+        }
+        return retorno;
+    }
+    
 
     public String getNome() {
         return nome;
@@ -44,12 +74,12 @@ public abstract class Produto {
         this.nome = nome;
     }
 
-    public String getApelido() {
-        return apelido;
+    public int getIdproduto() {
+        return idproduto;
     }
 
-    public void setApelido(String apelido) {
-        this.apelido = apelido;
+    public void setIdproduto(int idproduto) {
+        this.idproduto = idproduto;
     }
 
     public Fornecedor getFornecedor() {
@@ -68,12 +98,23 @@ public abstract class Produto {
         this.precoCusto = precoCusto;
     }
 
-    public float getPrecoFinal() {
-        return precoFinal;
+    public boolean isPerecivel() {
+        return perecivel;
     }
 
-    public void setPrecoFinal(float precoFinal) {
-        this.precoFinal = precoFinal;
+    public void setPerecivel(boolean perecivel) {
+        this.perecivel = perecivel;
+    }
+
+    public String getApelido() {
+        return apelido;
+    }
+
+    public void setApelido(String apelido) {
+        this.apelido = apelido;
     }
     
+    public boolean equals(Produto compara){
+        return nome.equals(compara.nome)&& idproduto==compara.idproduto;
+    }
 }
