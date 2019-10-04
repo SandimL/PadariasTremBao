@@ -2,13 +2,16 @@
  * 
  * 
  */
-package controller;
+package PadariaTremBao.controller;
 
 import java.util.ArrayList;
-import model.*;
-import view.LoginView;
-import view.PadeiroView;
-import view.VendedorView;
+import PadariaTremBao.model.Banco;
+import PadariaTremBao.model.Funcionario;
+import PadariaTremBao.model.Padeiro;
+import PadariaTremBao.model.Vendedor;
+import PadariaTremBao.view.LoginView;
+import PadariaTremBao.view.PadeiroView;
+import PadariaTremBao.view.VendedorView;
 
 /**
  *

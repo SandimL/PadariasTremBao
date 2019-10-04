@@ -3,10 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package view;
+package PadariaTremBao.view;
 
 import java.awt.CardLayout;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFormattedTextField;
 import javax.swing.JLabel;
 import javax.swing.JMenu;
@@ -14,11 +15,13 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
 import javax.swing.JTextField;
-import controller.VendedorController;
-import model.Banco;
-import model.Vendedor;
-import util.Validacao;
+import PadariaTremBao.controller.VendedorController;
+import PadariaTremBao.model.Banco;
+import PadariaTremBao.model.Vendedor;
+import PadariaTremBao.util.Validacao;
 
 /**
  *
@@ -117,7 +120,8 @@ public class VendedorView extends javax.swing.JFrame {
         jLabel23 = new javax.swing.JLabel();
         jTextField2 = new javax.swing.JTextField();
         jLabel26 = new javax.swing.JLabel();
-        jButton3 = new javax.swing.JButton();
+        jLabel28 = new javax.swing.JLabel();
+        jFormattedTextField2 = new javax.swing.JFormattedTextField();
         jP_consultarVenda = new javax.swing.JPanel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jM_inicio = new javax.swing.JMenu();
@@ -153,13 +157,19 @@ public class VendedorView extends javax.swing.JFrame {
         jP_registrarPonto.setBackground(new java.awt.Color(100, 100, 100));
         jP_registrarPonto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        jPanel1.setBackground(new java.awt.Color(90, 100, 100));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel1.setLayout(null);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel1.setText("Registre seu ponto");
+        jPanel1.add(jLabel1);
+        jLabel1.setBounds(80, 10, 148, 22);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel2.setText("Data de entrada");
+        jPanel1.add(jLabel2);
+        jLabel2.setBounds(40, 60, 99, 17);
 
         txt_dataEntrada.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         try {
@@ -183,9 +193,13 @@ public class VendedorView extends javax.swing.JFrame {
                 txt_dataEntradaActionPerformed(evt);
             }
         });
+        jPanel1.add(txt_dataEntrada);
+        txt_dataEntrada.setBounds(40, 90, 89, 28);
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel3.setText("Hora Entrada");
+        jPanel1.add(jLabel3);
+        jLabel3.setBounds(190, 60, 81, 17);
 
         txt_horaEntrada.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         try {
@@ -204,9 +218,13 @@ public class VendedorView extends javax.swing.JFrame {
                 txt_horaEntradaFocusLost(evt);
             }
         });
+        jPanel1.add(txt_horaEntrada);
+        txt_horaEntrada.setBounds(200, 90, 50, 28);
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel4.setText("Data de saída");
+        jPanel1.add(jLabel4);
+        jLabel4.setBounds(40, 150, 82, 17);
 
         txt_dataSaida.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         try {
@@ -230,9 +248,13 @@ public class VendedorView extends javax.swing.JFrame {
                 txt_dataSaidaActionPerformed(evt);
             }
         });
+        jPanel1.add(txt_dataSaida);
+        txt_dataSaida.setBounds(40, 180, 89, 28);
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel5.setText("Hora Entrada");
+        jPanel1.add(jLabel5);
+        jLabel5.setBounds(190, 150, 81, 17);
 
         txt_horaSaida.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         try {
@@ -251,6 +273,8 @@ public class VendedorView extends javax.swing.JFrame {
                 txt_horaSaidaFocusLost(evt);
             }
         });
+        jPanel1.add(txt_horaSaida);
+        txt_horaSaida.setBounds(200, 180, 50, 28);
 
         btn_salvar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btn_salvar.setText("Salvar");
@@ -260,74 +284,8 @@ public class VendedorView extends javax.swing.JFrame {
                 btn_salvarActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(10, 10, 10)
-                                .addComponent(txt_dataEntrada))
-                            .addComponent(jLabel2))
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(38, 38, 38)
-                                .addComponent(txt_horaEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(26, 26, 26)
-                                .addComponent(jLabel3))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(39, 39, 39)
-                        .addComponent(jLabel1))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel4)
-                                .addGap(43, 43, 43))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(10, 10, 10)
-                                .addComponent(txt_dataSaida)
-                                .addGap(26, 26, 26)))
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel5)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(10, 10, 10)
-                                .addComponent(txt_horaSaida, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(83, 83, 83)
-                        .addComponent(btn_salvar, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(20, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jLabel1)
-                .addGap(34, 34, 34)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txt_dataEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txt_horaEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(31, 31, 31)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel5))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txt_dataSaida, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txt_horaSaida, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(32, 32, 32)
-                .addComponent(btn_salvar, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 50, Short.MAX_VALUE))
-        );
+        jPanel1.add(btn_salvar);
+        btn_salvar.setBounds(120, 250, 80, 40);
 
         javax.swing.GroupLayout jP_registrarPontoLayout = new javax.swing.GroupLayout(jP_registrarPonto);
         jP_registrarPonto.setLayout(jP_registrarPontoLayout);
@@ -335,15 +293,15 @@ public class VendedorView extends javax.swing.JFrame {
             jP_registrarPontoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jP_registrarPontoLayout.createSequentialGroup()
                 .addGap(162, 162, 162)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(285, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(223, Short.MAX_VALUE))
         );
         jP_registrarPontoLayout.setVerticalGroup(
             jP_registrarPontoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jP_registrarPontoLayout.createSequentialGroup()
                 .addGap(131, 131, 131)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(216, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(167, Short.MAX_VALUE))
         );
 
         jP_principal.add(jP_registrarPonto, "Registrar Ponto");
@@ -351,13 +309,14 @@ public class VendedorView extends javax.swing.JFrame {
         jP_cadastro.setBackground(new java.awt.Color(100, 100, 100));
         jP_cadastro.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        jPanel2.setBackground(new java.awt.Color(90, 100, 100));
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel2.setLayout(null);
 
-        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel6.setText("Nome");
         jPanel2.add(jLabel6);
-        jLabel6.setBounds(11, 12, 36, 17);
+        jLabel6.setBounds(11, 12, 50, 17);
 
         txt_nome.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txt_nome.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -366,10 +325,10 @@ public class VendedorView extends javax.swing.JFrame {
         jPanel2.add(txt_nome);
         txt_nome.setBounds(11, 35, 363, 28);
 
-        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel7.setText("CPF");
         jPanel2.add(jLabel7);
-        jLabel7.setBounds(11, 65, 24, 17);
+        jLabel7.setBounds(11, 65, 27, 17);
 
         txt_cpf.setEditable(false);
         txt_cpf.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -384,10 +343,10 @@ public class VendedorView extends javax.swing.JFrame {
         jPanel2.add(txt_cpf);
         txt_cpf.setBounds(11, 88, 131, 28);
 
-        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel8.setText("Telefone");
         jPanel2.add(jLabel8);
-        jLabel8.setBounds(170, 65, 51, 17);
+        jLabel8.setBounds(240, 70, 59, 17);
 
         txt_telefone.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         try {
@@ -406,27 +365,27 @@ public class VendedorView extends javax.swing.JFrame {
             }
         });
         jPanel2.add(txt_telefone);
-        txt_telefone.setBounds(170, 88, 127, 28);
+        txt_telefone.setBounds(240, 90, 127, 28);
 
-        jLabel9.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel9.setText("Endereço");
         jPanel2.add(jLabel9);
-        jLabel9.setBounds(11, 122, 58, 17);
+        jLabel9.setBounds(11, 122, 65, 17);
 
-        jLabel10.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jLabel10.setText("Rua");
         jPanel2.add(jLabel10);
-        jLabel10.setBounds(21, 145, 22, 16);
+        jLabel10.setBounds(21, 145, 25, 16);
 
         txt_rua.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         txt_rua.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel2.add(txt_rua);
-        txt_rua.setBounds(21, 168, 145, 28);
+        txt_rua.setBounds(20, 170, 170, 28);
 
-        jLabel11.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        jLabel11.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jLabel11.setText("Número");
         jPanel2.add(jLabel11);
-        jLabel11.setBounds(246, 145, 45, 16);
+        jLabel11.setBounds(310, 150, 49, 16);
 
         txt_numero.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         txt_numero.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -436,32 +395,32 @@ public class VendedorView extends javax.swing.JFrame {
             }
         });
         jPanel2.add(txt_numero);
-        txt_numero.setBounds(246, 171, 55, 28);
+        txt_numero.setBounds(310, 170, 55, 28);
 
-        jLabel12.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        jLabel12.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jLabel12.setText("Bairro");
         jPanel2.add(jLabel12);
-        jLabel12.setBounds(20, 220, 34, 16);
+        jLabel12.setBounds(20, 220, 39, 16);
 
         txt_bairro.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         txt_bairro.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel2.add(txt_bairro);
         txt_bairro.setBounds(20, 240, 140, 28);
 
-        jLabel13.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        jLabel13.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jLabel13.setText("Cidade");
         jPanel2.add(jLabel13);
-        jLabel13.setBounds(180, 220, 39, 16);
+        jLabel13.setBounds(180, 220, 43, 16);
 
         txt_cidade.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         txt_cidade.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel2.add(txt_cidade);
         txt_cidade.setBounds(180, 240, 110, 28);
 
-        jLabel14.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        jLabel14.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jLabel14.setText("Estado");
         jPanel2.add(jLabel14);
-        jLabel14.setBounds(320, 220, 38, 16);
+        jLabel14.setBounds(320, 220, 44, 16);
 
         txt_estado.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         txt_estado.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -473,10 +432,10 @@ public class VendedorView extends javax.swing.JFrame {
         jPanel2.add(txt_estado);
         txt_estado.setBounds(320, 240, 38, 28);
 
-        jLabel15.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel15.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel15.setText("Carga horária/mês");
         jPanel2.add(jLabel15);
-        jLabel15.setBounds(11, 335, 112, 17);
+        jLabel15.setBounds(11, 335, 130, 17);
 
         btn_cadastro_editar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btn_cadastro_editar.setText("Editar");
@@ -487,7 +446,7 @@ public class VendedorView extends javax.swing.JFrame {
             }
         });
         jPanel2.add(btn_cadastro_editar);
-        btn_cadastro_editar.setBounds(26, 416, 59, 28);
+        btn_cadastro_editar.setBounds(30, 420, 70, 30);
 
         btn_cadastro_salvar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btn_cadastro_salvar.setText("Salvar");
@@ -498,7 +457,7 @@ public class VendedorView extends javax.swing.JFrame {
             }
         });
         jPanel2.add(btn_cadastro_salvar);
-        btn_cadastro_salvar.setBounds(150, 420, 63, 28);
+        btn_cadastro_salvar.setBounds(150, 420, 70, 30);
 
         btn_cadastro_cancelar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btn_cadastro_cancelar.setText("Cancelar");
@@ -509,12 +468,12 @@ public class VendedorView extends javax.swing.JFrame {
             }
         });
         jPanel2.add(btn_cadastro_cancelar);
-        btn_cadastro_cancelar.setBounds(280, 420, 69, 28);
+        btn_cadastro_cancelar.setBounds(270, 420, 70, 30);
 
-        jLabel17.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel17.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel17.setText("Função");
         jPanel2.add(jLabel17);
-        jLabel17.setBounds(11, 278, 45, 17);
+        jLabel17.setBounds(11, 278, 50, 17);
 
         txt_funcao.setEditable(false);
         txt_funcao.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -523,33 +482,35 @@ public class VendedorView extends javax.swing.JFrame {
         jPanel2.add(txt_funcao);
         txt_funcao.setBounds(11, 301, 89, 28);
 
-        jLabel18.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel18.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel18.setText("Salário");
         jPanel2.add(jLabel18);
-        jLabel18.setBounds(240, 280, 39, 17);
+        jLabel18.setBounds(280, 280, 46, 17);
 
         txt_salario.setEditable(false);
         txt_salario.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         txt_salario.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(java.text.NumberFormat.getCurrencyInstance())));
         txt_salario.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jPanel2.add(txt_salario);
-        txt_salario.setBounds(240, 300, 87, 28);
+        txt_salario.setBounds(280, 300, 87, 28);
 
-        jLabel19.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel19.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel19.setText("Vendas Realizadas");
         jPanel2.add(jLabel19);
-        jLabel19.setBounds(190, 340, 110, 17);
+        jLabel19.setBounds(230, 340, 140, 17);
 
+        txt_vendasRealizadas.setEditable(false);
         txt_vendasRealizadas.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         txt_vendasRealizadas.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(java.text.NumberFormat.getCurrencyInstance())));
         jPanel2.add(txt_vendasRealizadas);
-        txt_vendasRealizadas.setBounds(190, 360, 120, 28);
+        txt_vendasRealizadas.setBounds(240, 360, 100, 28);
 
+        txt_cargaHora_mes.setEditable(false);
         txt_cargaHora_mes.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txt_cargaHora_mes.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txt_cargaHora_mes.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel2.add(txt_cargaHora_mes);
-        txt_cargaHora_mes.setBounds(30, 360, 50, 28);
+        txt_cargaHora_mes.setBounds(40, 360, 50, 28);
 
         javax.swing.GroupLayout jP_cadastroLayout = new javax.swing.GroupLayout(jP_cadastro);
         jP_cadastro.setLayout(jP_cadastroLayout);
@@ -557,21 +518,22 @@ public class VendedorView extends javax.swing.JFrame {
             jP_cadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jP_cadastroLayout.createSequentialGroup()
                 .addGap(94, 94, 94)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 399, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(192, Short.MAX_VALUE))
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(191, Short.MAX_VALUE))
         );
         jP_cadastroLayout.setVerticalGroup(
             jP_cadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jP_cadastroLayout.createSequentialGroup()
                 .addGap(40, 40, 40)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 487, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(121, Short.MAX_VALUE))
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 480, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(128, Short.MAX_VALUE))
         );
 
         jP_principal.add(jP_cadastro, "Cadastro");
 
         jP_realizarVenda.setBackground(new java.awt.Color(100, 100, 100));
 
+        jPanel3.setBackground(new java.awt.Color(100, 100, 100));
         jPanel3.setLayout(null);
 
         jLabel16.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -584,7 +546,7 @@ public class VendedorView extends javax.swing.JFrame {
         jPanel3.add(jLabel20);
         jLabel20.setBounds(20, 40, 50, 28);
 
-        jCB_cliente.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jCB_cliente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel3.add(jCB_cliente);
         jCB_cliente.setBounds(90, 40, 220, 28);
 
@@ -592,6 +554,8 @@ public class VendedorView extends javax.swing.JFrame {
         jLabel21.setText("Vendedor");
         jPanel3.add(jLabel21);
         jLabel21.setBounds(20, 80, 60, 28);
+
+        txt_vendedor.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel3.add(txt_vendedor);
         txt_vendedor.setBounds(90, 80, 220, 28);
 
@@ -600,6 +564,7 @@ public class VendedorView extends javax.swing.JFrame {
         jPanel3.add(jLabel22);
         jLabel22.setBounds(460, 60, 40, 28);
 
+        jFormattedTextField1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         try {
             jFormattedTextField1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
         } catch (java.text.ParseException ex) {
@@ -611,6 +576,8 @@ public class VendedorView extends javax.swing.JFrame {
         jPanel3.add(jFormattedTextField1);
         jFormattedTextField1.setBounds(510, 60, 100, 28);
 
+        jT_estoque.setBackground(new java.awt.Color(90, 100, 100));
+        jT_estoque.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jT_estoque.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -620,7 +587,7 @@ public class VendedorView extends javax.swing.JFrame {
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.Integer.class, java.lang.Object.class
+                java.lang.String.class, java.lang.Integer.class, java.lang.Float.class
             };
             boolean[] canEdit = new boolean [] {
                 false, false, false
@@ -634,11 +601,19 @@ public class VendedorView extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        jT_estoque.getTableHeader().setResizingAllowed(false);
+        jT_estoque.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(jT_estoque);
+        if (jT_estoque.getColumnModel().getColumnCount() > 0) {
+            jT_estoque.getColumnModel().getColumn(0).setResizable(false);
+            jT_estoque.getColumnModel().getColumn(1).setResizable(false);
+            jT_estoque.getColumnModel().getColumn(2).setResizable(false);
+        }
 
         jPanel3.add(jScrollPane1);
-        jScrollPane1.setBounds(20, 180, 270, 460);
+        jScrollPane1.setBounds(10, 190, 300, 310);
 
+        jT_carrinho.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jT_carrinho.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -658,39 +633,51 @@ public class VendedorView extends javax.swing.JFrame {
         jScrollPane2.setViewportView(jT_carrinho);
 
         jPanel3.add(jScrollPane2);
-        jScrollPane2.setBounds(370, 180, 300, 460);
+        jScrollPane2.setBounds(380, 190, 300, 310);
 
         jLabel24.setText("Estoque");
         jPanel3.add(jLabel24);
-        jLabel24.setBounds(110, 160, 40, 14);
+        jLabel24.setBounds(110, 170, 70, 14);
 
         jLabel25.setText("Carrinho");
         jPanel3.add(jLabel25);
-        jLabel25.setBounds(490, 160, 60, 14);
+        jLabel25.setBounds(510, 170, 70, 14);
 
         jButton1.setText("Adicionar ao Carrinho");
+        jButton1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel3.add(jButton1);
-        jButton1.setBounds(80, 130, 140, 23);
+        jButton1.setBounds(90, 130, 180, 30);
 
         jButton2.setText("Remover do Carrinho");
+        jButton2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel3.add(jButton2);
-        jButton2.setBounds(480, 130, 140, 23);
+        jButton2.setBounds(480, 130, 160, 30);
+
+        jTextField1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel3.add(jTextField1);
-        jTextField1.setBounds(30, 130, 40, 20);
+        jTextField1.setBounds(30, 130, 50, 30);
 
         jLabel23.setText("Unidades");
         jPanel3.add(jLabel23);
-        jLabel23.setBounds(30, 110, 50, 14);
+        jLabel23.setBounds(30, 110, 60, 14);
+
+        jTextField2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel3.add(jTextField2);
-        jTextField2.setBounds(420, 130, 40, 20);
+        jTextField2.setBounds(410, 130, 50, 30);
 
         jLabel26.setText("Unidades");
         jPanel3.add(jLabel26);
-        jLabel26.setBounds(420, 110, 44, 14);
+        jLabel26.setBounds(410, 110, 60, 14);
 
-        jButton3.setText("Pagamento");
-        jPanel3.add(jButton3);
-        jButton3.setBounds(280, 130, 100, 23);
+        jLabel28.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel28.setText("Valor Total:");
+        jPanel3.add(jLabel28);
+        jLabel28.setBounds(440, 510, 110, 30);
+
+        jFormattedTextField2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jFormattedTextField2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jPanel3.add(jFormattedTextField2);
+        jFormattedTextField2.setBounds(560, 510, 100, 30);
 
         javax.swing.GroupLayout jP_realizarVendaLayout = new javax.swing.GroupLayout(jP_realizarVenda);
         jP_realizarVenda.setLayout(jP_realizarVendaLayout);
@@ -716,7 +703,7 @@ public class VendedorView extends javax.swing.JFrame {
             .addGap(0, 650, Short.MAX_VALUE)
         );
 
-        jP_principal.add(jP_consultarVenda, "card6");
+        jP_principal.add(jP_consultarVenda, "Consultar venda");
 
         jMenuBar1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
@@ -762,6 +749,11 @@ public class VendedorView extends javax.swing.JFrame {
         jMenu1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
 
         jM_realizarVenda.setText("Realizar Venda");
+        jM_realizarVenda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jM_realizarVendaActionPerformed(evt);
+            }
+        });
         jMenu1.add(jM_realizarVenda);
 
         jM_consultarVenda.setText("Consultar Vendas");
@@ -935,6 +927,14 @@ public class VendedorView extends javax.swing.JFrame {
     private void btn_salvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salvarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btn_salvarActionPerformed
+
+    private void jM_realizarVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jM_realizarVendaActionPerformed
+        // TODO add your handling code here:
+        CardLayout cl = (CardLayout) jP_principal.getLayout();
+        cl.show(jP_principal, "Realizar venda");
+        controller.loadTableEstoque();
+        controller.loadComboBoxCliente();
+    }//GEN-LAST:event_jM_realizarVendaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1381,6 +1381,230 @@ public class VendedorView extends javax.swing.JFrame {
     public void setTxt_vendasRealizadas(JFormattedTextField txt_vendasRealizadas) {
         this.txt_vendasRealizadas = txt_vendasRealizadas;
     }
+
+    public VendedorController getController() {
+        return controller;
+    }
+
+    public void setController(VendedorController controller) {
+        this.controller = controller;
+    }
+
+    public JButton getjButton1() {
+        return jButton1;
+    }
+
+    public void setjButton1(JButton jButton1) {
+        this.jButton1 = jButton1;
+    }
+
+    public JButton getjButton2() {
+        return jButton2;
+    }
+
+    public void setjButton2(JButton jButton2) {
+        this.jButton2 = jButton2;
+    }
+
+    public JComboBox getjCB_cliente() {
+        return jCB_cliente;
+    }
+
+    public void setjCB_cliente(JComboBox jCB_cliente) {
+        this.jCB_cliente = jCB_cliente;
+    }
+
+    public JFormattedTextField getjFormattedTextField1() {
+        return jFormattedTextField1;
+    }
+
+    public void setjFormattedTextField1(JFormattedTextField jFormattedTextField1) {
+        this.jFormattedTextField1 = jFormattedTextField1;
+    }
+
+    public JFormattedTextField getjFormattedTextField2() {
+        return jFormattedTextField2;
+    }
+
+    public void setjFormattedTextField2(JFormattedTextField jFormattedTextField2) {
+        this.jFormattedTextField2 = jFormattedTextField2;
+    }
+
+    public JLabel getjLabel16() {
+        return jLabel16;
+    }
+
+    public void setjLabel16(JLabel jLabel16) {
+        this.jLabel16 = jLabel16;
+    }
+
+    public JLabel getjLabel20() {
+        return jLabel20;
+    }
+
+    public void setjLabel20(JLabel jLabel20) {
+        this.jLabel20 = jLabel20;
+    }
+
+    public JLabel getjLabel21() {
+        return jLabel21;
+    }
+
+    public void setjLabel21(JLabel jLabel21) {
+        this.jLabel21 = jLabel21;
+    }
+
+    public JLabel getjLabel22() {
+        return jLabel22;
+    }
+
+    public void setjLabel22(JLabel jLabel22) {
+        this.jLabel22 = jLabel22;
+    }
+
+    public JLabel getjLabel23() {
+        return jLabel23;
+    }
+
+    public void setjLabel23(JLabel jLabel23) {
+        this.jLabel23 = jLabel23;
+    }
+
+    public JLabel getjLabel24() {
+        return jLabel24;
+    }
+
+    public void setjLabel24(JLabel jLabel24) {
+        this.jLabel24 = jLabel24;
+    }
+
+    public JLabel getjLabel25() {
+        return jLabel25;
+    }
+
+    public void setjLabel25(JLabel jLabel25) {
+        this.jLabel25 = jLabel25;
+    }
+
+    public JLabel getjLabel26() {
+        return jLabel26;
+    }
+
+    public void setjLabel26(JLabel jLabel26) {
+        this.jLabel26 = jLabel26;
+    }
+
+    public JLabel getjLabel28() {
+        return jLabel28;
+    }
+
+    public void setjLabel28(JLabel jLabel28) {
+        this.jLabel28 = jLabel28;
+    }
+
+    public JMenuItem getjM_consultarVenda() {
+        return jM_consultarVenda;
+    }
+
+    public void setjM_consultarVenda(JMenuItem jM_consultarVenda) {
+        this.jM_consultarVenda = jM_consultarVenda;
+    }
+
+    public JMenuItem getjM_realizarVenda() {
+        return jM_realizarVenda;
+    }
+
+    public void setjM_realizarVenda(JMenuItem jM_realizarVenda) {
+        this.jM_realizarVenda = jM_realizarVenda;
+    }
+
+    public JMenu getjMenu1() {
+        return jMenu1;
+    }
+
+    public void setjMenu1(JMenu jMenu1) {
+        this.jMenu1 = jMenu1;
+    }
+
+    public JPanel getjP_consultarVenda() {
+        return jP_consultarVenda;
+    }
+
+    public void setjP_consultarVenda(JPanel jP_consultarVenda) {
+        this.jP_consultarVenda = jP_consultarVenda;
+    }
+
+    public JPanel getjP_realizarVenda() {
+        return jP_realizarVenda;
+    }
+
+    public void setjP_realizarVenda(JPanel jP_realizarVenda) {
+        this.jP_realizarVenda = jP_realizarVenda;
+    }
+
+    public JPanel getjPanel3() {
+        return jPanel3;
+    }
+
+    public void setjPanel3(JPanel jPanel3) {
+        this.jPanel3 = jPanel3;
+    }
+
+    public JScrollPane getjScrollPane1() {
+        return jScrollPane1;
+    }
+
+    public void setjScrollPane1(JScrollPane jScrollPane1) {
+        this.jScrollPane1 = jScrollPane1;
+    }
+
+    public JScrollPane getjScrollPane2() {
+        return jScrollPane2;
+    }
+
+    public void setjScrollPane2(JScrollPane jScrollPane2) {
+        this.jScrollPane2 = jScrollPane2;
+    }
+
+    public JTable getjT_carrinho() {
+        return jT_carrinho;
+    }
+
+    public void setjT_carrinho(JTable jT_carrinho) {
+        this.jT_carrinho = jT_carrinho;
+    }
+
+    public JTable getjT_estoque() {
+        return jT_estoque;
+    }
+
+    public void setjT_estoque(JTable jT_estoque) {
+        this.jT_estoque = jT_estoque;
+    }
+
+    public JTextField getjTextField1() {
+        return jTextField1;
+    }
+
+    public void setjTextField1(JTextField jTextField1) {
+        this.jTextField1 = jTextField1;
+    }
+
+    public JTextField getjTextField2() {
+        return jTextField2;
+    }
+
+    public void setjTextField2(JTextField jTextField2) {
+        this.jTextField2 = jTextField2;
+    }
+
+    public JTextField getTxt_vendedor() {
+        return txt_vendedor;
+    }
+
+    public void setTxt_vendedor(JTextField txt_vendedor) {
+        this.txt_vendedor = txt_vendedor;
+    }
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -1390,9 +1614,9 @@ public class VendedorView extends javax.swing.JFrame {
     private javax.swing.JButton btn_salvar;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JComboBox jCB_cliente;
     private javax.swing.JFormattedTextField jFormattedTextField1;
+    private javax.swing.JFormattedTextField jFormattedTextField2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1412,6 +1636,7 @@ public class VendedorView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;

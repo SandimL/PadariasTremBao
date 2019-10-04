@@ -3,7 +3,7 @@
  * 
  * 
  */
-package model;
+package PadariaTremBao.model;
 /**
  * Classe Funcionário que extende a classe Pessoa por meio de Herança
  * Atributos adicionais Salario e Senha

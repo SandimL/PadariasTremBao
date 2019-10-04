@@ -3,72 +3,96 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package model;
+package PadariaTremBao.model;
 
 /**
  *
- * @author Lucas
+ * @author Paulo
  */
-public class Estoque extends Produto{
-    
-    protected int qtdProduto;
-    protected String dataValidade;
-    static Produto[] produto;
-    final int maxProdutos = 50;
-    final int maxPorProduto = 30;
+public class Estoque {
+    private Produto[] produto;
+    private int maxProdutos;
+    private int qntProdutos;
 
-    public Estoque(int qtdProduto, String dataValidade, Produto produto, String nome, int idproduto, Fornecedor fornecedor, float precoCusto, boolean perecivel, String apelido, int qntProduto) {
-        super(nome, idproduto, fornecedor, precoCusto, perecivel, apelido, qntProduto);
-        this.qtdProduto = qtdProduto;
-        this.dataValidade = dataValidade;
-        this.produto = new Produto[maxProdutos];
+    public Estoque(int maxProdutos) {
+        this.maxProdutos = maxProdutos;
+        produto = new Produto[maxProdutos];
+        this.qntProdutos = 0;
     }
 
-    public Estoque(int qtdProduto, String dataValidade, Produto produto, String nome, Fornecedor fornecedor, float precoCusto, String apelido, boolean perecivel) {
-        super(nome, fornecedor, precoCusto, apelido, perecivel);
-        this.qtdProduto = qtdProduto;
-        this.dataValidade = dataValidade;
-        this.produto = new Produto[maxProdutos];
-    }
-
-    public int getQtdProduto() {
-        return qtdProduto;
-    }
-
-    public void setQtdProduto(int qtdProduto) {
-        this.qtdProduto = qtdProduto;
-    }
-
-    public String getDataValidade() {
-        return dataValidade;
-    }
-
-    public void setDataValidade(String dataValidade) {
-        this.dataValidade = dataValidade;
-    }
-
-    public Produto[] getProduto() {
-        return produto;
+    public Estoque() {
     }
     
-    public void setProduto(Produto p) {
-        if(verificaProdutoExistente(p)){
-            
+    
+    public String addProduto(Produto add, int quantidade){
+        String retorno = null;
+        boolean adicionado = false;
+        int vazio=0;
+        
+        for(int i=0; i<produto.length&&!adicionado; i++){
+            if(produto[i]!=null){
+                if(produto[i].equals(add)){
+                    retorno = produto[i].adicionarProduto(quantidade);
+                    adicionado = true;
+                    qntProdutos++;
+                }
+            }else{
+                vazio = i;
+            }
         }
+        if(!adicionado&&qntProdutos<=maxProdutos){
+            produto[vazio] = add;
+            retorno = "Produto adicionado";
+        }
+        return retorno;
+    }
+    public String addProduto(Produto add){
+        String retorno = "";
+        boolean adicionado = false;
+        
+        for(int i=0; i<produto.length&&!adicionado; i++){
+            if(produto[i]==null&&qntProdutos<=maxProdutos){
+                    produto[i] = add;
+                    retorno = "Adicionado";
+                    adicionado = true;
+                    qntProdutos++;
+                }
+         }
+        return retorno;
     }
     
-    public boolean verificaProdutoExistente(Produto p){
-        for (int i = 0; i < produto.length; i++) {
-            if(produto[i] != null){
-                if(produto[i].getIdProduto() == p.getIdProduto()){
-                    i = produto.length;
-                    System.out.println("teste");
-                    return true;
+    public String removeProduto(Produto remove, int quantidade){
+        String retorno=null;
+        boolean removido = false;
+        
+        for(int i=0; i<produto.length&&!removido; i++){
+            if(produto[i]!=null){
+                if(produto[i].equals(remove)){
+                    retorno = produto[i].removerProduto(quantidade);
+                    removido = true;
                 }
             }
         }
-        System.out.println("teste22");
-        return false;
+        if(!removido){
+            retorno = "Produto não encontrado";
+        }
+        return retorno;
     }
-   
+    
+    public Produto[] getProdutos(){
+        return produto;
+    }
+    
+    public Produto getProduto(Produto consulta){
+        boolean encontrado = false;
+        Produto retorno=null;
+        for(int i=0; i<produto.length&&!encontrado; i++){
+            if(produto[i].equals(consulta)){
+                retorno = produto[i];
+                encontrado = true;
+            }
+        }
+        
+        return retorno;
+    }
 }

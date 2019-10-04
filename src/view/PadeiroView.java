@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package view;
+package PadariaTremBao.view;
 
 import java.awt.CardLayout;
 import java.text.ParseException;
@@ -17,9 +17,9 @@ import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-import controller.PadeiroController;
-import model.Padeiro;
-import util.Validacao;
+import PadariaTremBao.controller.PadeiroController;
+import PadariaTremBao.model.Padeiro;
+import PadariaTremBao.util.Validacao;
 
 /**
  *
@@ -115,11 +115,11 @@ public class PadeiroView extends javax.swing.JFrame {
         jP_inicio.setLayout(jP_inicioLayout);
         jP_inicioLayout.setHorizontalGroup(
             jP_inicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 627, Short.MAX_VALUE)
+            .addGap(0, 633, Short.MAX_VALUE)
         );
         jP_inicioLayout.setVerticalGroup(
             jP_inicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 646, Short.MAX_VALUE)
+            .addGap(0, 739, Short.MAX_VALUE)
         );
 
         jP_principal.add(jP_inicio, "Inicio");
@@ -127,13 +127,19 @@ public class PadeiroView extends javax.swing.JFrame {
         jP_registrarPonto.setBackground(new java.awt.Color(100, 100, 100));
         jP_registrarPonto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        jPanel1.setBackground(new java.awt.Color(90, 100, 100));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel1.setLayout(null);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel1.setText("Registre seu ponto");
+        jPanel1.add(jLabel1);
+        jLabel1.setBounds(80, 0, 148, 22);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel2.setText("Data de entrada");
+        jPanel1.add(jLabel2);
+        jLabel2.setBounds(40, 60, 99, 17);
 
         txt_dataEntrada.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         try {
@@ -157,9 +163,13 @@ public class PadeiroView extends javax.swing.JFrame {
                 txt_dataEntradaActionPerformed(evt);
             }
         });
+        jPanel1.add(txt_dataEntrada);
+        txt_dataEntrada.setBounds(39, 90, 100, 28);
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel3.setText("Hora Entrada");
+        jPanel1.add(jLabel3);
+        jLabel3.setBounds(190, 60, 81, 17);
 
         txt_horaEntrada.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         try {
@@ -178,9 +188,13 @@ public class PadeiroView extends javax.swing.JFrame {
                 txt_horaEntradaFocusLost(evt);
             }
         });
+        jPanel1.add(txt_horaEntrada);
+        txt_horaEntrada.setBounds(200, 90, 60, 28);
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel4.setText("Data de saída");
+        jPanel1.add(jLabel4);
+        jLabel4.setBounds(50, 160, 82, 17);
 
         txt_dataSaida.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         try {
@@ -204,9 +218,13 @@ public class PadeiroView extends javax.swing.JFrame {
                 txt_dataSaidaActionPerformed(evt);
             }
         });
+        jPanel1.add(txt_dataSaida);
+        txt_dataSaida.setBounds(39, 190, 100, 28);
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel5.setText("Hora Entrada");
+        jPanel1.add(jLabel5);
+        jLabel5.setBounds(190, 160, 81, 17);
 
         txt_horaSaida.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         try {
@@ -225,6 +243,8 @@ public class PadeiroView extends javax.swing.JFrame {
                 txt_horaSaidaFocusLost(evt);
             }
         });
+        jPanel1.add(txt_horaSaida);
+        txt_horaSaida.setBounds(200, 190, 60, 28);
 
         btn_salvar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btn_salvar.setText("Salvar");
@@ -234,115 +254,50 @@ public class PadeiroView extends javax.swing.JFrame {
                 btn_salvarActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(10, 10, 10)
-                                .addComponent(txt_dataEntrada))
-                            .addComponent(jLabel2))
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(38, 38, 38)
-                                .addComponent(txt_horaEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(26, 26, 26)
-                                .addComponent(jLabel3))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(39, 39, 39)
-                        .addComponent(jLabel1))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel4)
-                                .addGap(43, 43, 43))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(10, 10, 10)
-                                .addComponent(txt_dataSaida)
-                                .addGap(26, 26, 26)))
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel5)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(10, 10, 10)
-                                .addComponent(txt_horaSaida, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(83, 83, 83)
-                        .addComponent(btn_salvar, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(23, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jLabel1)
-                .addGap(34, 34, 34)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txt_dataEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txt_horaEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(31, 31, 31)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel5))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txt_dataSaida, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txt_horaSaida, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(32, 32, 32)
-                .addComponent(btn_salvar, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 36, Short.MAX_VALUE))
-        );
+        jPanel1.add(btn_salvar);
+        btn_salvar.setBounds(110, 260, 80, 40);
 
         javax.swing.GroupLayout jP_registrarPontoLayout = new javax.swing.GroupLayout(jP_registrarPonto);
         jP_registrarPonto.setLayout(jP_registrarPontoLayout);
         jP_registrarPontoLayout.setHorizontalGroup(
             jP_registrarPontoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jP_registrarPontoLayout.createSequentialGroup()
-                .addGap(176, 176, 176)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(210, Short.MAX_VALUE))
+                .addGap(150, 150, 150)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(183, Short.MAX_VALUE))
         );
         jP_registrarPontoLayout.setVerticalGroup(
             jP_registrarPontoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jP_registrarPontoLayout.createSequentialGroup()
-                .addGap(148, 148, 148)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(211, Short.MAX_VALUE))
+                .addGap(150, 150, 150)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(239, Short.MAX_VALUE))
         );
 
         jP_principal.add(jP_registrarPonto, "Registrar Ponto");
 
         jP_cadastro.setBackground(new java.awt.Color(100, 100, 100));
 
+        jPanel2.setBackground(new java.awt.Color(90, 100, 100));
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel2.setLayout(null);
 
-        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel6.setText("Nome");
         jPanel2.add(jLabel6);
-        jLabel6.setBounds(11, 12, 36, 17);
+        jLabel6.setBounds(11, 12, 50, 17);
 
-        txt_nome.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txt_nome.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         txt_nome.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         txt_nome.setMinimumSize(new java.awt.Dimension(2, 28));
         txt_nome.setPreferredSize(new java.awt.Dimension(2, 28));
         jPanel2.add(txt_nome);
-        txt_nome.setBounds(11, 35, 363, 28);
+        txt_nome.setBounds(11, 35, 380, 28);
 
-        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel7.setText("CPF");
         jPanel2.add(jLabel7);
-        jLabel7.setBounds(11, 65, 24, 17);
+        jLabel7.setBounds(11, 65, 40, 17);
 
         txt_cpf.setEditable(false);
         txt_cpf.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -353,14 +308,14 @@ public class PadeiroView extends javax.swing.JFrame {
         }
         txt_cpf.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txt_cpf.setFocusLostBehavior(javax.swing.JFormattedTextField.PERSIST);
-        txt_cpf.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txt_cpf.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         jPanel2.add(txt_cpf);
         txt_cpf.setBounds(11, 88, 131, 28);
 
-        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel8.setText("Telefone");
         jPanel2.add(jLabel8);
-        jLabel8.setBounds(170, 65, 51, 17);
+        jLabel8.setBounds(250, 70, 59, 17);
 
         txt_telefone.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         try {
@@ -369,7 +324,7 @@ public class PadeiroView extends javax.swing.JFrame {
             ex.printStackTrace();
         }
         txt_telefone.setFocusLostBehavior(javax.swing.JFormattedTextField.PERSIST);
-        txt_telefone.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txt_telefone.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         txt_telefone.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 txt_telefoneFocusGained(evt);
@@ -379,27 +334,27 @@ public class PadeiroView extends javax.swing.JFrame {
             }
         });
         jPanel2.add(txt_telefone);
-        txt_telefone.setBounds(170, 88, 127, 28);
+        txt_telefone.setBounds(250, 90, 140, 28);
 
-        jLabel9.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel9.setText("Endereço");
         jPanel2.add(jLabel9);
-        jLabel9.setBounds(11, 122, 58, 17);
+        jLabel9.setBounds(11, 122, 80, 17);
 
-        jLabel10.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jLabel10.setText("Rua");
         jPanel2.add(jLabel10);
-        jLabel10.setBounds(21, 145, 22, 16);
+        jLabel10.setBounds(21, 145, 40, 16);
 
         txt_rua.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         txt_rua.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel2.add(txt_rua);
-        txt_rua.setBounds(21, 168, 145, 28);
+        txt_rua.setBounds(21, 168, 220, 28);
 
-        jLabel11.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        jLabel11.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jLabel11.setText("Número");
         jPanel2.add(jLabel11);
-        jLabel11.setBounds(246, 145, 45, 16);
+        jLabel11.setBounds(330, 150, 49, 16);
 
         txt_numero.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         txt_numero.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -409,32 +364,32 @@ public class PadeiroView extends javax.swing.JFrame {
             }
         });
         jPanel2.add(txt_numero);
-        txt_numero.setBounds(246, 171, 55, 28);
+        txt_numero.setBounds(330, 170, 55, 28);
 
-        jLabel12.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        jLabel12.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jLabel12.setText("Bairro");
         jPanel2.add(jLabel12);
-        jLabel12.setBounds(20, 220, 34, 16);
+        jLabel12.setBounds(20, 220, 39, 16);
 
         txt_bairro.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         txt_bairro.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel2.add(txt_bairro);
-        txt_bairro.setBounds(20, 240, 140, 28);
+        txt_bairro.setBounds(20, 240, 160, 28);
 
-        jLabel13.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        jLabel13.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jLabel13.setText("Cidade");
         jPanel2.add(jLabel13);
-        jLabel13.setBounds(180, 220, 39, 16);
+        jLabel13.setBounds(200, 220, 43, 16);
 
         txt_cidade.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         txt_cidade.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel2.add(txt_cidade);
-        txt_cidade.setBounds(180, 240, 110, 28);
+        txt_cidade.setBounds(200, 240, 110, 28);
 
-        jLabel14.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        jLabel14.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jLabel14.setText("Estado");
         jPanel2.add(jLabel14);
-        jLabel14.setBounds(320, 220, 38, 16);
+        jLabel14.setBounds(330, 220, 44, 16);
 
         txt_estado.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         txt_estado.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -444,17 +399,17 @@ public class PadeiroView extends javax.swing.JFrame {
             }
         });
         jPanel2.add(txt_estado);
-        txt_estado.setBounds(320, 240, 38, 28);
+        txt_estado.setBounds(340, 240, 38, 28);
 
-        jLabel15.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel15.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel15.setText("Carga horária/mês");
         jPanel2.add(jLabel15);
-        jLabel15.setBounds(11, 335, 112, 17);
+        jLabel15.setBounds(10, 340, 140, 17);
 
-        jLabel16.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel16.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel16.setText("Carga horária/madrugada");
         jPanel2.add(jLabel16);
-        jLabel16.setBounds(164, 335, 157, 17);
+        jLabel16.setBounds(190, 340, 190, 20);
 
         btn_cadastro_editar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btn_cadastro_editar.setText("Editar");
@@ -465,7 +420,7 @@ public class PadeiroView extends javax.swing.JFrame {
             }
         });
         jPanel2.add(btn_cadastro_editar);
-        btn_cadastro_editar.setBounds(26, 416, 59, 28);
+        btn_cadastro_editar.setBounds(26, 416, 70, 30);
 
         btn_cadastro_salvar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btn_cadastro_salvar.setText("Salvar");
@@ -476,7 +431,7 @@ public class PadeiroView extends javax.swing.JFrame {
             }
         });
         jPanel2.add(btn_cadastro_salvar);
-        btn_cadastro_salvar.setBounds(150, 420, 63, 28);
+        btn_cadastro_salvar.setBounds(140, 420, 70, 30);
 
         btn_cadastro_cancelar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btn_cadastro_cancelar.setText("Cancelar");
@@ -487,57 +442,61 @@ public class PadeiroView extends javax.swing.JFrame {
             }
         });
         jPanel2.add(btn_cadastro_cancelar);
-        btn_cadastro_cancelar.setBounds(280, 420, 69, 28);
+        btn_cadastro_cancelar.setBounds(260, 420, 80, 30);
 
-        jLabel17.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel17.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel17.setText("Função");
         jPanel2.add(jLabel17);
-        jLabel17.setBounds(11, 278, 45, 17);
+        jLabel17.setBounds(11, 278, 50, 17);
 
         txt_funcao.setEditable(false);
-        txt_funcao.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txt_funcao.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         txt_funcao.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         txt_funcao.setMinimumSize(new java.awt.Dimension(2, 28));
         jPanel2.add(txt_funcao);
         txt_funcao.setBounds(11, 301, 89, 28);
 
-        jLabel18.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel18.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel18.setText("Salário");
         jPanel2.add(jLabel18);
-        jLabel18.setBounds(240, 280, 39, 17);
+        jLabel18.setBounds(290, 280, 46, 17);
 
         txt_salario.setEditable(false);
         txt_salario.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        txt_salario.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(java.text.NumberFormat.getCurrencyInstance())));
-        txt_salario.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txt_salario.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("¤#,##0.00"))));
+        txt_salario.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         jPanel2.add(txt_salario);
-        txt_salario.setBounds(240, 300, 87, 28);
+        txt_salario.setBounds(290, 300, 87, 28);
 
+        txt_cargaHora_mes.setEditable(false);
+        txt_cargaHora_mes.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         txt_cargaHora_mes.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txt_cargaHora_mes.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel2.add(txt_cargaHora_mes);
         txt_cargaHora_mes.setBounds(40, 360, 50, 28);
 
+        txt_cargaHora_madrugada.setEditable(false);
+        txt_cargaHora_madrugada.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         txt_cargaHora_madrugada.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txt_cargaHora_madrugada.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel2.add(txt_cargaHora_madrugada);
-        txt_cargaHora_madrugada.setBounds(220, 360, 50, 28);
+        txt_cargaHora_madrugada.setBounds(250, 360, 50, 28);
 
         javax.swing.GroupLayout jP_cadastroLayout = new javax.swing.GroupLayout(jP_cadastro);
         jP_cadastro.setLayout(jP_cadastroLayout);
         jP_cadastroLayout.setHorizontalGroup(
             jP_cadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jP_cadastroLayout.createSequentialGroup()
-                .addGap(94, 94, 94)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 385, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(150, Short.MAX_VALUE))
+                .addGap(108, 108, 108)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 407, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(120, Short.MAX_VALUE))
         );
         jP_cadastroLayout.setVerticalGroup(
             jP_cadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jP_cadastroLayout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 471, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(137, Short.MAX_VALUE))
+                .addGap(85, 85, 85)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 478, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(178, Short.MAX_VALUE))
         );
 
         jP_principal.add(jP_cadastro, "Cadastro");

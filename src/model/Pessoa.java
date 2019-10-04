@@ -3,7 +3,7 @@
  * 
  * 
  */
-package model;
+package PadariaTremBao.model;
 /**
  * Classe abstrata Pessoa que possui atributos Nome, Telefone, Documento e Endereço
  * Será Super das classes Funcionário, Cliente e Fornercedor

@@ -3,7 +3,7 @@
  * 
  * 
  */
-package model;
+package PadariaTremBao.model;
 
 /**
  * Classe Padeiro que extende a classe Funcionario por meio de Herança

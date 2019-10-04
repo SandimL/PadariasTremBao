@@ -3,15 +3,23 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package controller;
+package PadariaTremBao.controller;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Vector;
 import javax.swing.JOptionPane;
-import model.Banco;
-import view.VendedorView;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableCellRenderer;
+import javax.swing.table.TableColumn;
+import PadariaTremBao.model.Banco;
+import PadariaTremBao.model.Cliente;
+import PadariaTremBao.model.Estoque;
+import PadariaTremBao.model.Produto;
+import PadariaTremBao.view.VendedorView;
 
 /**
  *
@@ -45,7 +53,7 @@ public class VendedorController {
         view.getTxt_bairro().setText(view.getUsuario().getBairro());
         view.getTxt_cidade().setText(view.getUsuario().getCidade());
         view.getTxt_estado().setText(view.getUsuario().getEstado());
-        view.getTxt_cargaHora_mes().setText(String.valueOf(view.getUsuario().getHorasTrabalhadas()));
+        view.getTxt_cargaHora_mes().setText(Float.toString(view.getUsuario().getHorasTrabalhadas()));
         view.getTxt_vendasRealizadas().setText(String.valueOf(view.getUsuario().getVendasRealizadas()));
     }
    
@@ -79,7 +87,7 @@ public class VendedorController {
         
         diferencaH = (c_saida.getTimeInMillis() - c_entrada.getTimeInMillis())/(60*60*1000);
         
-        if(diferencaH>0&&diferencaH<9){
+        if(diferencaH>0&&diferencaH<=10){
             view.getUsuario().setHorasTrabalhadas((int)diferencaH);
             view.exibirMessagem("Dados salvos com sucesso");
             editarCadastro();
@@ -88,13 +96,37 @@ public class VendedorController {
             view.getTxt_horaEntrada().setText("");
             view.getTxt_horaSaida().setText("");
         }else if(diferencaH>9){
-            view.exibirMessagem("Você não pode trabalhar mais que 9 horas por dia!");
+            view.exibirMessagem("Você não pode trabalhar mais que 10 horas por dia!");
             view.getTxt_dataSaida().setText("");
             view.getTxt_horaSaida().setText("");
         }else{
             view.exibirMessagem("Data de sáida inválida");
             view.getTxt_dataSaida().setText("");
             view.getTxt_horaSaida().setText("");
+        }
+    }
+    
+    public void loadTableEstoque(){
+        Estoque estoque = Banco.getEstoque();
+        Produto[] produtoEstoque = estoque.getProdutos();
+        DefaultTableModel modelo = (DefaultTableModel) view.getjT_estoque().getModel();
+        for(int i=0; i<produtoEstoque.length; i++){
+            if(produtoEstoque[i]!=null){
+                Object linha[] = new Object[]{produtoEstoque[i].getNome(), produtoEstoque[i].getQntProduto(), produtoEstoque[i].getPrecoCusto()};
+                modelo.addRow(linha);
+                }
+        }
+        
+        
+    }
+    
+    public void loadComboBoxCliente(){
+        ArrayList<Cliente> clientes = Banco.getClientes();
+        
+        for(int i=0; i<clientes.size(); i++){
+            if(clientes.get(i)!=null){
+                view.getjCB_cliente().addItem(clientes.get(i).getNome());
+            }
         }
     }
 }

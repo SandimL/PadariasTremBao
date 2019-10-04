@@ -3,16 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package controller;
+package PadariaTremBao.controller;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.GregorianCalendar;
 import javax.swing.JOptionPane;
-import model.Banco;
-import view.PadeiroView;
+import PadariaTremBao.model.Banco;
+import PadariaTremBao.view.PadeiroView;
 
 /**
  *
@@ -40,7 +39,7 @@ public class PadeiroController {
         view.getTxt_cpf().setText(view.getUsuario().getDocumento());
         view.getTxt_telefone().setText(view.getUsuario().getTelefone());
         view.getTxt_funcao().setText("Padeiro");
-        view.getTxt_salario().setText(String.valueOf(view.getUsuario().getSalario()));
+        view.getTxt_salario().setText(Float.toString(view.getUsuario().getSalario()));
         view.getTxt_rua().setText(view.getUsuario().getRua());
         view.getTxt_numero().setText(view.getUsuario().getNumero());
         view.getTxt_bairro().setText(view.getUsuario().getBairro());
@@ -80,7 +79,7 @@ public class PadeiroController {
         
         diferencaH = (c_saida.getTimeInMillis() - c_entrada.getTimeInMillis())/(60*60*1000);
         
-        if(diferencaH>0&&diferencaH<9){
+        if(diferencaH>0&&diferencaH<=9){
             view.getUsuario().setHorasTrabalhadas((int)diferencaH);
             if(c_entrada.get(Calendar.HOUR_OF_DAY)>15){
                 if(c_saida.get(Calendar.HOUR_OF_DAY)<=5){

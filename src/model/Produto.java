@@ -3,15 +3,15 @@
  * 
  * 
  */
-package model;
+package PadariaTremBao.model;
 
 /**
  *
  * 
  */
-public class Produto {
+public final class Produto {
     private String nome;
-    private int idProduto;
+    private int idproduto;
     private Fornecedor fornecedor;
     private float precoCusto;
     private boolean perecivel;
@@ -20,7 +20,7 @@ public class Produto {
 
     public Produto(String nome, int idproduto, Fornecedor fornecedor, float precoCusto, boolean perecivel, String apelido, int qntProduto) {
         this.nome = nome;
-        this.idProduto = idproduto;
+        this.idproduto = idproduto;
         this.fornecedor = fornecedor;
         this.precoCusto = precoCusto;
         this.perecivel = perecivel;
@@ -28,9 +28,6 @@ public class Produto {
         String retorno = this.adicionarProduto(qntProduto);
     }
     
-    public Produto(int id){
-        this.idProduto = id;
-    }
     public Produto(String nome, Fornecedor fornecedor, float precoCusto, String apelido, boolean perecivel) {
         this.nome = nome;
         this.fornecedor = fornecedor;
@@ -68,6 +65,7 @@ public class Produto {
         return retorno;
     }
     
+
     public String getNome() {
         return nome;
     }
@@ -76,12 +74,12 @@ public class Produto {
         this.nome = nome;
     }
 
-    public int getIdProduto() {
-        return idProduto;
+    public int getIdproduto() {
+        return idproduto;
     }
 
-    public void setIdProduto(int idProduto) {
-        this.idProduto = idProduto;
+    public void setIdproduto(int idproduto) {
+        this.idproduto = idproduto;
     }
 
     public Fornecedor getFornecedor() {
@@ -117,6 +115,6 @@ public class Produto {
     }
     
     public boolean equals(Produto compara){
-        return nome.equals(compara.nome)&& idProduto==compara.idProduto;
+        return nome.equals(compara.nome)&& idproduto==compara.idproduto;
     }
 }
