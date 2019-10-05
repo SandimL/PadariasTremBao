@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package PadariaTremBao.controller;
+package controller;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -15,11 +15,11 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableCellRenderer;
 import javax.swing.table.TableColumn;
-import PadariaTremBao.model.Banco;
-import PadariaTremBao.model.Cliente;
-import PadariaTremBao.model.Estoque;
-import PadariaTremBao.model.Produto;
-import PadariaTremBao.view.VendedorView;
+import model.Banco;
+import model.Cliente;
+import model.Estoque;
+import model.Produto;
+import view.VendedorView;
 
 /**
  *

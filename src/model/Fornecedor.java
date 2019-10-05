@@ -3,11 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package PadariaTremBao.model;
+package model;
 /**
  * @author Paulo
  */
-public class Fornecedor extends Pessoa{
+public class Fornecedor extends Pessoa implements Relatorio{
     private boolean recorrente;
 
     public Fornecedor(String nome, String telefone, String documento, String enderecoRua, String enderecoNumero, String enderecoBairro, String enderecoCidade, String enderecoEstado) {
@@ -28,5 +28,19 @@ public class Fornecedor extends Pessoa{
 
     public void setRecorrente(boolean recorrente) {
         this.recorrente = recorrente;
+    }
+
+    @Override
+    public String getInfo() {
+        String txt = "";       
+        txt += "=====================================================================\n" +
+                "Informações Fornecedor: \n" +
+                "Nome: " + super.getNome() +"\n"+
+                "Telefone: " + super.getTelefone() +"\n"+
+                "Endereço: " + super.getEnderecoCompleto()+"\n"+
+                "Gold: " + isRecorrente()+"\n"+
+                "=====================================================================\n";
+        return txt;  
+        
     }
 }

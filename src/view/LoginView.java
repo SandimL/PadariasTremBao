@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package PadariaTremBao.view;
+package view;
 
 import javax.swing.JButton;
 import javax.swing.JFormattedTextField;
@@ -11,7 +11,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
-import PadariaTremBao.controller.LoginController;
+import controller.LoginController;
 
 /**
  *

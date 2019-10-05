@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package PadariaTremBao.model;
+package model;
 
 import java.util.ArrayList;
 
@@ -36,7 +36,7 @@ public class Banco {
         vendedores.add(v2);
         
         //Adiconando Gerentes ao banco;
-        Gerente g1 = new Gerente("Luciano", "(55)55555-5555", "555.555.555-55", "Tul", "555", "Tul", "Tul", "Tul", "123", false);
+        Gerente g1 = new Gerente("Luciano", "(55)55555-5555", "555.555.555-55", "Tul", "555", "Tul", "Tul", "Tul", "123", 10000);
         gerentes.add(g1);
         
         //Adicionando Fornecedores ao banco

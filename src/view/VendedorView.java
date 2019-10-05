@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package PadariaTremBao.view;
+package view;
 
 import java.awt.CardLayout;
 import javax.swing.JButton;
@@ -18,10 +18,10 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
-import PadariaTremBao.controller.VendedorController;
-import PadariaTremBao.model.Banco;
-import PadariaTremBao.model.Vendedor;
-import PadariaTremBao.util.Validacao;
+import controller.VendedorController;
+import model.Banco;
+import model.Vendedor;
+import util.Validacao;
 
 /**
  *

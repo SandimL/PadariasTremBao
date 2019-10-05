@@ -3,24 +3,35 @@
  * 
  * 
  */
-package PadariaTremBao.model;
+package model;
 /**
  *
  *
  */
-public class Gerente extends Funcionario{
-    private boolean confianca;
+public class Gerente extends Funcionario implements Relatorio{
 
-    public Gerente(String nome, String telefone, String documento, String rua, String numero, String bairro, String cidade, String estado, String senha, boolean confianca){
+    public Gerente(String nome, String telefone, String documento, String rua, String numero, String bairro, String cidade, String estado, String senha, float salario){
         super(nome, telefone, documento, rua, numero, bairro, cidade, estado, 2500f, senha);
-        this.confianca = confianca;
+        setSalarioBonus(salario);
     }
 
-    public boolean isConfianca() {
-        return confianca;
+    
+    private void setSalarioBonus(float salario){
+        salario += (salario * 0.2);
+        super.setSalario(salario);
     }
 
-    public void setConfianca(boolean confianca) {
-        this.confianca = confianca;
+    @Override
+    public String getInfo() {
+        String txt = "";       
+        txt += "=====================================================================\n" +
+                "Informações gerente: \n" +
+                "Nome: " + super.getNome() +"\n"+
+                "Telefone: " + super.getTelefone() +"\n"+
+                "Endereço: " + super.getEnderecoCompleto()+"\n"+
+                "=====================================================================\n";
+        return txt;
     }
+    
+    
 }

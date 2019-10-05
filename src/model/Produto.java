@@ -3,7 +3,7 @@
  * 
  * 
  */
-package PadariaTremBao.model;
+package model;
 
 /**
  *

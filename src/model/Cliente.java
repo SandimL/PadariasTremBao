@@ -3,14 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package PadariaTremBao.model;
+package model;
 
 
 
 /**
  * @author Paulo
  */
-public class Cliente extends Pessoa{
+public class Cliente extends Pessoa implements Relatorio{
     
     private boolean gold;
     private boolean platina;
@@ -56,5 +56,21 @@ public class Cliente extends Pessoa{
     public void setValorCompras(float valorDaCompra) {
         this.valorCompras += valorDaCompra;
     }
+
+    @Override
+    public String getInfo() {
+        String txt = "";       
+        txt += "=====================================================================\n" +
+                "Informações Cliente: \n" +
+                "Nome: " + super.getNome() +"\n"+
+                "Telefone: " + super.getTelefone() +"\n"+
+                "Endereço: " + super.getEnderecoCompleto()+"\n"+
+                "Gold: " + isGold()+"\n"+
+                "Platina: " + isPlatina()+"\n"+
+                "=====================================================================\n";
+        return txt;    
+    
+    }
+    
     
 }

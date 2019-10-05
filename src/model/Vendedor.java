@@ -3,12 +3,12 @@
  * 
  * 
  */
-package PadariaTremBao.model;
+package model;
 /**
  *
  * 
  */
-public class Vendedor extends Funcionario{
+public class Vendedor extends Funcionario implements Relatorio{
     private float vendasRealizadas;
 
     public Vendedor(String nome, String telefone, String documento, String rua, String numero, String bairro, String cidade, String estado, String senha, float vendasRealizadas) {
@@ -26,5 +26,19 @@ public class Vendedor extends Funcionario{
 
     public void setVendasRealizadas(float vendasRealizadas) {
         this.vendasRealizadas = vendasRealizadas;
+    }
+
+    @Override
+    public String getInfo() {
+        String txt = "";       
+        txt += "=====================================================================\n" +
+                "Informações Fornecedor: \n" +
+                "Nome: " + super.getNome() +"\n"+
+                "Telefone: " + super.getTelefone() +"\n"+
+                "Endereço: " + super.getEnderecoCompleto()+"\n"+
+                "Vendas realizadas: " + getVendasRealizadas()+"\n"+
+                "Horas trabalhadas: " + getHorasTrabalhadas()+"\n"+
+                "=====================================================================\n";
+        return txt;  
     }
 }

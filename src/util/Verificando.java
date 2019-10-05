@@ -1,4 +1,4 @@
-package PadariaTremBao.util;
+package util;
 
 public class Verificando {
     private static final int[] pesoCPF = {11, 10, 9, 8, 7, 6, 5, 4, 3, 2};
