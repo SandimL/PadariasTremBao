@@ -3,14 +3,14 @@
  * 
  * 
  */
-package model;
+package PadariaTremBao.model;
 
 /**
  * Classe Padeiro que extende a classe Funcionario por meio de Herança
  * É uma classe final, ou seja, não será extendida por nenhum outra classe
  * Possui o atributo adicional Horas Trabalhadas, o qual é privado a classe
  */
-public final class Padeiro extends Funcionario implements Relatorio{
+public final class Padeiro extends Funcionario{
      private int horasTrabalhadasMadrugada;
      
      //Construtor da classe Padeiro atribuindo todos os valores aos atributos
@@ -47,20 +47,12 @@ public final class Padeiro extends Funcionario implements Relatorio{
     public void setHorasTrabalhadasMadrugada(int horasTrabalhadasMadrugada) {
         this.horasTrabalhadasMadrugada += horasTrabalhadasMadrugada;
     }
-
-    @Override
-    public String getInfo() {
-        String txt = "";       
-        txt += "=====================================================================\n" +
-                "Informações Fornecedor: \n" +
-                "Nome: " + super.getNome() +"\n"+
-                "Telefone: " + super.getTelefone() +"\n"+
-                "Endereço: " + super.getEnderecoCompleto()+"\n"+
-                "Horas trabalhadas: " + getHorasTrabalhadas()+"\n"+
-                "Horas trabalhadas Fora do expediente: " + getHorasTrabalhadasMadrugada()+"\n"+
-                "=====================================================================\n";
-        return txt;  
+    
+    //Método retorna informações do Padeiro
+     @Override
+    public String getInfo(){
+        String txt = super.getInfo();
+        txt+= "Horas trabalhadas na madrugada: " + this.getHorasTrabalhadasMadrugada() + "\n";
+        return txt;
     }
-    
-    
  }

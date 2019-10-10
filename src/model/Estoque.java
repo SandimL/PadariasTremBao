@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package model;
+package PadariaTremBao.model;
 
 /**
  *
@@ -42,7 +42,9 @@ public class Estoque {
         }
         if(!adicionado&&qntProdutos<=maxProdutos){
             produto[vazio] = add;
-            retorno = "Produto adicionado";
+            retorno = "Adicionado";
+        }else if (!adicionado){
+            retorno = "Limite atingido";
         }
         return retorno;
     }
@@ -58,6 +60,9 @@ public class Estoque {
                     qntProdutos++;
                 }
          }
+        if(!adicionado){
+            retorno = "Limite atingido";
+        }
         return retorno;
     }
     
@@ -74,7 +79,7 @@ public class Estoque {
             }
         }
         if(!removido){
-            retorno = "Produto não encontrado";
+            retorno = "Não encontrado";
         }
         return retorno;
     }

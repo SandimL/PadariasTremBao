@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package model;
+package PadariaTremBao.model;
 
 import java.util.ArrayList;
 
@@ -12,17 +12,25 @@ import java.util.ArrayList;
  * @author Paulo
  */
 public class Banco {
-    private final static ArrayList<Padeiro> padeiros = new ArrayList<>();
-    private final static ArrayList<Cliente> clientes = new ArrayList<>();
-    private final static ArrayList<Vendedor> vendedores = new ArrayList<>();
-    private final static ArrayList<Gerente> gerentes = new ArrayList<>();
-    private final static ArrayList<Fornecedor> fornecedores = new ArrayList<>();
+    private final static ArrayList<Padeiro> padeiros;
+    private final static ArrayList<Cliente> clientes;
+    private final static ArrayList<Vendedor> vendedores;
+    private final static ArrayList<Gerente> gerentes;
+    private final static ArrayList<Fornecedor> fornecedores;
+    private final static ArrayList<Venda> vendas;
     private static final Estoque estoque;
     
     
     
     
     static{
+        padeiros = new ArrayList<>();
+        clientes = new ArrayList<>();
+        vendedores = new ArrayList<>();
+        gerentes = new ArrayList<>();
+        fornecedores = new ArrayList<>();
+        vendas = new ArrayList<>();
+        estoque = new Estoque(50);
         //Adicionando Padeiros ao banco;
         Padeiro p1= new Padeiro("Paulo", "(11)11111-1111", "111.111.111-11", "Tal", "111", "Tal", "Tal", "Tal", "123");
         Padeiro p2= new Padeiro("João", "(22)22222-2222", "222.222.222-22", "Tel", "222", "Tel", "Tel", "Tel", "123");
@@ -36,7 +44,7 @@ public class Banco {
         vendedores.add(v2);
         
         //Adiconando Gerentes ao banco;
-        Gerente g1 = new Gerente("Luciano", "(55)55555-5555", "555.555.555-55", "Tul", "555", "Tul", "Tul", "Tul", "123", 10000);
+        Gerente g1 = new Gerente("Luciano", "(55)55555-5555", "555.555.555-55", "Tul", "555", "Tul", "Tul", "Tul", "123", false);
         gerentes.add(g1);
         
         //Adicionando Fornecedores ao banco
@@ -51,12 +59,11 @@ public class Banco {
         fornecedores.add(f4);
         fornecedores.add(f5);
         
-        estoque = new Estoque(50);
-        Produto pro = new Produto("Pão", 2, fornecedores.get(0), 1.5f, true, "Cacetinho", 15);
-        System.out.println(estoque.addProduto(pro));
-        String r = estoque.addProduto(new Produto("", 2, fornecedores.get(1), 7.80f, false, "", 14));
-        r = estoque.addProduto(new Produto("Requeijão", 3, fornecedores.get(2), 4.99f, true, "", 20));
-        r = estoque.addProduto(new Produto("", 4, fornecedores.get(3), 1.5f, true, "Cacetinho", 15));
+        Produto pro = new Produto("Pão", 1, fornecedores.get(0), 1.5f, true, "Cacetinho", 15);
+        String r =estoque.addProduto(pro);
+        r = estoque.addProduto(new Produto("Requeijão", 2, fornecedores.get(1), 4.50f, true, "", 14));
+        r = estoque.addProduto(new Produto("Salame", 3, fornecedores.get(2), 2.50f, true, "", 20));
+        /*r = estoque.addProduto(new Produto("", 4, fornecedores.get(3), 1.5f, true, "Cacetinho", 15));
         r = estoque.addProduto(new Produto("", 5, fornecedores.get(4), 1.5f, true, "Cacetinho", 15));
         r = estoque.addProduto(new Produto("Pão", 6, fornecedores.get(0), 1.5f, true, "Cacetinho", 15));
         r = estoque.addProduto(new Produto("Pão", 7, fornecedores.get(1), 1.5f, true, "Cacetinho", 15));
@@ -72,14 +79,15 @@ public class Banco {
         r = estoque.addProduto(new Produto("Pão", 17, fornecedores.get(1), 1.5f, true, "Cacetinho", 15));
         r = estoque.addProduto(new Produto("Pão", 18, fornecedores.get(2), 1.5f, true, "Cacetinho", 15));
         r = estoque.addProduto(new Produto("Pão", 19, fornecedores.get(3), 1.5f, true, "Cacetinho", 15));
-        r = estoque.addProduto(new Produto("Pão", 20, fornecedores.get(4), 1.5f, true, "Cacetinho", 15));
+        r = estoque.addProduto(new Produto("Pão", 20, fornecedores.get(4), 1.5f, true, "Cacetinho", 15));*/
         
         //Adicionando Clientes ao banco
-        clientes.add(new Cliente("Marcelo Vaz", "(45)44478-8788", "004.004.004-04", "Dina", "Numero", "Bairro", "Cidade", "Estaod"));
-        clientes.add(new Cliente("Simone Sabao", "(45)44478-8788", "004.004.004-04", "Dina", "Numero", "Bairro", "Cidade", "Estaod"));
+        clientes.add(new Cliente("Marcelo Vaz", "(45)44478-8788", "004.004.004-04", "Dina", "Numero", "Bairro", "Cidade", "Estado", true, false));
+        
+        clientes.add(new Cliente("Simone Sabao", "(45)44478-8788", "005.005.005-05", "Dina", "Numero", "Bairro", "Cidade", "Estaod", false, true));
     }
 
-    //Métodos CRUD para Padeiros
+    //Métodos para Padeiros
     public static Padeiro procuraPadeiro(String documento){
         boolean encontrou = false;
         Padeiro usuario = null;
@@ -108,6 +116,11 @@ public class Banco {
         if(!encontrou){usuario = null;}
        return usuario;
     }
+    
+    public static void adicionarPadeiro(Padeiro add){
+        padeiros.add(add);
+    }
+    
     public static boolean excluirPadeiro(String documento){
         return true;
     }
@@ -127,7 +140,9 @@ public class Banco {
         }
     }
     
-    //Métodos CRUD para Vendedores
+    
+    
+    //Métodos para Vendedores
     public static Vendedor procuraVendedor(String documento){
         boolean encontrou = false;
         Vendedor usuario = null;
@@ -169,8 +184,12 @@ public class Banco {
         }
     }
     
+    public static void adicionarVendedor(Vendedor add){
+        vendedores.add(add);
+    }
     
-    //Métodos CRUD para Gerentes
+    
+    //Métodos para Gerentes
     public static Gerente procuraGerente(String documento){
         boolean encontrou = false;
         Gerente usuario = null;
@@ -186,13 +205,118 @@ public class Banco {
        return usuario;
     }
     
-    //Métodos CRUD para Estoque
+    public static Gerente procuraGerente(Gerente usuario){
+        boolean encontrou = false;
+        for(int i=0; i<gerentes.size()&&!encontrou; i++){
+            if(gerentes.get(i)!=null){
+                if(gerentes.get(i).equals(usuario)){
+                    usuario = gerentes.get(i);
+                    encontrou = true;
+                }
+            }
+        }
+        if(!encontrou){usuario = null;}
+       return usuario;
+    }
+    
+   public static void editaGerente(Gerente gerente){
+        boolean encontrou = false;
+        for(int i=0; i<gerentes.size()&&!encontrou; i++){
+            if(gerentes.get(i)!=null){
+                if(gerentes.get(i).equals(gerente)){
+                    gerentes.set(i, gerente);
+                    encontrou = true;
+                }
+            }
+        }
+    }
+   
+   public static void adicionarGerente(Gerente add){
+        gerentes.add(add);
+    }
+    
+    //Métodos para Cliente
+    public static ArrayList<Cliente> getClientes(){
+        return clientes;
+    }
+    
+    public static void adicionarCliente(Cliente adiciona){
+        clientes.add(adiciona);
+    }
+    
+    public static Cliente procuraCliente(Cliente procura){
+        boolean encontrou = false;
+        Cliente cliente = null;
+        for(int i=0; i<clientes.size()&&!encontrou; i++){
+            if(clientes.get(i)!=null){
+                if(clientes.get(i).equals(procura)){
+                    cliente = clientes.get(i);
+                    encontrou = true;
+                }
+            }
+        }
+        if(!encontrou){cliente = null;}
+       return cliente;
+    }
+    
+    public static Cliente procuraCliente(String procura){
+        boolean encontrou = false;
+        Cliente cliente = null;
+        for(int i=0; i<clientes.size()&&!encontrou; i++){
+            if(clientes.get(i)!=null){
+                if(clientes.get(i).getNome().equals(procura)){
+                    cliente = clientes.get(i);
+                    encontrou = true;
+                }
+            }
+        }
+        if(!encontrou){cliente = null;}
+       return cliente;
+    }
+   
+     //Métodos para Estoque
     public static Estoque getEstoque(){
         return estoque;
     }
     
-    //Métodos CRUD para Cliente
-    public static ArrayList<Cliente> getClientes(){
-        return clientes;
+    public static String removeProdutoEstoque(Produto p, int quantidade){
+        return estoque.removeProduto(p, quantidade);
+    }
+    
+    public static String adicionarProdutoEstoque(Produto add, int quantidade){
+        return estoque.addProduto(add, quantidade);
+    }
+    
+    public static Produto procuraProdutoEstoque(Produto compara){
+        return estoque.getProduto(compara);
+    }
+    
+    //Métodos para Venda
+    public static void salvarVenda(Venda venda){
+        vendas.add(venda);
+    }
+    
+    public static ArrayList<Venda> getVendas(){
+        return vendas;
+    }
+    
+    //Métods para Fornecedor
+    public static Fornecedor procurarFornecedor(Fornecedor procura){
+        boolean encontrou = false;
+        Fornecedor fornecedor = null;
+        for(int i=0; i<fornecedores.size()&&!encontrou; i++){
+            if(fornecedores.get(i)!=null){
+                if(fornecedores.get(i).equals(procura)){
+                    fornecedor = fornecedores.get(i);
+                    encontrou = true;
+                }
+            }
+        }
+        if(!encontrou){fornecedor = null;}
+       return fornecedor;
+    }
+    
+    public static void adicionarFornecedor(Fornecedor add){
+        fornecedores.add(add);
     }
 }

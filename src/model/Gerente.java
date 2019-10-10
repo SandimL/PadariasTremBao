@@ -3,35 +3,38 @@
  * 
  * 
  */
-package model;
+package PadariaTremBao.model;
 /**
- *
- *
+ *Classe Gerente que extende a classe Funcionario por meio de Herança
+ * É uma classe final, ou seja, não será extendida por nenhum outra classe
+ * Possui o atributo adicional Vendas Realizadas, o qual é privado a classe
  */
-public class Gerente extends Funcionario implements Relatorio{
+public final class Gerente extends Funcionario{
+    //Atributos
+    private boolean confianca;
 
-    public Gerente(String nome, String telefone, String documento, String rua, String numero, String bairro, String cidade, String estado, String senha, float salario){
+    //Construtor da classe atribuindo todos os valores aos atributos
+    public Gerente(String nome, String telefone, String documento, String rua, String numero, String bairro, String cidade, String estado, String senha, boolean confianca){
         super(nome, telefone, documento, rua, numero, bairro, cidade, estado, 2500f, senha);
-        setSalarioBonus(salario);
+        this.confianca = confianca;
     }
 
+    //GETTERS e SETTERS dos atributos
+    public boolean isConfianca() {
+        return confianca;
+    }
+
+    public void setConfianca(boolean confianca) {
+        this.confianca = confianca;
+    }
     
-    private void setSalarioBonus(float salario){
-        salario += (salario * 0.2);
-        super.setSalario(salario);
-    }
-
+    //Método retorna informações do Gerente
     @Override
-    public String getInfo() {
-        String txt = "";       
-        txt += "=====================================================================\n" +
-                "Informações gerente: \n" +
-                "Nome: " + super.getNome() +"\n"+
-                "Telefone: " + super.getTelefone() +"\n"+
-                "Endereço: " + super.getEnderecoCompleto()+"\n"+
-                "=====================================================================\n";
+    public String getInfo(){
+        String txt = super.getInfo();
+        if(this.isConfianca()){
+            txt+= "Gerente é de confiança\n";
+        }
         return txt;
     }
-    
-    
 }

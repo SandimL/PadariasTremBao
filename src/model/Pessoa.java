@@ -1,24 +1,25 @@
 /*
- * 
- * 
+ * Alunos do Grupo
+ * Paulo Rogério Pereira Franco
+ * Gustavo Coutinho
  * 
  */
-package model;
+package PadariaTremBao.model;
 /**
  * Classe abstrata Pessoa que possui atributos Nome, Telefone, Documento e Endereço
  * Será Super das classes Funcionário, Cliente e Fornercedor
  */
-public abstract class Pessoa {
+public abstract class Pessoa implements Relatorio{
     //Declaração dos atributos pertecentes a classe, todos protected;
-    protected String nome;//Atributo Nome
-    protected String telefone;//Atributo telefone
-    protected String documento;//Atributo documento
-    protected String rua;//Atributo Rua
-    protected String numero;//Atributo Numero
-    protected String bairro;//Atributo Bairro
-    protected String cidade;//Atributo Cidade
-    protected String estado;//Atributo Estado
-    protected String enderecoCompleto;//Atributo Endereço Completo
+    protected String nome;
+    protected String telefone;
+    protected String documento;
+    protected String rua;
+    protected String numero;
+    protected String bairro;
+    protected String cidade;
+    protected String estado;
+    protected String enderecoCompleto;
 
     //Construtor da classe Pessoa atribuindo todos os valores aos atributos
     public Pessoa(String nome, String telefone, String documento, String rua, 
@@ -38,13 +39,12 @@ public abstract class Pessoa {
     public Pessoa(String documento){
         this.documento = documento;
     }
-    
     //Contrutor da classe Pessoa vazio
     public Pessoa(){
         
     }
     
-    //Método que verifica se dois objetos da classe Pessoa ou filhas da classe são iguais
+    //Método que verifica se dois objetos da classe Pessoa da classe são iguais
     public boolean equals(Pessoa compara){
         return documento.equals(compara.getDocumento());
     }
@@ -118,11 +118,24 @@ public abstract class Pessoa {
         this.telefone = telefone;
     }
 
-    //Métodos SETTER que associa o endereço completo em apenas um atributo
+    //Método SETTER que associa o endereço completo em apenas um atributo
     public void setEnderecoCompleto() {
         this.enderecoCompleto = "Rua: " + rua + ", " + numero +
                 ". " + bairro + 
                 " - " + cidade + 
                 "/" + estado;
+    }
+    
+    
+    @Override
+    public String getInfo(){
+        String txt = "";
+        txt += "=====================================================================\n" +
+                "Nome: " + this.getNome() +"\n"+
+                "Documento: " + this.getDocumento() + "\n"+
+                "Telefone: " + this.getTelefone() +"\n"+
+                "Endereço: \n" + this.getEnderecoCompleto()+"\n";
+        
+        return txt;
     }
 }

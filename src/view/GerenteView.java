@@ -5,19 +5,48 @@
  */
 package PadariaTremBao.view;
 
+import PadariaTremBao.controller.GerenteController;
+import java.awt.CardLayout;
+import java.text.ParseException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JButton;
+import javax.swing.JFormattedTextField;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import PadariaTremBao.model.Gerente;
+import PadariaTremBao.util.Validacao;
+import javax.swing.JComboBox;
+
 /**
  *
  * @author Paulo
  */
 public class GerenteView extends javax.swing.JFrame {
-
+    private Gerente usuario;
+    private GerenteController controller = new GerenteController(this);
     /**
-     * Creates new form GerenteView
+     * Creates new form PadeiroView
+     * @param usuario
      */
-    public GerenteView() {
+    public GerenteView(Gerente usuario) {
+        initComponents();
+        this.usuario = usuario;
+        jCB_funcao.addItem("Padeiro");
+        jCB_funcao.addItem("Vendedor");
+        jCB_funcao.addItem("Gerente");
+    }
+    
+    private GerenteView() {
         initComponents();
     }
-
+    public void exibirMensagem(String mensagem){
+        JOptionPane.showMessageDialog(this, mensagem);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -27,41 +56,1496 @@ public class GerenteView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
+        jP_principal = new javax.swing.JPanel();
+        jP_inicio = new javax.swing.JPanel();
+        jP_registrarPonto = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        txt_dataEntrada = new javax.swing.JFormattedTextField();
+        jLabel3 = new javax.swing.JLabel();
+        txt_horaEntrada = new javax.swing.JFormattedTextField();
+        jLabel4 = new javax.swing.JLabel();
+        txt_dataSaida = new javax.swing.JFormattedTextField();
+        jLabel5 = new javax.swing.JLabel();
+        txt_horaSaida = new javax.swing.JFormattedTextField();
+        btn_salvar = new javax.swing.JButton();
+        jP_cadastro = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
+        txt_nome = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        txt_cpf = new javax.swing.JFormattedTextField();
+        jLabel8 = new javax.swing.JLabel();
+        txt_telefone = new javax.swing.JFormattedTextField();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        txt_rua = new javax.swing.JTextField();
+        jLabel11 = new javax.swing.JLabel();
+        txt_numero = new javax.swing.JTextField();
+        jLabel12 = new javax.swing.JLabel();
+        txt_bairro = new javax.swing.JTextField();
+        jLabel13 = new javax.swing.JLabel();
+        txt_cidade = new javax.swing.JTextField();
+        jLabel14 = new javax.swing.JLabel();
+        txt_estado = new javax.swing.JTextField();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        btn_cadastro_editar = new javax.swing.JButton();
+        btn_cadastro_salvar = new javax.swing.JButton();
+        btn_cadastro_cancelar = new javax.swing.JButton();
+        jLabel17 = new javax.swing.JLabel();
+        txt_funcao = new javax.swing.JTextField();
+        jLabel18 = new javax.swing.JLabel();
+        txt_salario = new javax.swing.JFormattedTextField();
+        txt_cargaHora_mes = new javax.swing.JTextField();
+        txt_cargaHora_madrugada = new javax.swing.JTextField();
+        jP_registrarCliente = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        txt_nomeC = new javax.swing.JTextField();
+        jLabel21 = new javax.swing.JLabel();
+        txt_documentoC = new javax.swing.JFormattedTextField();
+        jLabel22 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        jLabel24 = new javax.swing.JLabel();
+        txt_ruaC = new javax.swing.JTextField();
+        jLabel25 = new javax.swing.JLabel();
+        txt_numeroC = new javax.swing.JTextField();
+        jLabel26 = new javax.swing.JLabel();
+        txt_bairroC = new javax.swing.JTextField();
+        jLabel27 = new javax.swing.JLabel();
+        txt_estadoC = new javax.swing.JTextField();
+        jLabel28 = new javax.swing.JLabel();
+        txt_cidadeC = new javax.swing.JTextField();
+        btn_salvarC = new javax.swing.JButton();
+        btn_cancelarC = new javax.swing.JButton();
+        txt_telefoneC = new javax.swing.JFormattedTextField();
+        jP_registarFornecedor = new javax.swing.JPanel();
+        jPanel4 = new javax.swing.JPanel();
+        jLabel29 = new javax.swing.JLabel();
+        jLabel30 = new javax.swing.JLabel();
+        txt_nomeF = new javax.swing.JTextField();
+        jLabel31 = new javax.swing.JLabel();
+        txt_documentoF = new javax.swing.JFormattedTextField();
+        jLabel32 = new javax.swing.JLabel();
+        jLabel33 = new javax.swing.JLabel();
+        jLabel34 = new javax.swing.JLabel();
+        txt_ruaF = new javax.swing.JTextField();
+        jLabel35 = new javax.swing.JLabel();
+        txt_numeroF = new javax.swing.JTextField();
+        jLabel36 = new javax.swing.JLabel();
+        txt_bairroF = new javax.swing.JTextField();
+        jLabel37 = new javax.swing.JLabel();
+        txt_estadoF = new javax.swing.JTextField();
+        jLabel38 = new javax.swing.JLabel();
+        txt_cidadeF = new javax.swing.JTextField();
+        btn_salvarF = new javax.swing.JButton();
+        btn_cancelarF = new javax.swing.JButton();
+        txt_telefoneF = new javax.swing.JFormattedTextField();
+        jP_registarFuncionario = new javax.swing.JPanel();
+        jPanel5 = new javax.swing.JPanel();
+        jLabel39 = new javax.swing.JLabel();
+        jLabel40 = new javax.swing.JLabel();
+        txt_nomeFu = new javax.swing.JTextField();
+        jLabel41 = new javax.swing.JLabel();
+        txt_documentoFu = new javax.swing.JFormattedTextField();
+        jLabel42 = new javax.swing.JLabel();
+        jLabel43 = new javax.swing.JLabel();
+        jLabel44 = new javax.swing.JLabel();
+        txt_ruaFu = new javax.swing.JTextField();
+        jLabel45 = new javax.swing.JLabel();
+        txt_numeroFu = new javax.swing.JTextField();
+        jLabel46 = new javax.swing.JLabel();
+        txt_bairroFu = new javax.swing.JTextField();
+        jLabel47 = new javax.swing.JLabel();
+        txt_estadoFu = new javax.swing.JTextField();
+        jLabel48 = new javax.swing.JLabel();
+        txt_cidadeFu = new javax.swing.JTextField();
+        btn_salvarFu = new javax.swing.JButton();
+        btn_cancelarFu = new javax.swing.JButton();
+        txt_telefoneFu = new javax.swing.JFormattedTextField();
+        jCB_funcao = new javax.swing.JComboBox();
+        jLabel49 = new javax.swing.JLabel();
+        jP_registarProduto = new javax.swing.JPanel();
+        jP_relatorios = new javax.swing.JPanel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jM_inicio = new javax.swing.JMenu();
+        jM_registrarPonto = new javax.swing.JMenuItem();
+        jM_sair = new javax.swing.JMenuItem();
+        jM_cadastro = new javax.swing.JMenu();
+        jM_consultarCadastro = new javax.swing.JMenuItem();
+        jMenu5 = new javax.swing.JMenu();
+        jMenu2 = new javax.swing.JMenu();
+        jM_cadastrar_cliente = new javax.swing.JMenuItem();
+        jM_cadastrar_fornecedor = new javax.swing.JMenuItem();
+        jM_cadastrar_funcionario = new javax.swing.JMenuItem();
+        jM_cadastrar_produto = new javax.swing.JMenuItem();
+        jMenu3 = new javax.swing.JMenu();
+        jMenuItem9 = new javax.swing.JMenuItem();
+        jMenuItem10 = new javax.swing.JMenuItem();
+        jMenuItem11 = new javax.swing.JMenuItem();
+        jMenuItem12 = new javax.swing.JMenuItem();
+        jMenu1 = new javax.swing.JMenu();
+        jM_relatorio_cliente = new javax.swing.JMenuItem();
+        jM_relatorio_fornecedor = new javax.swing.JMenuItem();
+        jM_relatorio_funcionario = new javax.swing.JMenuItem();
+        jM_relatorio_produto = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
-        jButton1.setText("Gerar relatório");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+        jP_principal.setLayout(new java.awt.CardLayout());
+
+        jP_inicio.setBackground(new java.awt.Color(100, 100, 100));
+        jP_inicio.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        javax.swing.GroupLayout jP_inicioLayout = new javax.swing.GroupLayout(jP_inicio);
+        jP_inicio.setLayout(jP_inicioLayout);
+        jP_inicioLayout.setHorizontalGroup(
+            jP_inicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 543, Short.MAX_VALUE)
+        );
+        jP_inicioLayout.setVerticalGroup(
+            jP_inicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 572, Short.MAX_VALUE)
+        );
+
+        jP_principal.add(jP_inicio, "Inicio");
+
+        jP_registrarPonto.setBackground(new java.awt.Color(100, 100, 100));
+        jP_registrarPonto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        jPanel1.setBackground(new java.awt.Color(90, 100, 100));
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel1.setLayout(null);
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel1.setText("Registre seu ponto");
+        jPanel1.add(jLabel1);
+        jLabel1.setBounds(70, 0, 148, 22);
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel2.setText("Data de entrada");
+        jPanel1.add(jLabel2);
+        jLabel2.setBounds(40, 60, 99, 17);
+
+        txt_dataEntrada.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        try {
+            txt_dataEntrada.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        txt_dataEntrada.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txt_dataEntrada.setFocusLostBehavior(javax.swing.JFormattedTextField.PERSIST);
+        txt_dataEntrada.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txt_dataEntrada.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txt_dataEntradaFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txt_dataEntradaFocusLost(evt);
             }
         });
+        txt_dataEntrada.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_dataEntradaActionPerformed(evt);
+            }
+        });
+        jPanel1.add(txt_dataEntrada);
+        txt_dataEntrada.setBounds(39, 90, 100, 28);
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel3.setText("Hora Entrada");
+        jPanel1.add(jLabel3);
+        jLabel3.setBounds(190, 60, 81, 17);
+
+        txt_horaEntrada.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        try {
+            txt_horaEntrada.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##:##")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        txt_horaEntrada.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txt_horaEntrada.setFocusLostBehavior(javax.swing.JFormattedTextField.PERSIST);
+        txt_horaEntrada.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txt_horaEntrada.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txt_horaEntradaFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txt_horaEntradaFocusLost(evt);
+            }
+        });
+        jPanel1.add(txt_horaEntrada);
+        txt_horaEntrada.setBounds(200, 90, 60, 28);
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel4.setText("Data de saída");
+        jPanel1.add(jLabel4);
+        jLabel4.setBounds(50, 160, 82, 17);
+
+        txt_dataSaida.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        try {
+            txt_dataSaida.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        txt_dataSaida.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txt_dataSaida.setFocusLostBehavior(javax.swing.JFormattedTextField.PERSIST);
+        txt_dataSaida.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txt_dataSaida.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txt_dataSaidaFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txt_dataSaidaFocusLost(evt);
+            }
+        });
+        txt_dataSaida.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_dataSaidaActionPerformed(evt);
+            }
+        });
+        jPanel1.add(txt_dataSaida);
+        txt_dataSaida.setBounds(39, 190, 100, 28);
+
+        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel5.setText("Hora Entrada");
+        jPanel1.add(jLabel5);
+        jLabel5.setBounds(190, 160, 81, 17);
+
+        txt_horaSaida.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        try {
+            txt_horaSaida.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##:##")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        txt_horaSaida.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txt_horaSaida.setFocusLostBehavior(javax.swing.JFormattedTextField.PERSIST);
+        txt_horaSaida.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txt_horaSaida.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txt_horaSaidaFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txt_horaSaidaFocusLost(evt);
+            }
+        });
+        jPanel1.add(txt_horaSaida);
+        txt_horaSaida.setBounds(200, 190, 60, 28);
+
+        btn_salvar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btn_salvar.setText("Salvar");
+        btn_salvar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btn_salvar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_salvarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btn_salvar);
+        btn_salvar.setBounds(110, 260, 80, 40);
+
+        javax.swing.GroupLayout jP_registrarPontoLayout = new javax.swing.GroupLayout(jP_registrarPonto);
+        jP_registrarPonto.setLayout(jP_registrarPontoLayout);
+        jP_registrarPontoLayout.setHorizontalGroup(
+            jP_registrarPontoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jP_registrarPontoLayout.createSequentialGroup()
+                .addGap(103, 103, 103)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(140, Short.MAX_VALUE))
+        );
+        jP_registrarPontoLayout.setVerticalGroup(
+            jP_registrarPontoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jP_registrarPontoLayout.createSequentialGroup()
+                .addContainerGap(117, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(105, 105, 105))
+        );
+
+        jP_principal.add(jP_registrarPonto, "Registrar Ponto");
+
+        jP_cadastro.setBackground(new java.awt.Color(100, 100, 100));
+
+        jPanel2.setBackground(new java.awt.Color(90, 100, 100));
+        jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel2.setLayout(null);
+
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel6.setText("Nome");
+        jPanel2.add(jLabel6);
+        jLabel6.setBounds(11, 12, 50, 17);
+
+        txt_nome.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        txt_nome.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        txt_nome.setMinimumSize(new java.awt.Dimension(2, 28));
+        txt_nome.setPreferredSize(new java.awt.Dimension(2, 28));
+        jPanel2.add(txt_nome);
+        txt_nome.setBounds(11, 35, 380, 28);
+
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel7.setText("CPF");
+        jPanel2.add(jLabel7);
+        jLabel7.setBounds(11, 65, 40, 17);
+
+        txt_cpf.setEditable(false);
+        txt_cpf.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        try {
+            txt_cpf.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        txt_cpf.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txt_cpf.setFocusLostBehavior(javax.swing.JFormattedTextField.PERSIST);
+        txt_cpf.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        jPanel2.add(txt_cpf);
+        txt_cpf.setBounds(11, 88, 131, 28);
+
+        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel8.setText("Telefone");
+        jPanel2.add(jLabel8);
+        jLabel8.setBounds(250, 70, 59, 17);
+
+        txt_telefone.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        try {
+            txt_telefone.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)#####-####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        txt_telefone.setFocusLostBehavior(javax.swing.JFormattedTextField.PERSIST);
+        txt_telefone.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        txt_telefone.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txt_telefoneFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txt_telefoneFocusLost(evt);
+            }
+        });
+        jPanel2.add(txt_telefone);
+        txt_telefone.setBounds(250, 90, 140, 28);
+
+        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel9.setText("Endereço");
+        jPanel2.add(jLabel9);
+        jLabel9.setBounds(11, 122, 80, 17);
+
+        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        jLabel10.setText("Rua");
+        jPanel2.add(jLabel10);
+        jLabel10.setBounds(21, 145, 40, 16);
+
+        txt_rua.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        txt_rua.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel2.add(txt_rua);
+        txt_rua.setBounds(21, 168, 220, 28);
+
+        jLabel11.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        jLabel11.setText("Número");
+        jPanel2.add(jLabel11);
+        jLabel11.setBounds(330, 150, 49, 16);
+
+        txt_numero.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        txt_numero.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        txt_numero.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_numeroActionPerformed(evt);
+            }
+        });
+        jPanel2.add(txt_numero);
+        txt_numero.setBounds(330, 170, 55, 28);
+
+        jLabel12.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        jLabel12.setText("Bairro");
+        jPanel2.add(jLabel12);
+        jLabel12.setBounds(20, 220, 39, 16);
+
+        txt_bairro.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        txt_bairro.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel2.add(txt_bairro);
+        txt_bairro.setBounds(20, 240, 160, 28);
+
+        jLabel13.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        jLabel13.setText("Cidade");
+        jPanel2.add(jLabel13);
+        jLabel13.setBounds(200, 220, 43, 16);
+
+        txt_cidade.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        txt_cidade.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel2.add(txt_cidade);
+        txt_cidade.setBounds(200, 240, 110, 28);
+
+        jLabel14.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        jLabel14.setText("Estado");
+        jPanel2.add(jLabel14);
+        jLabel14.setBounds(330, 220, 44, 16);
+
+        txt_estado.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        txt_estado.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        txt_estado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_estadoActionPerformed(evt);
+            }
+        });
+        jPanel2.add(txt_estado);
+        txt_estado.setBounds(340, 240, 38, 28);
+
+        jLabel15.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel15.setText("Carga horária/mês");
+        jPanel2.add(jLabel15);
+        jLabel15.setBounds(10, 340, 140, 17);
+
+        jLabel16.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel16.setText("Carga horária/madrugada");
+        jPanel2.add(jLabel16);
+        jLabel16.setBounds(190, 340, 190, 20);
+
+        btn_cadastro_editar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btn_cadastro_editar.setText("Editar");
+        btn_cadastro_editar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btn_cadastro_editar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_cadastro_editarActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btn_cadastro_editar);
+        btn_cadastro_editar.setBounds(26, 416, 70, 30);
+
+        btn_cadastro_salvar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btn_cadastro_salvar.setText("Salvar");
+        btn_cadastro_salvar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btn_cadastro_salvar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_cadastro_salvarActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btn_cadastro_salvar);
+        btn_cadastro_salvar.setBounds(140, 420, 70, 30);
+
+        btn_cadastro_cancelar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btn_cadastro_cancelar.setText("Cancelar");
+        btn_cadastro_cancelar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btn_cadastro_cancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_cadastro_cancelarActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btn_cadastro_cancelar);
+        btn_cadastro_cancelar.setBounds(260, 420, 80, 30);
+
+        jLabel17.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel17.setText("Função");
+        jPanel2.add(jLabel17);
+        jLabel17.setBounds(11, 278, 50, 17);
+
+        txt_funcao.setEditable(false);
+        txt_funcao.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        txt_funcao.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        txt_funcao.setMinimumSize(new java.awt.Dimension(2, 28));
+        jPanel2.add(txt_funcao);
+        txt_funcao.setBounds(11, 301, 89, 28);
+
+        jLabel18.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel18.setText("Salário");
+        jPanel2.add(jLabel18);
+        jLabel18.setBounds(290, 280, 46, 17);
+
+        txt_salario.setEditable(false);
+        txt_salario.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        txt_salario.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("¤#,##0.00"))));
+        txt_salario.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        jPanel2.add(txt_salario);
+        txt_salario.setBounds(290, 300, 87, 28);
+
+        txt_cargaHora_mes.setEditable(false);
+        txt_cargaHora_mes.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        txt_cargaHora_mes.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txt_cargaHora_mes.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel2.add(txt_cargaHora_mes);
+        txt_cargaHora_mes.setBounds(40, 360, 50, 28);
+
+        txt_cargaHora_madrugada.setEditable(false);
+        txt_cargaHora_madrugada.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        txt_cargaHora_madrugada.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txt_cargaHora_madrugada.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel2.add(txt_cargaHora_madrugada);
+        txt_cargaHora_madrugada.setBounds(250, 360, 50, 28);
+
+        javax.swing.GroupLayout jP_cadastroLayout = new javax.swing.GroupLayout(jP_cadastro);
+        jP_cadastro.setLayout(jP_cadastroLayout);
+        jP_cadastroLayout.setHorizontalGroup(
+            jP_cadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jP_cadastroLayout.createSequentialGroup()
+                .addGap(61, 61, 61)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 407, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(77, Short.MAX_VALUE))
+        );
+        jP_cadastroLayout.setVerticalGroup(
+            jP_cadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jP_cadastroLayout.createSequentialGroup()
+                .addContainerGap(68, Short.MAX_VALUE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 478, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28))
+        );
+
+        jP_principal.add(jP_cadastro, "Cadastro");
+
+        jP_registrarCliente.setBackground(new java.awt.Color(100, 100, 100));
+
+        jPanel3.setBackground(new java.awt.Color(90, 100, 100));
+        jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel3.setMinimumSize(new java.awt.Dimension(400, 400));
+        jPanel3.setLayout(null);
+
+        jLabel19.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        jLabel19.setText("Cadastro de clientes");
+        jPanel3.add(jLabel19);
+        jLabel19.setBounds(110, 0, 190, 20);
+
+        jLabel20.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel20.setText("Nome");
+        jPanel3.add(jLabel20);
+        jLabel20.setBounds(20, 30, 60, 17);
+
+        txt_nomeC.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txt_nomeC.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel3.add(txt_nomeC);
+        txt_nomeC.setBounds(30, 50, 330, 25);
+
+        jLabel21.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel21.setText("Documento");
+        jPanel3.add(jLabel21);
+        jLabel21.setBounds(20, 90, 90, 17);
+
+        txt_documentoC.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        try {
+            txt_documentoC.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        txt_documentoC.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txt_documentoC.setFocusLostBehavior(javax.swing.JFormattedTextField.PERSIST);
+        txt_documentoC.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txt_documentoC.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txt_documentoCFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txt_documentoCFocusLost(evt);
+            }
+        });
+        txt_documentoC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_documentoCActionPerformed(evt);
+            }
+        });
+        jPanel3.add(txt_documentoC);
+        txt_documentoC.setBounds(40, 110, 130, 25);
+
+        jLabel22.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel22.setText("Telefone");
+        jPanel3.add(jLabel22);
+        jLabel22.setBounds(250, 90, 59, 17);
+
+        jLabel23.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel23.setText("Endereço");
+        jPanel3.add(jLabel23);
+        jLabel23.setBounds(20, 150, 80, 17);
+
+        jLabel24.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel24.setText("Rua");
+        jPanel3.add(jLabel24);
+        jLabel24.setBounds(30, 180, 40, 17);
+
+        txt_ruaC.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txt_ruaC.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel3.add(txt_ruaC);
+        txt_ruaC.setBounds(90, 180, 140, 25);
+
+        jLabel25.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel25.setText("Número");
+        jPanel3.add(jLabel25);
+        jLabel25.setBounds(240, 180, 70, 17);
+
+        txt_numeroC.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txt_numeroC.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel3.add(txt_numeroC);
+        txt_numeroC.setBounds(310, 180, 50, 25);
+
+        jLabel26.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel26.setText("Bairro");
+        jPanel3.add(jLabel26);
+        jLabel26.setBounds(30, 220, 50, 17);
+
+        txt_bairroC.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txt_bairroC.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel3.add(txt_bairroC);
+        txt_bairroC.setBounds(90, 220, 140, 25);
+
+        jLabel27.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel27.setText("Cidade");
+        jPanel3.add(jLabel27);
+        jLabel27.setBounds(30, 260, 50, 14);
+
+        txt_estadoC.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel3.add(txt_estadoC);
+        txt_estadoC.setBounds(310, 220, 50, 25);
+
+        jLabel28.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel28.setText("Estado");
+        jPanel3.add(jLabel28);
+        jLabel28.setBounds(240, 220, 60, 17);
+
+        txt_cidadeC.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txt_cidadeC.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel3.add(txt_cidadeC);
+        txt_cidadeC.setBounds(90, 260, 140, 25);
+
+        btn_salvarC.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btn_salvarC.setText("Salvar");
+        btn_salvarC.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btn_salvarC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_salvarCActionPerformed(evt);
+            }
+        });
+        jPanel3.add(btn_salvarC);
+        btn_salvarC.setBounds(80, 320, 80, 30);
+
+        btn_cancelarC.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btn_cancelarC.setText("Cancelar");
+        btn_cancelarC.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btn_cancelarC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_cancelarCActionPerformed(evt);
+            }
+        });
+        jPanel3.add(btn_cancelarC);
+        btn_cancelarC.setBounds(200, 320, 90, 30);
+
+        txt_telefoneC.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        try {
+            txt_telefoneC.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)#####-####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        txt_telefoneC.setFocusLostBehavior(javax.swing.JFormattedTextField.PERSIST);
+        txt_telefoneC.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txt_telefoneC.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txt_telefoneCFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txt_telefoneCFocusLost(evt);
+            }
+        });
+        jPanel3.add(txt_telefoneC);
+        txt_telefoneC.setBounds(240, 110, 120, 25);
+
+        javax.swing.GroupLayout jP_registrarClienteLayout = new javax.swing.GroupLayout(jP_registrarCliente);
+        jP_registrarCliente.setLayout(jP_registrarClienteLayout);
+        jP_registrarClienteLayout.setHorizontalGroup(
+            jP_registrarClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jP_registrarClienteLayout.createSequentialGroup()
+                .addGap(67, 67, 67)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(88, Short.MAX_VALUE))
+        );
+        jP_registrarClienteLayout.setVerticalGroup(
+            jP_registrarClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jP_registrarClienteLayout.createSequentialGroup()
+                .addContainerGap(107, Short.MAX_VALUE)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 389, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(78, 78, 78))
+        );
+
+        jP_principal.add(jP_registrarCliente, "Registrar cliente");
+
+        jP_registarFornecedor.setBackground(new java.awt.Color(100, 100, 100));
+
+        jPanel4.setBackground(new java.awt.Color(90, 100, 100));
+        jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel4.setMinimumSize(new java.awt.Dimension(400, 400));
+        jPanel4.setLayout(null);
+
+        jLabel29.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        jLabel29.setText("Cadastro de Fornecedor");
+        jPanel4.add(jLabel29);
+        jLabel29.setBounds(80, 0, 220, 20);
+
+        jLabel30.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel30.setText("Nome");
+        jPanel4.add(jLabel30);
+        jLabel30.setBounds(20, 30, 60, 17);
+
+        txt_nomeF.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txt_nomeF.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel4.add(txt_nomeF);
+        txt_nomeF.setBounds(30, 50, 330, 25);
+
+        jLabel31.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel31.setText("Documento");
+        jPanel4.add(jLabel31);
+        jLabel31.setBounds(20, 90, 90, 17);
+
+        txt_documentoF.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        try {
+            txt_documentoF.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##.###.###/####-##")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        txt_documentoF.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txt_documentoF.setFocusLostBehavior(javax.swing.JFormattedTextField.PERSIST);
+        txt_documentoF.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txt_documentoF.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txt_documentoFFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txt_documentoFFocusLost(evt);
+            }
+        });
+        jPanel4.add(txt_documentoF);
+        txt_documentoF.setBounds(40, 110, 150, 25);
+
+        jLabel32.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel32.setText("Telefone");
+        jPanel4.add(jLabel32);
+        jLabel32.setBounds(250, 90, 59, 17);
+
+        jLabel33.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel33.setText("Endereço");
+        jPanel4.add(jLabel33);
+        jLabel33.setBounds(20, 150, 80, 17);
+
+        jLabel34.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel34.setText("Rua");
+        jPanel4.add(jLabel34);
+        jLabel34.setBounds(30, 180, 40, 17);
+
+        txt_ruaF.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txt_ruaF.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel4.add(txt_ruaF);
+        txt_ruaF.setBounds(90, 180, 140, 25);
+
+        jLabel35.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel35.setText("Número");
+        jPanel4.add(jLabel35);
+        jLabel35.setBounds(240, 180, 70, 17);
+
+        txt_numeroF.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txt_numeroF.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel4.add(txt_numeroF);
+        txt_numeroF.setBounds(310, 180, 50, 25);
+
+        jLabel36.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel36.setText("Bairro");
+        jPanel4.add(jLabel36);
+        jLabel36.setBounds(30, 220, 50, 17);
+
+        txt_bairroF.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txt_bairroF.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel4.add(txt_bairroF);
+        txt_bairroF.setBounds(90, 220, 140, 25);
+
+        jLabel37.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel37.setText("Cidade");
+        jPanel4.add(jLabel37);
+        jLabel37.setBounds(30, 260, 50, 14);
+
+        txt_estadoF.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel4.add(txt_estadoF);
+        txt_estadoF.setBounds(310, 220, 50, 25);
+
+        jLabel38.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel38.setText("Estado");
+        jPanel4.add(jLabel38);
+        jLabel38.setBounds(240, 220, 60, 17);
+
+        txt_cidadeF.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txt_cidadeF.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel4.add(txt_cidadeF);
+        txt_cidadeF.setBounds(90, 260, 140, 25);
+
+        btn_salvarF.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btn_salvarF.setText("Salvar");
+        btn_salvarF.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btn_salvarF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_salvarFActionPerformed(evt);
+            }
+        });
+        jPanel4.add(btn_salvarF);
+        btn_salvarF.setBounds(80, 320, 80, 30);
+
+        btn_cancelarF.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btn_cancelarF.setText("Cancelar");
+        btn_cancelarF.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btn_cancelarF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_cancelarFActionPerformed(evt);
+            }
+        });
+        jPanel4.add(btn_cancelarF);
+        btn_cancelarF.setBounds(200, 320, 90, 30);
+
+        txt_telefoneF.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        try {
+            txt_telefoneF.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)#####-####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        txt_telefoneF.setFocusLostBehavior(javax.swing.JFormattedTextField.PERSIST);
+        txt_telefoneF.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txt_telefoneF.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txt_telefoneFFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txt_telefoneFFocusLost(evt);
+            }
+        });
+        jPanel4.add(txt_telefoneF);
+        txt_telefoneF.setBounds(240, 110, 120, 25);
+
+        javax.swing.GroupLayout jP_registarFornecedorLayout = new javax.swing.GroupLayout(jP_registarFornecedor);
+        jP_registarFornecedor.setLayout(jP_registarFornecedorLayout);
+        jP_registarFornecedorLayout.setHorizontalGroup(
+            jP_registarFornecedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jP_registarFornecedorLayout.createSequentialGroup()
+                .addContainerGap(84, Short.MAX_VALUE)
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(81, 81, 81))
+        );
+        jP_registarFornecedorLayout.setVerticalGroup(
+            jP_registarFornecedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jP_registarFornecedorLayout.createSequentialGroup()
+                .addContainerGap(106, Short.MAX_VALUE)
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(78, 78, 78))
+        );
+
+        jP_principal.add(jP_registarFornecedor, "Registrar fornecedor");
+
+        jPanel5.setBackground(new java.awt.Color(90, 100, 100));
+        jPanel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel5.setMinimumSize(new java.awt.Dimension(400, 400));
+        jPanel5.setLayout(null);
+
+        jLabel39.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        jLabel39.setText("Cadastro de Funcionário");
+        jPanel5.add(jLabel39);
+        jLabel39.setBounds(100, 0, 220, 20);
+
+        jLabel40.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel40.setText("Nome");
+        jPanel5.add(jLabel40);
+        jLabel40.setBounds(20, 30, 60, 17);
+
+        txt_nomeFu.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txt_nomeFu.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel5.add(txt_nomeFu);
+        txt_nomeFu.setBounds(30, 50, 330, 25);
+
+        jLabel41.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel41.setText("Documento");
+        jPanel5.add(jLabel41);
+        jLabel41.setBounds(20, 90, 90, 17);
+
+        txt_documentoFu.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        try {
+            txt_documentoFu.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##.###.###/####-##")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        txt_documentoFu.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txt_documentoFu.setFocusLostBehavior(javax.swing.JFormattedTextField.PERSIST);
+        txt_documentoFu.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txt_documentoFu.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txt_documentoFuFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txt_documentoFuFocusLost(evt);
+            }
+        });
+        jPanel5.add(txt_documentoFu);
+        txt_documentoFu.setBounds(40, 110, 150, 25);
+
+        jLabel42.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel42.setText("Telefone");
+        jPanel5.add(jLabel42);
+        jLabel42.setBounds(250, 90, 59, 17);
+
+        jLabel43.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel43.setText("Endereço");
+        jPanel5.add(jLabel43);
+        jLabel43.setBounds(20, 150, 80, 17);
+
+        jLabel44.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel44.setText("Rua");
+        jPanel5.add(jLabel44);
+        jLabel44.setBounds(30, 180, 40, 17);
+
+        txt_ruaFu.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txt_ruaFu.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel5.add(txt_ruaFu);
+        txt_ruaFu.setBounds(90, 180, 140, 25);
+
+        jLabel45.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel45.setText("Número");
+        jPanel5.add(jLabel45);
+        jLabel45.setBounds(240, 180, 70, 17);
+
+        txt_numeroFu.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txt_numeroFu.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel5.add(txt_numeroFu);
+        txt_numeroFu.setBounds(310, 180, 50, 25);
+
+        jLabel46.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel46.setText("Bairro");
+        jPanel5.add(jLabel46);
+        jLabel46.setBounds(30, 220, 50, 17);
+
+        txt_bairroFu.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txt_bairroFu.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel5.add(txt_bairroFu);
+        txt_bairroFu.setBounds(90, 220, 140, 25);
+
+        jLabel47.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel47.setText("Cidade");
+        jPanel5.add(jLabel47);
+        jLabel47.setBounds(30, 260, 50, 14);
+
+        txt_estadoFu.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel5.add(txt_estadoFu);
+        txt_estadoFu.setBounds(310, 220, 50, 25);
+
+        jLabel48.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel48.setText("Estado");
+        jPanel5.add(jLabel48);
+        jLabel48.setBounds(240, 220, 60, 17);
+
+        txt_cidadeFu.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txt_cidadeFu.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel5.add(txt_cidadeFu);
+        txt_cidadeFu.setBounds(90, 260, 140, 25);
+
+        btn_salvarFu.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btn_salvarFu.setText("Salvar");
+        btn_salvarFu.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btn_salvarFu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_salvarFuActionPerformed(evt);
+            }
+        });
+        jPanel5.add(btn_salvarFu);
+        btn_salvarFu.setBounds(80, 340, 80, 30);
+
+        btn_cancelarFu.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btn_cancelarFu.setText("Cancelar");
+        btn_cancelarFu.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btn_cancelarFu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_cancelarFuActionPerformed(evt);
+            }
+        });
+        jPanel5.add(btn_cancelarFu);
+        btn_cancelarFu.setBounds(220, 340, 90, 30);
+
+        txt_telefoneFu.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        try {
+            txt_telefoneFu.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)#####-####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        txt_telefoneFu.setFocusLostBehavior(javax.swing.JFormattedTextField.PERSIST);
+        txt_telefoneFu.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txt_telefoneFu.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txt_telefoneFuFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txt_telefoneFuFocusLost(evt);
+            }
+        });
+        jPanel5.add(txt_telefoneFu);
+        txt_telefoneFu.setBounds(240, 110, 120, 25);
+
+        jCB_funcao.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jCB_funcao.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel5.add(jCB_funcao);
+        jCB_funcao.setBounds(130, 300, 130, 25);
+
+        jLabel49.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel49.setText("Função");
+        jPanel5.add(jLabel49);
+        jLabel49.setBounds(60, 300, 60, 17);
+
+        javax.swing.GroupLayout jP_registarFuncionarioLayout = new javax.swing.GroupLayout(jP_registarFuncionario);
+        jP_registarFuncionario.setLayout(jP_registarFuncionarioLayout);
+        jP_registarFuncionarioLayout.setHorizontalGroup(
+            jP_registarFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jP_registarFuncionarioLayout.createSequentialGroup()
+                .addGap(82, 82, 82)
+                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(83, Short.MAX_VALUE))
+        );
+        jP_registarFuncionarioLayout.setVerticalGroup(
+            jP_registarFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jP_registarFuncionarioLayout.createSequentialGroup()
+                .addContainerGap(107, Short.MAX_VALUE)
+                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(77, 77, 77))
+        );
+
+        jP_principal.add(jP_registarFuncionario, "Registrar funcionario");
+
+        javax.swing.GroupLayout jP_registarProdutoLayout = new javax.swing.GroupLayout(jP_registarProduto);
+        jP_registarProduto.setLayout(jP_registarProdutoLayout);
+        jP_registarProdutoLayout.setHorizontalGroup(
+            jP_registarProdutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 545, Short.MAX_VALUE)
+        );
+        jP_registarProdutoLayout.setVerticalGroup(
+            jP_registarProdutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 574, Short.MAX_VALUE)
+        );
+
+        jP_principal.add(jP_registarProduto, "Registrar produto");
+
+        javax.swing.GroupLayout jP_relatoriosLayout = new javax.swing.GroupLayout(jP_relatorios);
+        jP_relatorios.setLayout(jP_relatoriosLayout);
+        jP_relatoriosLayout.setHorizontalGroup(
+            jP_relatoriosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 545, Short.MAX_VALUE)
+        );
+        jP_relatoriosLayout.setVerticalGroup(
+            jP_relatoriosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 574, Short.MAX_VALUE)
+        );
+
+        jP_principal.add(jP_relatorios, "card9");
+
+        jM_inicio.setBorder(null);
+        jM_inicio.setText("Inicio");
+        jM_inicio.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+
+        jM_registrarPonto.setText("Registrar Ponto");
+        jM_registrarPonto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jM_registrarPontoActionPerformed(evt);
+            }
+        });
+        jM_inicio.add(jM_registrarPonto);
+
+        jM_sair.setText("Sair");
+        jM_sair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jM_sairActionPerformed(evt);
+            }
+        });
+        jM_inicio.add(jM_sair);
+
+        jMenuBar1.add(jM_inicio);
+
+        jM_cadastro.setBorder(null);
+        jM_cadastro.setText("Cadastro");
+        jM_cadastro.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+
+        jM_consultarCadastro.setText("Consultar Cadastro");
+        jM_consultarCadastro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jM_consultarCadastroActionPerformed(evt);
+            }
+        });
+        jM_cadastro.add(jM_consultarCadastro);
+
+        jMenuBar1.add(jM_cadastro);
+
+        jMenu5.setText("Gerenciar");
+        jMenu5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+
+        jMenu2.setText("Cadastrar");
+
+        jM_cadastrar_cliente.setText("Cliente");
+        jM_cadastrar_cliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jM_cadastrar_clienteActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jM_cadastrar_cliente);
+
+        jM_cadastrar_fornecedor.setText("Fornecedor");
+        jM_cadastrar_fornecedor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jM_cadastrar_fornecedorActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jM_cadastrar_fornecedor);
+
+        jM_cadastrar_funcionario.setText("Funcionário");
+        jM_cadastrar_funcionario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jM_cadastrar_funcionarioActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jM_cadastrar_funcionario);
+
+        jM_cadastrar_produto.setText("Produto");
+        jM_cadastrar_produto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jM_cadastrar_produtoActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jM_cadastrar_produto);
+
+        jMenu5.add(jMenu2);
+
+        jMenu3.setText("Consultar");
+
+        jMenuItem9.setText("Cliente");
+        jMenu3.add(jMenuItem9);
+
+        jMenuItem10.setText("Fornecedor");
+        jMenu3.add(jMenuItem10);
+
+        jMenuItem11.setText("Funcionário");
+        jMenu3.add(jMenuItem11);
+
+        jMenuItem12.setText("Produto");
+        jMenu3.add(jMenuItem12);
+
+        jMenu5.add(jMenu3);
+
+        jMenuBar1.add(jMenu5);
+
+        jMenu1.setText("Relatórios");
+        jMenu1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+
+        jM_relatorio_cliente.setText("Clientes");
+        jMenu1.add(jM_relatorio_cliente);
+
+        jM_relatorio_fornecedor.setText("Fornecedores");
+        jMenu1.add(jM_relatorio_fornecedor);
+
+        jM_relatorio_funcionario.setText("Funcionários");
+        jMenu1.add(jM_relatorio_funcionario);
+
+        jM_relatorio_produto.setText("Produtos");
+        jMenu1.add(jM_relatorio_produto);
+
+        jMenuBar1.add(jMenu1);
+
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jButton1)
-                .addContainerGap(282, Short.MAX_VALUE))
+            .addComponent(jP_principal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(51, 51, 51)
-                .addComponent(jButton1)
-                .addContainerGap(226, Short.MAX_VALUE))
+            .addComponent(jP_principal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jM_sairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jM_sairActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+        LoginView lv = new LoginView();
+        lv.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jM_sairActionPerformed
+    
+    
+    private void txt_dataEntradaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_dataEntradaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_dataEntradaActionPerformed
+   
+    private void txt_dataSaidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_dataSaidaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_dataSaidaActionPerformed
+    
+    
+    private void txt_dataEntradaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_dataEntradaFocusGained
+        // TODO add your handling code here:
+        txt_dataEntrada.setText("");
+    }//GEN-LAST:event_txt_dataEntradaFocusGained
+
+    private void txt_dataEntradaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_dataEntradaFocusLost
+        // TODO add your handling code here:
+        if(txt_dataEntrada.getText().trim().length()<10){
+            txt_dataEntrada.setText("");
+        }else{
+            String retorno = Validacao.validarData(txt_dataEntrada.getText());
+            if(retorno.equals("Data inválida")){
+                JOptionPane.showMessageDialog(this, retorno);
+                txt_dataEntrada.setText("");
+            }
+        }
+    }//GEN-LAST:event_txt_dataEntradaFocusLost
+
+    private void txt_horaEntradaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_horaEntradaFocusGained
+        // TODO add your handling code here:
+        txt_horaEntrada.setText("");
+    }//GEN-LAST:event_txt_horaEntradaFocusGained
+
+    private void txt_horaEntradaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_horaEntradaFocusLost
+        // TODO add your handling code here:
+        if(txt_horaEntrada.getText().trim().length()<5){
+            txt_horaEntrada.setText("");
+        }else{
+            String retorno = Validacao.validarHora(txt_horaEntrada.getText());
+            if(retorno.equals("Hora inválida")){
+                JOptionPane.showMessageDialog(this, retorno);
+                txt_horaEntrada.setText("");
+            }
+        }
+    }//GEN-LAST:event_txt_horaEntradaFocusLost
+
+    private void txt_dataSaidaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_dataSaidaFocusGained
+        // TODO add your handling code here:
+        txt_dataSaida.setText("");
+    }//GEN-LAST:event_txt_dataSaidaFocusGained
+
+    private void txt_dataSaidaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_dataSaidaFocusLost
+        // TODO add your handling code here:
+        if(txt_dataSaida.getText().trim().length()<10){
+            txt_dataSaida.setText("");
+        }else{
+            String retorno = Validacao.validarData(txt_dataSaida.getText());
+            if(retorno.equals("Data inválida")){
+                JOptionPane.showMessageDialog(this, retorno);
+                txt_dataSaida.setText("");
+            }
+        }
+    }//GEN-LAST:event_txt_dataSaidaFocusLost
+
+    private void txt_horaSaidaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_horaSaidaFocusGained
+        // TODO add your handling code here:
+        txt_horaSaida.setText("");
+    }//GEN-LAST:event_txt_horaSaidaFocusGained
+
+    private void txt_horaSaidaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_horaSaidaFocusLost
+        // TODO add your handling code here:
+        if(txt_horaSaida.getText().trim().length()<5){
+            txt_horaSaida.setText("");
+        }else{
+            String retorno = Validacao.validarHora(txt_horaSaida.getText());
+            if(retorno.equals("Hora inválida")){
+                JOptionPane.showMessageDialog(this, retorno);
+                txt_horaSaida.setText("");
+            }
+        }
+    }//GEN-LAST:event_txt_horaSaidaFocusLost
+
+    private void jM_registrarPontoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jM_registrarPontoActionPerformed
+        // TODO add your handling code here:
+        //CardLayout cd = CardLayout
+        CardLayout cl = (CardLayout)jP_principal.getLayout();
+        cl.show(jP_principal, "Registrar Ponto");
+        
+    }//GEN-LAST:event_jM_registrarPontoActionPerformed
+
+    private void txt_numeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_numeroActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_numeroActionPerformed
+
+    private void btn_cadastro_editarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cadastro_editarActionPerformed
+        // TODO add your handling code here:
+        btn_cadastro_salvar.setEnabled(true);
+        btn_cadastro_editar.setEnabled(true);
+        btn_cadastro_cancelar.setEnabled(true);
+        controller.editarCampos(true);
+    }//GEN-LAST:event_btn_cadastro_editarActionPerformed
+
+    private void btn_cadastro_salvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cadastro_salvarActionPerformed
+        // TODO add your handling code here:
+        controller.editarCadastro();
+        btn_cadastro_salvar.setEnabled(false);
+    }//GEN-LAST:event_btn_cadastro_salvarActionPerformed
+
+    private void txt_estadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_estadoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_estadoActionPerformed
+
+    private void btn_cadastro_cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cadastro_cancelarActionPerformed
+        // TODO add your handling code here:
+        CardLayout cl = (CardLayout)jP_principal.getLayout();
+        cl.show(jP_principal, "Inicio");
+    }//GEN-LAST:event_btn_cadastro_cancelarActionPerformed
+
+    private void jM_consultarCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jM_consultarCadastroActionPerformed
+        // TODO add your handling code here:
+        controller.setarCadastro();
+        controller.editarCampos(false);
+        btn_cadastro_salvar.setEnabled(false);
+        btn_cadastro_cancelar.setEnabled(true);
+        btn_cadastro_editar.setEnabled(true);
+        CardLayout cl = (CardLayout)jP_principal.getLayout();
+        cl.show(jP_principal, "Cadastro");
+    }//GEN-LAST:event_jM_consultarCadastroActionPerformed
+
+    private void txt_telefoneFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_telefoneFocusGained
+        // TODO add your handling code here:
+        txt_telefone.setText("");
+    }//GEN-LAST:event_txt_telefoneFocusGained
+
+    private void txt_telefoneFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_telefoneFocusLost
+        // TODO add your handling code here:
+        if(txt_telefone.getText().trim().length()<14){
+            txt_telefone.setText("");
+        }
+    }//GEN-LAST:event_txt_telefoneFocusLost
+
+    private void btn_salvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salvarActionPerformed
+        
+        try {
+            controller.registrarPonto();
+        } catch (ParseException ex) {
+            Logger.getLogger(GerenteView.class.getName()).log(Level.SEVERE, null, ex);
+        }
+         
+    }//GEN-LAST:event_btn_salvarActionPerformed
+
+    private void txt_documentoCFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_documentoCFocusGained
+        // TODO add your handling code here:
+        txt_documentoC.setText("");
+    }//GEN-LAST:event_txt_documentoCFocusGained
+
+    private void txt_documentoCFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_documentoCFocusLost
+        // TODO add your handling code here:
+        if(txt_documentoC.getText().trim().length()<14){
+            txt_documentoC.setText("");
+        }else{
+            controller.procurarCliente();
+        }
+    }//GEN-LAST:event_txt_documentoCFocusLost
+
+    private void btn_salvarCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salvarCActionPerformed
+        // TODO add your handling code here:
+        controller.cadastrarCliente();
+        CardLayout cl = (CardLayout) jP_principal.getLayout();
+        cl.show(jP_principal, "Inicio");
+    }//GEN-LAST:event_btn_salvarCActionPerformed
+
+    private void btn_cancelarCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cancelarCActionPerformed
+        // TODO add your handling code here:
+        CardLayout cl = (CardLayout) jP_principal.getLayout();
+        cl.show(jP_principal, "Inicio");
+    }//GEN-LAST:event_btn_cancelarCActionPerformed
+
+    private void txt_telefoneCFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_telefoneCFocusGained
+        // TODO add your handling code here:
+        txt_telefoneC.setText("");
+    }//GEN-LAST:event_txt_telefoneCFocusGained
+
+    private void txt_telefoneCFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_telefoneCFocusLost
+        // TODO add your handling code here:
+        if(txt_telefoneC.getText().trim().length()<14){
+            txt_telefoneC.setText("");
+        }
+    }//GEN-LAST:event_txt_telefoneCFocusLost
+
+    private void txt_documentoFFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_documentoFFocusGained
+        // TODO add your handling code here:
+        txt_documentoF.setText("");
+    }//GEN-LAST:event_txt_documentoFFocusGained
+
+    private void txt_documentoFFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_documentoFFocusLost
+        // TODO add your handling code here:
+        if(txt_telefoneF.getText().trim().length()<18){
+            txt_telefoneF.setText("");
+        }else{
+            controller.procurarFornecedor();
+        }
+    }//GEN-LAST:event_txt_documentoFFocusLost
+
+    private void btn_salvarFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salvarFActionPerformed
+        // TODO add your handling code here:
+        controller.cadastrarFornecedor();
+    }//GEN-LAST:event_btn_salvarFActionPerformed
+
+    private void btn_cancelarFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cancelarFActionPerformed
+        // TODO add your handling code here:
+        CardLayout cl = (CardLayout) jP_principal.getLayout();
+        cl.show(jP_principal, "Inicio");
+    }//GEN-LAST:event_btn_cancelarFActionPerformed
+
+    private void txt_telefoneFFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_telefoneFFocusGained
+        // TODO add your handling code here:
+        txt_telefoneF.setText("");
+    }//GEN-LAST:event_txt_telefoneFFocusGained
+
+    private void txt_telefoneFFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_telefoneFFocusLost
+        // TODO add your handling code here:
+        if(txt_telefoneF.getText().trim().length()<14){
+            txt_telefoneF.setText("");
+        }
+    }//GEN-LAST:event_txt_telefoneFFocusLost
+
+    private void txt_documentoFuFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_documentoFuFocusGained
+        // TODO add your handling code here:
+        txt_documentoFu.setText("");
+    }//GEN-LAST:event_txt_documentoFuFocusGained
+
+    private void txt_documentoFuFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_documentoFuFocusLost
+        // TODO add your handling code here:
+        if(txt_telefoneFu.getText().trim().length()<14){
+            txt_telefoneFu.setText("");
+        }else{
+            controller.procurarFuncionario();
+        }
+    }//GEN-LAST:event_txt_documentoFuFocusLost
+
+    private void btn_salvarFuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salvarFuActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_salvarFuActionPerformed
+
+    private void btn_cancelarFuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cancelarFuActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_cancelarFuActionPerformed
+
+    private void txt_telefoneFuFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_telefoneFuFocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_telefoneFuFocusGained
+
+    private void txt_telefoneFuFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_telefoneFuFocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_telefoneFuFocusLost
+
+    private void jM_cadastrar_clienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jM_cadastrar_clienteActionPerformed
+        // TODO add your handling code here:
+        CardLayout cl = (CardLayout) jP_principal.getLayout();
+        cl.show(jP_principal, "Registrar cliente");
+    }//GEN-LAST:event_jM_cadastrar_clienteActionPerformed
+
+    private void jM_cadastrar_fornecedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jM_cadastrar_fornecedorActionPerformed
+        // TODO add your handling code here:
+        CardLayout cl = (CardLayout) jP_principal.getLayout();
+        cl.show(jP_principal, "Registrar fornecedor");
+    }//GEN-LAST:event_jM_cadastrar_fornecedorActionPerformed
+
+    private void jM_cadastrar_funcionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jM_cadastrar_funcionarioActionPerformed
+        // TODO add your handling code here:
+        CardLayout cl = (CardLayout) jP_principal.getLayout();
+        cl.show(jP_principal, "Registrar funcionario");
+    }//GEN-LAST:event_jM_cadastrar_funcionarioActionPerformed
+
+    private void jM_cadastrar_produtoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jM_cadastrar_produtoActionPerformed
+        // TODO add your handling code here:
+        CardLayout cl = (CardLayout) jP_principal.getLayout();
+        cl.show(jP_principal, "Registrar produto");
+    }//GEN-LAST:event_jM_cadastrar_produtoActionPerformed
+
+    private void txt_documentoCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_documentoCActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_documentoCActionPerformed
 
     /**
      * @param args the command line arguments
@@ -89,16 +1573,673 @@ public class GerenteView extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(GerenteView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new GerenteView().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new GerenteView().setVisible(true);
         });
     }
+    
+    public Gerente getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Gerente usuario) {
+        this.usuario = usuario;
+    }
+
+    public GerenteController getController() {
+        return controller;
+    }
+
+    public void setController(GerenteController controller) {
+        this.controller = controller;
+    }
+
+    public JButton getBtn_cadastro_cancelar() {
+        return btn_cadastro_cancelar;
+    }
+
+    public void setBtn_cadastro_cancelar(JButton btn_cadastro_cancelar) {
+        this.btn_cadastro_cancelar = btn_cadastro_cancelar;
+    }
+
+    public JButton getBtn_cadastro_editar() {
+        return btn_cadastro_editar;
+    }
+
+    public void setBtn_cadastro_editar(JButton btn_cadastro_editar) {
+        this.btn_cadastro_editar = btn_cadastro_editar;
+    }
+
+    public JButton getBtn_cadastro_salvar() {
+        return btn_cadastro_salvar;
+    }
+
+    public void setBtn_cadastro_salvar(JButton btn_cadastro_salvar) {
+        this.btn_cadastro_salvar = btn_cadastro_salvar;
+    }
+
+    public JButton getBtn_salvar() {
+        return btn_salvar;
+    }
+
+    public void setBtn_salvar(JButton btn_salvar) {
+        this.btn_salvar = btn_salvar;
+    }
+
+    public JMenu getjM_cadastro() {
+        return jM_cadastro;
+    }
+
+    public void setjM_cadastro(JMenu jM_cadastro) {
+        this.jM_cadastro = jM_cadastro;
+    }
+
+    public JMenuItem getjM_consultarCadastro() {
+        return jM_consultarCadastro;
+    }
+
+    public void setjM_consultarCadastro(JMenuItem jM_consultarCadastro) {
+        this.jM_consultarCadastro = jM_consultarCadastro;
+    }
+
+    public JMenu getjM_inicio() {
+        return jM_inicio;
+    }
+
+    public void setjM_inicio(JMenu jM_inicio) {
+        this.jM_inicio = jM_inicio;
+    }
+
+    public JMenuItem getjM_registrarPonto() {
+        return jM_registrarPonto;
+    }
+
+    public void setjM_registrarPonto(JMenuItem jM_registrarPonto) {
+        this.jM_registrarPonto = jM_registrarPonto;
+    }
+
+    public JMenuItem getjM_sair() {
+        return jM_sair;
+    }
+
+    public void setjM_sair(JMenuItem jM_sair) {
+        this.jM_sair = jM_sair;
+    }
+
+    public JMenuBar getjMenuBar1() {
+        return jMenuBar1;
+    }
+
+    public void setjMenuBar1(JMenuBar jMenuBar1) {
+        this.jMenuBar1 = jMenuBar1;
+    }
+
+    public JPanel getjP_cadastro() {
+        return jP_cadastro;
+    }
+
+    public void setjP_cadastro(JPanel jP_cadastro) {
+        this.jP_cadastro = jP_cadastro;
+    }
+
+    public JPanel getjP_inicio() {
+        return jP_inicio;
+    }
+
+    public void setjP_inicio(JPanel jP_inicio) {
+        this.jP_inicio = jP_inicio;
+    }
+
+    public JPanel getjP_principal() {
+        return jP_principal;
+    }
+
+    public void setjP_principal(JPanel jP_principal) {
+        this.jP_principal = jP_principal;
+    }
+
+    public JPanel getjP_registrarPonto() {
+        return jP_registrarPonto;
+    }
+
+    public void setjP_registrarPonto(JPanel jP_registrarPonto) {
+        this.jP_registrarPonto = jP_registrarPonto;
+    }
+
+    public JPanel getjPanel1() {
+        return jPanel1;
+    }
+
+    public void setjPanel1(JPanel jPanel1) {
+        this.jPanel1 = jPanel1;
+    }
+
+    public JPanel getjPanel2() {
+        return jPanel2;
+    }
+
+    public void setjPanel2(JPanel jPanel2) {
+        this.jPanel2 = jPanel2;
+    }
+
+    public JTextField getTxt_bairro() {
+        return txt_bairro;
+    }
+
+    public void setTxt_bairro(JTextField txt_bairro) {
+        this.txt_bairro = txt_bairro;
+    }
+
+    public JTextField getTxt_cargaHora_madrugada() {
+        return txt_cargaHora_madrugada;
+    }
+
+    public void setTxt_cargaHora_madrugada(JTextField txt_cargaHora_madrugada) {
+        this.txt_cargaHora_madrugada = txt_cargaHora_madrugada;
+    }
+
+    public JTextField getTxt_cargaHora_mes() {
+        return txt_cargaHora_mes;
+    }
+
+    public void setTxt_cargaHora_mes(JTextField txt_cargaHora_mes) {
+        this.txt_cargaHora_mes = txt_cargaHora_mes;
+    }
+
+    public JTextField getTxt_cidade() {
+        return txt_cidade;
+    }
+
+    public void setTxt_cidade(JTextField txt_cidade) {
+        this.txt_cidade = txt_cidade;
+    }
+
+    public JFormattedTextField getTxt_cpf() {
+        return txt_cpf;
+    }
+
+    public void setTxt_cpf(JFormattedTextField txt_cpf) {
+        this.txt_cpf = txt_cpf;
+    }
+
+    public JFormattedTextField getTxt_dataEntrada() {
+        return txt_dataEntrada;
+    }
+
+    public void setTxt_dataEntrada(JFormattedTextField txt_dataEntrada) {
+        this.txt_dataEntrada = txt_dataEntrada;
+    }
+
+    public JFormattedTextField getTxt_dataSaida() {
+        return txt_dataSaida;
+    }
+
+    public void setTxt_dataSaida(JFormattedTextField txt_dataSaida) {
+        this.txt_dataSaida = txt_dataSaida;
+    }
+
+    public JTextField getTxt_estado() {
+        return txt_estado;
+    }
+
+    public void setTxt_estado(JTextField txt_estado) {
+        this.txt_estado = txt_estado;
+    }
+
+    public JTextField getTxt_funcao() {
+        return txt_funcao;
+    }
+
+    public void setTxt_funcao(JTextField txt_funcao) {
+        this.txt_funcao = txt_funcao;
+    }
+
+    public JButton getBtn_cancelarC() {
+        return btn_cancelarC;
+    }
+
+    public void setBtn_cancelarC(JButton btn_cancelarC) {
+        this.btn_cancelarC = btn_cancelarC;
+    }
+
+    public JButton getBtn_cancelarF() {
+        return btn_cancelarF;
+    }
+
+    public void setBtn_cancelarF(JButton btn_cancelarF) {
+        this.btn_cancelarF = btn_cancelarF;
+    }
+
+    public JButton getBtn_cancelarFu() {
+        return btn_cancelarFu;
+    }
+
+    public void setBtn_cancelarFu(JButton btn_cancelarFu) {
+        this.btn_cancelarFu = btn_cancelarFu;
+    }
+
+    public JButton getBtn_salvarC() {
+        return btn_salvarC;
+    }
+
+    public void setBtn_salvarC(JButton btn_salvarC) {
+        this.btn_salvarC = btn_salvarC;
+    }
+
+    public JButton getBtn_salvarF() {
+        return btn_salvarF;
+    }
+
+    public void setBtn_salvarF(JButton btn_salvarF) {
+        this.btn_salvarF = btn_salvarF;
+    }
+
+    public JButton getBtn_salvarFu() {
+        return btn_salvarFu;
+    }
+
+    public void setBtn_salvarFu(JButton btn_salvarFu) {
+        this.btn_salvarFu = btn_salvarFu;
+    }
+
+    public JComboBox getjCB_funcao() {
+        return jCB_funcao;
+    }
+
+    public void setjCB_funcao(JComboBox jCB_funcao) {
+        this.jCB_funcao = jCB_funcao;
+    }
+
+    public JTextField getTxt_bairroC() {
+        return txt_bairroC;
+    }
+
+    public void setTxt_bairroC(JTextField txt_bairroC) {
+        this.txt_bairroC = txt_bairroC;
+    }
+
+    public JTextField getTxt_bairroF() {
+        return txt_bairroF;
+    }
+
+    public void setTxt_bairroF(JTextField txt_bairroF) {
+        this.txt_bairroF = txt_bairroF;
+    }
+
+    public JTextField getTxt_bairroFu() {
+        return txt_bairroFu;
+    }
+
+    public void setTxt_bairroFu(JTextField txt_bairroFu) {
+        this.txt_bairroFu = txt_bairroFu;
+    }
+
+    public JTextField getTxt_cidadeC() {
+        return txt_cidadeC;
+    }
+
+    public void setTxt_cidadeC(JTextField txt_cidadeC) {
+        this.txt_cidadeC = txt_cidadeC;
+    }
+
+    public JTextField getTxt_cidadeF() {
+        return txt_cidadeF;
+    }
+
+    public void setTxt_cidadeF(JTextField txt_cidadeF) {
+        this.txt_cidadeF = txt_cidadeF;
+    }
+
+    public JTextField getTxt_cidadeFu() {
+        return txt_cidadeFu;
+    }
+
+    public void setTxt_cidadeFu(JTextField txt_cidadeFu) {
+        this.txt_cidadeFu = txt_cidadeFu;
+    }
+
+    public JFormattedTextField getTxt_documentoC() {
+        return txt_documentoC;
+    }
+
+    public void setTxt_documentoC(JFormattedTextField txt_documentoC) {
+        this.txt_documentoC = txt_documentoC;
+    }
+
+    public JFormattedTextField getTxt_documentoF() {
+        return txt_documentoF;
+    }
+
+    public void setTxt_documentoF(JFormattedTextField txt_documentoF) {
+        this.txt_documentoF = txt_documentoF;
+    }
+
+    public JFormattedTextField getTxt_documentoFu() {
+        return txt_documentoFu;
+    }
+
+    public void setTxt_documentoFu(JFormattedTextField txt_documentoFu) {
+        this.txt_documentoFu = txt_documentoFu;
+    }
+
+    public JTextField getTxt_estadoC() {
+        return txt_estadoC;
+    }
+
+    public void setTxt_estadoC(JTextField txt_estadoC) {
+        this.txt_estadoC = txt_estadoC;
+    }
+
+    public JTextField getTxt_estadoF() {
+        return txt_estadoF;
+    }
+
+    public void setTxt_estadoF(JTextField txt_estadoF) {
+        this.txt_estadoF = txt_estadoF;
+    }
+
+    public JTextField getTxt_estadoFu() {
+        return txt_estadoFu;
+    }
+
+    public void setTxt_estadoFu(JTextField txt_estadoFu) {
+        this.txt_estadoFu = txt_estadoFu;
+    }
+
+    public JTextField getTxt_nomeC() {
+        return txt_nomeC;
+    }
+
+    public void setTxt_nomeC(JTextField txt_nomeC) {
+        this.txt_nomeC = txt_nomeC;
+    }
+
+    public JTextField getTxt_nomeF() {
+        return txt_nomeF;
+    }
+
+    public void setTxt_nomeF(JTextField txt_nomeF) {
+        this.txt_nomeF = txt_nomeF;
+    }
+
+    public JTextField getTxt_nomeFu() {
+        return txt_nomeFu;
+    }
+
+    public void setTxt_nomeFu(JTextField txt_nomeFu) {
+        this.txt_nomeFu = txt_nomeFu;
+    }
+
+    public JTextField getTxt_numeroC() {
+        return txt_numeroC;
+    }
+
+    public void setTxt_numeroC(JTextField txt_numeroC) {
+        this.txt_numeroC = txt_numeroC;
+    }
+
+    public JTextField getTxt_numeroF() {
+        return txt_numeroF;
+    }
+
+    public void setTxt_numeroF(JTextField txt_numeroF) {
+        this.txt_numeroF = txt_numeroF;
+    }
+
+    public JTextField getTxt_numeroFu() {
+        return txt_numeroFu;
+    }
+
+    public void setTxt_numeroFu(JTextField txt_numeroFu) {
+        this.txt_numeroFu = txt_numeroFu;
+    }
+
+    public JTextField getTxt_ruaC() {
+        return txt_ruaC;
+    }
+
+    public void setTxt_ruaC(JTextField txt_ruaC) {
+        this.txt_ruaC = txt_ruaC;
+    }
+
+    public JTextField getTxt_ruaF() {
+        return txt_ruaF;
+    }
+
+    public void setTxt_ruaF(JTextField txt_ruaF) {
+        this.txt_ruaF = txt_ruaF;
+    }
+
+    public JTextField getTxt_ruaFu() {
+        return txt_ruaFu;
+    }
+
+    public void setTxt_ruaFu(JTextField txt_ruaFu) {
+        this.txt_ruaFu = txt_ruaFu;
+    }
+
+    public JFormattedTextField getTxt_telefoneC() {
+        return txt_telefoneC;
+    }
+
+    public void setTxt_telefoneC(JFormattedTextField txt_telefoneC) {
+        this.txt_telefoneC = txt_telefoneC;
+    }
+
+    public JFormattedTextField getTxt_telefoneF() {
+        return txt_telefoneF;
+    }
+
+    public void setTxt_telefoneF(JFormattedTextField txt_telefoneF) {
+        this.txt_telefoneF = txt_telefoneF;
+    }
+
+    public JFormattedTextField getTxt_telefoneFu() {
+        return txt_telefoneFu;
+    }
+
+    public void setTxt_telefoneFu(JFormattedTextField txt_telefoneFu) {
+        this.txt_telefoneFu = txt_telefoneFu;
+    }
+    
+    
+
+    public JFormattedTextField getTxt_horaEntrada() {
+        return txt_horaEntrada;
+    }
+
+    public void setTxt_horaEntrada(JFormattedTextField txt_horaEntrada) {
+        this.txt_horaEntrada = txt_horaEntrada;
+    }
+
+    public JFormattedTextField getTxt_horaSaida() {
+        return txt_horaSaida;
+    }
+
+    public void setTxt_horaSaida(JFormattedTextField txt_horaSaida) {
+        this.txt_horaSaida = txt_horaSaida;
+    }
+
+    public JTextField getTxt_nome() {
+        return txt_nome;
+    }
+
+    public void setTxt_nome(JTextField txt_nome) {
+        this.txt_nome = txt_nome;
+    }
+
+    public JTextField getTxt_numero() {
+        return txt_numero;
+    }
+
+    public void setTxt_numero(JTextField txt_numero) {
+        this.txt_numero = txt_numero;
+    }
+
+    public JTextField getTxt_rua() {
+        return txt_rua;
+    }
+
+    public void setTxt_rua(JTextField txt_rua) {
+        this.txt_rua = txt_rua;
+    }
+
+    public JFormattedTextField getTxt_salario() {
+        return txt_salario;
+    }
+
+    public void setTxt_salario(JFormattedTextField txt_salario) {
+        this.txt_salario = txt_salario;
+    }
+
+    public JFormattedTextField getTxt_telefone() {
+        return txt_telefone;
+    }
+
+    public void setTxt_telefone(JFormattedTextField txt_telefone) {
+        this.txt_telefone = txt_telefone;
+    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btn_cadastro_cancelar;
+    private javax.swing.JButton btn_cadastro_editar;
+    private javax.swing.JButton btn_cadastro_salvar;
+    private javax.swing.JButton btn_cancelarC;
+    private javax.swing.JButton btn_cancelarF;
+    private javax.swing.JButton btn_cancelarFu;
+    private javax.swing.JButton btn_salvar;
+    private javax.swing.JButton btn_salvarC;
+    private javax.swing.JButton btn_salvarF;
+    private javax.swing.JButton btn_salvarFu;
+    private javax.swing.JComboBox jCB_funcao;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
+    private javax.swing.JLabel jLabel35;
+    private javax.swing.JLabel jLabel36;
+    private javax.swing.JLabel jLabel37;
+    private javax.swing.JLabel jLabel38;
+    private javax.swing.JLabel jLabel39;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel40;
+    private javax.swing.JLabel jLabel41;
+    private javax.swing.JLabel jLabel42;
+    private javax.swing.JLabel jLabel43;
+    private javax.swing.JLabel jLabel44;
+    private javax.swing.JLabel jLabel45;
+    private javax.swing.JLabel jLabel46;
+    private javax.swing.JLabel jLabel47;
+    private javax.swing.JLabel jLabel48;
+    private javax.swing.JLabel jLabel49;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JMenuItem jM_cadastrar_cliente;
+    private javax.swing.JMenuItem jM_cadastrar_fornecedor;
+    private javax.swing.JMenuItem jM_cadastrar_funcionario;
+    private javax.swing.JMenuItem jM_cadastrar_produto;
+    private javax.swing.JMenu jM_cadastro;
+    private javax.swing.JMenuItem jM_consultarCadastro;
+    private javax.swing.JMenu jM_inicio;
+    private javax.swing.JMenuItem jM_registrarPonto;
+    private javax.swing.JMenuItem jM_relatorio_cliente;
+    private javax.swing.JMenuItem jM_relatorio_fornecedor;
+    private javax.swing.JMenuItem jM_relatorio_funcionario;
+    private javax.swing.JMenuItem jM_relatorio_produto;
+    private javax.swing.JMenuItem jM_sair;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu jMenu5;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem10;
+    private javax.swing.JMenuItem jMenuItem11;
+    private javax.swing.JMenuItem jMenuItem12;
+    private javax.swing.JMenuItem jMenuItem9;
+    private javax.swing.JPanel jP_cadastro;
+    private javax.swing.JPanel jP_inicio;
+    private javax.swing.JPanel jP_principal;
+    private javax.swing.JPanel jP_registarFornecedor;
+    private javax.swing.JPanel jP_registarFuncionario;
+    private javax.swing.JPanel jP_registarProduto;
+    private javax.swing.JPanel jP_registrarCliente;
+    private javax.swing.JPanel jP_registrarPonto;
+    private javax.swing.JPanel jP_relatorios;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JTextField txt_bairro;
+    private javax.swing.JTextField txt_bairroC;
+    private javax.swing.JTextField txt_bairroF;
+    private javax.swing.JTextField txt_bairroFu;
+    private javax.swing.JTextField txt_cargaHora_madrugada;
+    private javax.swing.JTextField txt_cargaHora_mes;
+    private javax.swing.JTextField txt_cidade;
+    private javax.swing.JTextField txt_cidadeC;
+    private javax.swing.JTextField txt_cidadeF;
+    private javax.swing.JTextField txt_cidadeFu;
+    private javax.swing.JFormattedTextField txt_cpf;
+    private javax.swing.JFormattedTextField txt_dataEntrada;
+    private javax.swing.JFormattedTextField txt_dataSaida;
+    private javax.swing.JFormattedTextField txt_documentoC;
+    private javax.swing.JFormattedTextField txt_documentoF;
+    private javax.swing.JFormattedTextField txt_documentoFu;
+    private javax.swing.JTextField txt_estado;
+    private javax.swing.JTextField txt_estadoC;
+    private javax.swing.JTextField txt_estadoF;
+    private javax.swing.JTextField txt_estadoFu;
+    private javax.swing.JTextField txt_funcao;
+    private javax.swing.JFormattedTextField txt_horaEntrada;
+    private javax.swing.JFormattedTextField txt_horaSaida;
+    private javax.swing.JTextField txt_nome;
+    private javax.swing.JTextField txt_nomeC;
+    private javax.swing.JTextField txt_nomeF;
+    private javax.swing.JTextField txt_nomeFu;
+    private javax.swing.JTextField txt_numero;
+    private javax.swing.JTextField txt_numeroC;
+    private javax.swing.JTextField txt_numeroF;
+    private javax.swing.JTextField txt_numeroFu;
+    private javax.swing.JTextField txt_rua;
+    private javax.swing.JTextField txt_ruaC;
+    private javax.swing.JTextField txt_ruaF;
+    private javax.swing.JTextField txt_ruaFu;
+    private javax.swing.JFormattedTextField txt_salario;
+    private javax.swing.JFormattedTextField txt_telefone;
+    private javax.swing.JFormattedTextField txt_telefoneC;
+    private javax.swing.JFormattedTextField txt_telefoneF;
+    private javax.swing.JFormattedTextField txt_telefoneFu;
     // End of variables declaration//GEN-END:variables
 }

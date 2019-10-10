@@ -3,7 +3,7 @@
  * 
  * 
  */
-package model;
+package PadariaTremBao.model;
 
 /**
  *
@@ -36,10 +36,28 @@ public final class Produto {
         this.perecivel = perecivel;
     }
 
+    public Produto(String nome, int idproduto) {
+        this.nome = nome;
+        this.idproduto = idproduto;
+    }
+
+    public Produto(String nome, int idproduto, int qntProduto) {
+        this.nome = nome;
+        this.idproduto = idproduto;
+        this.qntProduto = qntProduto;
+    }
+
+    public Produto() {
+    }
+
     public int getQntProduto() {
         return qntProduto;
     }
 
+    public void setQntProduto(int qnt){
+        this.qntProduto = qnt;
+    }
+    
     public String adicionarProduto(int qnt) {
         String retorno = null;
         if(this.qntProduto+qnt>30){
@@ -53,10 +71,14 @@ public final class Produto {
     
     public String removerProduto(int qnt){
         String retorno = null;
-        if(this.qntProduto-qnt==1){
+        if(qntProduto-qnt==1){
             this.qntProduto-=qnt;
-            retorno = "Limite minímo atingido";
-        }else if(this.qntProduto-qnt>1){
+            retorno = "Minímo atingido";
+        }else if(qntProduto-qnt==0){
+            this.qntProduto-=qnt;
+            retorno = "Estoque do produto vazio";
+        }
+        else if(qntProduto-qnt>1){
             this.qntProduto-=qnt;
             retorno = "Removido";
         }else{

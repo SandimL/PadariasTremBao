@@ -3,13 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package model;
+package PadariaTremBao.model;
 
 /**
  *
- * @author Lucas
+ * @author Paulo
  */
 public interface Relatorio {
-    
     public String getInfo();
 }

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package view;
+package PadariaTremBao.view;
 
 import java.awt.CardLayout;
 import javax.swing.JButton;
@@ -18,10 +18,18 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
-import controller.VendedorController;
-import model.Banco;
-import model.Vendedor;
-import util.Validacao;
+import PadariaTremBao.controller.VendedorController;
+import PadariaTremBao.model.Venda;
+import PadariaTremBao.model.Vendedor;
+import PadariaTremBao.util.Validacao;
+import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import javax.swing.ButtonGroup;
+import javax.swing.ButtonModel;
+import javax.swing.JRadioButton;
+import javax.swing.JSpinner;
+import javax.swing.SpinnerNumberModel;
 
 /**
  *
@@ -30,6 +38,7 @@ import util.Validacao;
 public class VendedorView extends javax.swing.JFrame {
     private Vendedor usuario;
     private VendedorController controller = new VendedorController(this);
+    private double valor;
     /**
      * Creates new form PadeiroView
      * @param usuario
@@ -37,10 +46,16 @@ public class VendedorView extends javax.swing.JFrame {
     public VendedorView(Vendedor usuario) {
         initComponents();
         this.usuario = usuario;
+        jS_addCarinho.setModel(new SpinnerNumberModel(0, 0, 30, 1));
+        jS_removeCarrinho.setModel(new SpinnerNumberModel(0, 0, 30, 1));
+        jS_quantidadeParcelas.setModel(new SpinnerNumberModel(1, 1, 6, 1));
     }
 
     private VendedorView() {
         initComponents();
+        jS_addCarinho.setModel(new SpinnerNumberModel(0, 0, 30, 1));
+        jS_removeCarrinho.setModel(new SpinnerNumberModel(0, 0, 30, 1));
+        jS_quantidadeParcelas.setModel(new SpinnerNumberModel(1, 1, 6, 1));
     }
     public void exibirMessagem(String mensagem){
         JOptionPane.showMessageDialog(this, mensagem);
@@ -55,6 +70,7 @@ public class VendedorView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        btnG_parceladoOuNao = new javax.swing.ButtonGroup();
         jP_principal = new javax.swing.JPanel();
         jP_inicio = new javax.swing.JPanel();
         jP_registrarPonto = new javax.swing.JPanel();
@@ -107,21 +123,33 @@ public class VendedorView extends javax.swing.JFrame {
         jLabel21 = new javax.swing.JLabel();
         txt_vendedor = new javax.swing.JTextField();
         jLabel22 = new javax.swing.JLabel();
-        jFormattedTextField1 = new javax.swing.JFormattedTextField();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jT_estoque = new javax.swing.JTable();
+        txt_dataVenda = new javax.swing.JFormattedTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
         jT_carrinho = new javax.swing.JTable();
         jLabel24 = new javax.swing.JLabel();
         jLabel25 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
+        btn_addCarinho = new javax.swing.JButton();
+        btn_removeCarrinho = new javax.swing.JButton();
         jLabel23 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
         jLabel26 = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
-        jFormattedTextField2 = new javax.swing.JFormattedTextField();
+        txt_subTotal = new javax.swing.JFormattedTextField();
+        jLabel27 = new javax.swing.JLabel();
+        txt_desconto = new javax.swing.JTextField();
+        jLabel29 = new javax.swing.JLabel();
+        jS_addCarinho = new javax.swing.JSpinner();
+        jS_removeCarrinho = new javax.swing.JSpinner();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jT_estoque = new javax.swing.JTable();
+        jButton1 = new javax.swing.JButton();
+        jCB_formaPagamento = new javax.swing.JComboBox();
+        jLabel31 = new javax.swing.JLabel();
+        btnR_aVista = new javax.swing.JRadioButton();
+        btnR_aPrazo = new javax.swing.JRadioButton();
+        jLabel32 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
+        jS_quantidadeParcelas = new javax.swing.JSpinner();
+        txt_valorAPagar = new javax.swing.JFormattedTextField();
         jP_consultarVenda = new javax.swing.JPanel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jM_inicio = new javax.swing.JMenu();
@@ -547,6 +575,30 @@ public class VendedorView extends javax.swing.JFrame {
         jLabel20.setBounds(20, 40, 50, 28);
 
         jCB_cliente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jCB_cliente.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jCB_clienteFocusLost(evt);
+            }
+        });
+        jCB_cliente.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jCB_clienteMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jCB_clienteMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jCB_clienteMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                jCB_clienteMouseReleased(evt);
+            }
+        });
+        jCB_cliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCB_clienteActionPerformed(evt);
+            }
+        });
         jPanel3.add(jCB_cliente);
         jCB_cliente.setBounds(90, 40, 220, 28);
 
@@ -555,6 +607,7 @@ public class VendedorView extends javax.swing.JFrame {
         jPanel3.add(jLabel21);
         jLabel21.setBounds(20, 80, 60, 28);
 
+        txt_vendedor.setEditable(false);
         txt_vendedor.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel3.add(txt_vendedor);
         txt_vendedor.setBounds(90, 80, 220, 28);
@@ -564,33 +617,33 @@ public class VendedorView extends javax.swing.JFrame {
         jPanel3.add(jLabel22);
         jLabel22.setBounds(460, 60, 40, 28);
 
-        jFormattedTextField1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        txt_dataVenda.setEditable(false);
+        txt_dataVenda.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         try {
-            jFormattedTextField1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+            txt_dataVenda.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        jFormattedTextField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jFormattedTextField1.setFocusLostBehavior(javax.swing.JFormattedTextField.PERSIST);
-        jFormattedTextField1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jPanel3.add(jFormattedTextField1);
-        jFormattedTextField1.setBounds(510, 60, 100, 28);
+        txt_dataVenda.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txt_dataVenda.setFocusLostBehavior(javax.swing.JFormattedTextField.PERSIST);
+        txt_dataVenda.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jPanel3.add(txt_dataVenda);
+        txt_dataVenda.setBounds(510, 60, 100, 28);
 
-        jT_estoque.setBackground(new java.awt.Color(90, 100, 100));
-        jT_estoque.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jT_estoque.setModel(new javax.swing.table.DefaultTableModel(
+        jT_carrinho.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jT_carrinho.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Produto", "Quantidade", "Valor/unidade"
+                "ID", "Produto", "Quantidade", "Valor Total"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.Integer.class, java.lang.Float.class
+                java.lang.Integer.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false
+                false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -601,83 +654,197 @@ public class VendedorView extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jT_estoque.getTableHeader().setResizingAllowed(false);
-        jT_estoque.getTableHeader().setReorderingAllowed(false);
-        jScrollPane1.setViewportView(jT_estoque);
-        if (jT_estoque.getColumnModel().getColumnCount() > 0) {
-            jT_estoque.getColumnModel().getColumn(0).setResizable(false);
-            jT_estoque.getColumnModel().getColumn(1).setResizable(false);
-            jT_estoque.getColumnModel().getColumn(2).setResizable(false);
-        }
-
-        jPanel3.add(jScrollPane1);
-        jScrollPane1.setBounds(10, 190, 300, 310);
-
-        jT_carrinho.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jT_carrinho.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Produto", "Quantidade", "Valor Total"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.Integer.class, java.lang.Float.class
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-        });
+        jT_carrinho.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        jT_carrinho.getTableHeader().setReorderingAllowed(false);
         jScrollPane2.setViewportView(jT_carrinho);
+        if (jT_carrinho.getColumnModel().getColumnCount() > 0) {
+            jT_carrinho.getColumnModel().getColumn(0).setResizable(false);
+            jT_carrinho.getColumnModel().getColumn(0).setPreferredWidth(30);
+            jT_carrinho.getColumnModel().getColumn(1).setResizable(false);
+            jT_carrinho.getColumnModel().getColumn(2).setResizable(false);
+            jT_carrinho.getColumnModel().getColumn(2).setPreferredWidth(50);
+            jT_carrinho.getColumnModel().getColumn(3).setResizable(false);
+            jT_carrinho.getColumnModel().getColumn(3).setPreferredWidth(50);
+        }
 
         jPanel3.add(jScrollPane2);
         jScrollPane2.setBounds(380, 190, 300, 310);
 
+        jLabel24.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel24.setText("Estoque");
         jPanel3.add(jLabel24);
-        jLabel24.setBounds(110, 170, 70, 14);
+        jLabel24.setBounds(110, 170, 80, 17);
 
+        jLabel25.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel25.setText("Carrinho");
         jPanel3.add(jLabel25);
-        jLabel25.setBounds(510, 170, 70, 14);
+        jLabel25.setBounds(510, 170, 70, 17);
 
-        jButton1.setText("Adicionar ao Carrinho");
-        jButton1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel3.add(jButton1);
-        jButton1.setBounds(90, 130, 180, 30);
+        btn_addCarinho.setText("Adicionar ao Carrinho");
+        btn_addCarinho.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btn_addCarinho.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_addCarinhoActionPerformed(evt);
+            }
+        });
+        jPanel3.add(btn_addCarinho);
+        btn_addCarinho.setBounds(90, 130, 180, 30);
 
-        jButton2.setText("Remover do Carrinho");
-        jButton2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel3.add(jButton2);
-        jButton2.setBounds(480, 130, 160, 30);
-
-        jTextField1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel3.add(jTextField1);
-        jTextField1.setBounds(30, 130, 50, 30);
+        btn_removeCarrinho.setText("Remover do Carrinho");
+        btn_removeCarrinho.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btn_removeCarrinho.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_removeCarrinhoActionPerformed(evt);
+            }
+        });
+        jPanel3.add(btn_removeCarrinho);
+        btn_removeCarrinho.setBounds(480, 130, 160, 30);
 
         jLabel23.setText("Unidades");
         jPanel3.add(jLabel23);
         jLabel23.setBounds(30, 110, 60, 14);
-
-        jTextField2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel3.add(jTextField2);
-        jTextField2.setBounds(410, 130, 50, 30);
 
         jLabel26.setText("Unidades");
         jPanel3.add(jLabel26);
         jLabel26.setBounds(410, 110, 60, 14);
 
         jLabel28.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel28.setText("Valor Total:");
+        jLabel28.setText("Sub total");
         jPanel3.add(jLabel28);
-        jLabel28.setBounds(440, 510, 110, 30);
+        jLabel28.setBounds(420, 510, 90, 30);
 
-        jFormattedTextField2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jFormattedTextField2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jPanel3.add(jFormattedTextField2);
-        jFormattedTextField2.setBounds(560, 510, 100, 30);
+        txt_subTotal.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        txt_subTotal.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("¤#,##0.00"))));
+        txt_subTotal.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jPanel3.add(txt_subTotal);
+        txt_subTotal.setBounds(520, 510, 80, 30);
+
+        jLabel27.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel27.setText("Desconto");
+        jPanel3.add(jLabel27);
+        jLabel27.setBounds(420, 560, 70, 17);
+
+        txt_desconto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel3.add(txt_desconto);
+        txt_desconto.setBounds(520, 550, 80, 30);
+
+        jLabel29.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel29.setText("Valor a pagar");
+        jPanel3.add(jLabel29);
+        jLabel29.setBounds(420, 610, 100, 17);
+
+        jS_addCarinho.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel3.add(jS_addCarinho);
+        jS_addCarinho.setBounds(30, 130, 50, 30);
+
+        jS_removeCarrinho.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel3.add(jS_removeCarrinho);
+        jS_removeCarrinho.setBounds(420, 130, 50, 30);
+
+        jT_estoque.setBackground(new java.awt.Color(90, 100, 100));
+        jT_estoque.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "ID", "Produto", "Quantidade", "Preço/Und"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.String.class, java.lang.Integer.class, java.lang.Float.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jT_estoque.setGridColor(new java.awt.Color(90, 100, 100));
+        jT_estoque.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        jT_estoque.getTableHeader().setReorderingAllowed(false);
+        jScrollPane3.setViewportView(jT_estoque);
+        if (jT_estoque.getColumnModel().getColumnCount() > 0) {
+            jT_estoque.getColumnModel().getColumn(0).setResizable(false);
+            jT_estoque.getColumnModel().getColumn(0).setPreferredWidth(30);
+            jT_estoque.getColumnModel().getColumn(1).setResizable(false);
+            jT_estoque.getColumnModel().getColumn(2).setResizable(false);
+            jT_estoque.getColumnModel().getColumn(2).setPreferredWidth(50);
+            jT_estoque.getColumnModel().getColumn(3).setResizable(false);
+            jT_estoque.getColumnModel().getColumn(3).setPreferredWidth(60);
+        }
+
+        jPanel3.add(jScrollPane3);
+        jScrollPane3.setBounds(20, 190, 330, 310);
+
+        jButton1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jButton1.setText("Cadastrar Cliente");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel3.add(jButton1);
+        jButton1.setBounds(510, 10, 150, 25);
+
+        jCB_formaPagamento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCB_formaPagamentoActionPerformed(evt);
+            }
+        });
+        jPanel3.add(jCB_formaPagamento);
+        jCB_formaPagamento.setBounds(140, 520, 100, 20);
+
+        jLabel31.setText("Forma de Pagamento");
+        jPanel3.add(jLabel31);
+        jLabel31.setBounds(10, 520, 130, 14);
+
+        btnR_aVista.setBackground(new java.awt.Color(100, 100, 100));
+        btnG_parceladoOuNao.add(btnR_aVista);
+        btnR_aVista.setText("À vista");
+        btnR_aVista.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnR_aVistaActionPerformed(evt);
+            }
+        });
+        jPanel3.add(btnR_aVista);
+        btnR_aVista.setBounds(20, 550, 59, 23);
+
+        btnR_aPrazo.setBackground(new java.awt.Color(100, 100, 100));
+        btnG_parceladoOuNao.add(btnR_aPrazo);
+        btnR_aPrazo.setText("À prazo");
+        btnR_aPrazo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnR_aPrazoActionPerformed(evt);
+            }
+        });
+        jPanel3.add(btnR_aPrazo);
+        btnR_aPrazo.setBounds(80, 550, 93, 23);
+
+        jLabel32.setText("Quantidade de parcelas");
+        jPanel3.add(jLabel32);
+        jLabel32.setBounds(20, 580, 130, 14);
+
+        jButton2.setText("Finalizar Venda");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        jPanel3.add(jButton2);
+        jButton2.setBounds(270, 520, 120, 23);
+        jPanel3.add(jS_quantidadeParcelas);
+        jS_quantidadeParcelas.setBounds(140, 570, 60, 30);
+
+        txt_valorAPagar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        txt_valorAPagar.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(java.text.NumberFormat.getCurrencyInstance())));
+        jPanel3.add(txt_valorAPagar);
+        txt_valorAPagar.setBounds(520, 600, 80, 30);
 
         javax.swing.GroupLayout jP_realizarVendaLayout = new javax.swing.GroupLayout(jP_realizarVenda);
         jP_realizarVenda.setLayout(jP_realizarVendaLayout);
@@ -932,10 +1099,157 @@ public class VendedorView extends javax.swing.JFrame {
         // TODO add your handling code here:
         CardLayout cl = (CardLayout) jP_principal.getLayout();
         cl.show(jP_principal, "Realizar venda");
+        SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+        Date data = new Date();
+        controller.iniciarVenda();
         controller.loadTableEstoque();
+        controller.loadTableCarrinho();
         controller.loadComboBoxCliente();
+        btnR_aPrazo.setEnabled(false);
+        btnR_aVista.setEnabled(false);
+        jCB_formaPagamento.addItem("Dinheiro");
+        jCB_formaPagamento.addItem("Débito");
+        jCB_formaPagamento.addItem("Crédito");
+        txt_dataVenda.setText(format.format(data));
+        //txt_vendedor.setText(usuario.getNome());
+        
     }//GEN-LAST:event_jM_realizarVendaActionPerformed
 
+    private void btn_addCarinhoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_addCarinhoActionPerformed
+        // TODO add your handling code here:
+        int index = jT_estoque.getSelectedRow();
+        if(0<(int)jS_addCarinho.getValue()){
+            System.out.println(index);
+            if(index>=0){
+                controller.adicionarProdutoVenda();
+                jS_addCarinho.setValue(0);
+            }else{
+                JOptionPane.showMessageDialog(this, "Selecione um item do estoque");
+            }
+        }else{
+            JOptionPane.showMessageDialog(this, "Informe a quantidade a ser adicionada");
+        }
+    }//GEN-LAST:event_btn_addCarinhoActionPerformed
+
+    private void jCB_clienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCB_clienteActionPerformed
+        // TODO add your handling code here:
+        if(jCB_cliente.getSelectedItem()!=null){
+            controller.setarCliente((String) jCB_cliente.getSelectedItem());
+            controller.setarDesconto((String) jCB_cliente.getSelectedItem());
+            controller.loadValores();
+        }
+    }//GEN-LAST:event_jCB_clienteActionPerformed
+
+    private void jCB_clienteFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jCB_clienteFocusLost
+        // TODO add your handling code here:
+        /*if(jCB_cliente.getSelectedItem()!=null){
+            controller.setarCliente((String) jCB_cliente.getSelectedItem());
+            controller.setarDesconto((String) jCB_cliente.getSelectedItem());
+        }*/
+    }//GEN-LAST:event_jCB_clienteFocusLost
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+       CadastrarCliente cadCliente = new CadastrarCliente(controller);
+       cadCliente.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void btn_removeCarrinhoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_removeCarrinhoActionPerformed
+        // TODO add your handling code here:
+        int index = jT_carrinho.getSelectedRow();
+        if(0<(int)jS_removeCarrinho.getValue()){
+            System.out.println(index);
+            if(index>=0){
+                controller.removerProdutoVenda();
+            }else{
+                JOptionPane.showMessageDialog(this, "Selecione um item do estoque");
+            }
+        }else{
+            JOptionPane.showMessageDialog(this, "Informe a quantidade a ser adicionada");
+        }
+        valor = Float.parseFloat(txt_valorAPagar.getText());
+        controller.loadValores();
+    }//GEN-LAST:event_btn_removeCarrinhoActionPerformed
+
+    private void jCB_clienteMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jCB_clienteMouseReleased
+        // TODO add your handling code here:
+        if(jCB_cliente.getSelectedItem()!=null){
+            controller.setarCliente((String) jCB_cliente.getSelectedItem());
+            controller.setarDesconto((String) jCB_cliente.getSelectedItem());
+        }
+    }//GEN-LAST:event_jCB_clienteMouseReleased
+
+    private void jCB_clienteMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jCB_clienteMouseEntered
+        // TODO add your handling code here:
+         
+    }//GEN-LAST:event_jCB_clienteMouseEntered
+
+    private void jCB_clienteMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jCB_clienteMouseExited
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_jCB_clienteMouseExited
+
+    private void jCB_clienteMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jCB_clienteMousePressed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_jCB_clienteMousePressed
+
+    private void jCB_formaPagamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCB_formaPagamentoActionPerformed
+        // TODO add your handling code here:
+        if(jCB_formaPagamento.getSelectedItem().equals("Crédito")){
+            btnR_aPrazo.setEnabled(true);
+            btnR_aVista.setEnabled(true);
+        }else{
+            btnG_parceladoOuNao.clearSelection();
+            btnR_aPrazo.setEnabled(false);
+            btnR_aVista.setEnabled(true);
+            btnR_aVista.setSelected(true);
+        }
+    }//GEN-LAST:event_jCB_formaPagamentoActionPerformed
+
+    private void btnR_aPrazoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnR_aPrazoActionPerformed
+        // TODO add your handling code here:
+        if(btnR_aPrazo.isSelected()){
+            jS_quantidadeParcelas.setEnabled(true);
+        }else{
+            jS_quantidadeParcelas.setValue(0);
+            jS_quantidadeParcelas.setEnabled(false);
+            txt_valorAPagar.setText(String.valueOf(valor));
+        }
+        
+    }//GEN-LAST:event_btnR_aPrazoActionPerformed
+
+    private void btnR_aVistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnR_aVistaActionPerformed
+        // TODO add your handling code here:
+        
+       if(btnR_aPrazo.isSelected()){
+            jS_quantidadeParcelas.setEnabled(true);
+            
+        }else{
+            jS_quantidadeParcelas.setValue(1);
+            jS_quantidadeParcelas.setEnabled(false);
+            txt_valorAPagar.setText(String.valueOf(valor));
+        }
+    }//GEN-LAST:event_btnR_aVistaActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        if(jT_carrinho.getRowCount()!=0){
+            int i = JOptionPane.showConfirmDialog(this, "Deseja finalizar venda?", "Atenção", 0);
+            if(i==0){
+                System.out.println("Sim");
+                controller.salvarVenda();
+            }else if( i==1){
+                System.out.println("Não");
+            }else{
+                System.out.println("Cancelar");
+            }
+        }else{
+            JOptionPane.showMessageDialog(this, "Adicione pelo menos um item ao carrinho!");
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    /*    */
     /**
      * @param args the command line arguments
      */
@@ -986,6 +1300,15 @@ public class VendedorView extends javax.swing.JFrame {
         return btn_cadastro_cancelar;
     }
 
+    public JSpinner getjS_quantidadeParcelas() {
+        return jS_quantidadeParcelas;
+    }
+
+    public void setjS_quantidadeParcelas(JSpinner jS_quantidadeParcelas) {
+        this.jS_quantidadeParcelas = jS_quantidadeParcelas;
+    }
+
+    
     public void setBtn_cadastro_cancelar(JButton btn_cadastro_cancelar) {
         this.btn_cadastro_cancelar = btn_cadastro_cancelar;
     }
@@ -1018,146 +1341,78 @@ public class VendedorView extends javax.swing.JFrame {
         return jLabel1;
     }
 
-    public void setjLabel1(JLabel jLabel1) {
-        this.jLabel1 = jLabel1;
+    public double getValor() {
+        return valor;
     }
 
-    public JLabel getjLabel10() {
-        return jLabel10;
+    public void setValor(double valor) {
+        this.valor = valor;
     }
 
-    public void setjLabel10(JLabel jLabel10) {
-        this.jLabel10 = jLabel10;
+    public ButtonGroup getBtnG_parceladoOuNao() {
+        return btnG_parceladoOuNao;
     }
 
-    public JLabel getjLabel11() {
-        return jLabel11;
+    public void setBtnG_parceladoOuNao(ButtonGroup btnG_parceladoOuNao) {
+        this.btnG_parceladoOuNao = btnG_parceladoOuNao;
     }
 
-    public void setjLabel11(JLabel jLabel11) {
-        this.jLabel11 = jLabel11;
+    public JRadioButton getBtnR_aPrazo() {
+        return btnR_aPrazo;
     }
 
-    public JLabel getjLabel12() {
-        return jLabel12;
+    public void setBtnR_aPrazo(JRadioButton btnR_aPrazo) {
+        this.btnR_aPrazo = btnR_aPrazo;
     }
 
-    public void setjLabel12(JLabel jLabel12) {
-        this.jLabel12 = jLabel12;
+    public JRadioButton getBtnR_aVista() {
+        return btnR_aVista;
     }
 
-    public JLabel getjLabel13() {
-        return jLabel13;
+    public void setBtnR_aVista(JRadioButton btnR_aVista) {
+        this.btnR_aVista = btnR_aVista;
     }
 
-    public void setjLabel13(JLabel jLabel13) {
-        this.jLabel13 = jLabel13;
+    public JComboBox getjCB_formaPagamento() {
+        return jCB_formaPagamento;
     }
 
-    public JLabel getjLabel14() {
-        return jLabel14;
+    public void setjCB_formaPagamento(JComboBox jCB_formaPagamento) {
+        this.jCB_formaPagamento = jCB_formaPagamento;
     }
 
-    public void setjLabel14(JLabel jLabel14) {
-        this.jLabel14 = jLabel14;
+    public JFormattedTextField getTxt_dataVenda() {
+        return txt_dataVenda;
     }
 
-    public JLabel getjLabel15() {
-        return jLabel15;
+    public void setTxt_dataVenda(JFormattedTextField txt_dataVenda) {
+        this.txt_dataVenda = txt_dataVenda;
     }
 
-    public void setjLabel15(JLabel jLabel15) {
-        this.jLabel15 = jLabel15;
+    public JTextField getTxt_desconto() {
+        return txt_desconto;
     }
 
-    public JLabel getjLabel17() {
-        return jLabel17;
+    public void setTxt_desconto(JTextField txt_desconto) {
+        this.txt_desconto = txt_desconto;
     }
 
-    public void setjLabel17(JLabel jLabel17) {
-        this.jLabel17 = jLabel17;
+    public JFormattedTextField getTxt_subTotal() {
+        return txt_subTotal;
     }
 
-    public JLabel getjLabel18() {
-        return jLabel18;
+    public void setTxt_subTotal(JFormattedTextField txt_subTotal) {
+        this.txt_subTotal = txt_subTotal;
     }
 
-    public void setjLabel18(JLabel jLabel18) {
-        this.jLabel18 = jLabel18;
+    public JFormattedTextField getTxt_valorAPagar() {
+        return txt_valorAPagar;
     }
 
-    public JLabel getjLabel19() {
-        return jLabel19;
+    public void setTxt_valorAPagar(JFormattedTextField txt_valorAPagar) {
+        this.txt_valorAPagar = txt_valorAPagar;
     }
-
-    public void setjLabel19(JLabel jLabel19) {
-        this.jLabel19 = jLabel19;
-    }
-
-    public JLabel getjLabel2() {
-        return jLabel2;
-    }
-
-    public void setjLabel2(JLabel jLabel2) {
-        this.jLabel2 = jLabel2;
-    }
-
-    public JLabel getjLabel3() {
-        return jLabel3;
-    }
-
-    public void setjLabel3(JLabel jLabel3) {
-        this.jLabel3 = jLabel3;
-    }
-
-    public JLabel getjLabel4() {
-        return jLabel4;
-    }
-
-    public void setjLabel4(JLabel jLabel4) {
-        this.jLabel4 = jLabel4;
-    }
-
-    public JLabel getjLabel5() {
-        return jLabel5;
-    }
-
-    public void setjLabel5(JLabel jLabel5) {
-        this.jLabel5 = jLabel5;
-    }
-
-    public JLabel getjLabel6() {
-        return jLabel6;
-    }
-
-    public void setjLabel6(JLabel jLabel6) {
-        this.jLabel6 = jLabel6;
-    }
-
-    public JLabel getjLabel7() {
-        return jLabel7;
-    }
-
-    public void setjLabel7(JLabel jLabel7) {
-        this.jLabel7 = jLabel7;
-    }
-
-    public JLabel getjLabel8() {
-        return jLabel8;
-    }
-
-    public void setjLabel8(JLabel jLabel8) {
-        this.jLabel8 = jLabel8;
-    }
-
-    public JLabel getjLabel9() {
-        return jLabel9;
-    }
-
-    public void setjLabel9(JLabel jLabel9) {
-        this.jLabel9 = jLabel9;
-    }
-
+    
     public JMenu getjM_cadastro() {
         return jM_cadastro;
     }
@@ -1358,6 +1613,37 @@ public class VendedorView extends javax.swing.JFrame {
         this.txt_rua = txt_rua;
     }
 
+    public JButton getBtn_addCarinho() {
+        return btn_addCarinho;
+    }
+
+    public void setBtn_addCarinho(JButton btn_addCarinho) {
+        this.btn_addCarinho = btn_addCarinho;
+    }
+
+    public JButton getBtn_removeCarrinho() {
+        return btn_removeCarrinho;
+    }
+
+    public void setBtn_removeCarrinho(JButton btn_removeCarrinho) {
+        this.btn_removeCarrinho = btn_removeCarrinho;
+    }
+
+    public JSpinner getjS_addCarinho() {
+        return jS_addCarinho;
+    }
+
+    public void setjS_addCarinho(JSpinner jS_addCarinho) {
+        this.jS_addCarinho = jS_addCarinho;
+    }
+
+    public JSpinner getjS_removeCarrinho() {
+        return jS_removeCarrinho;
+    }
+
+    public void setjS_removeCarrinho(JSpinner jS_removeCarrinho) {
+        this.jS_removeCarrinho = jS_removeCarrinho;
+    }
     public JFormattedTextField getTxt_salario() {
         return txt_salario;
     }
@@ -1391,19 +1677,19 @@ public class VendedorView extends javax.swing.JFrame {
     }
 
     public JButton getjButton1() {
-        return jButton1;
+        return btn_addCarinho;
     }
 
     public void setjButton1(JButton jButton1) {
-        this.jButton1 = jButton1;
+        this.btn_addCarinho = jButton1;
     }
 
     public JButton getjButton2() {
-        return jButton2;
+        return btn_removeCarrinho;
     }
 
     public void setjButton2(JButton jButton2) {
-        this.jButton2 = jButton2;
+        this.btn_removeCarrinho = jButton2;
     }
 
     public JComboBox getjCB_cliente() {
@@ -1415,19 +1701,19 @@ public class VendedorView extends javax.swing.JFrame {
     }
 
     public JFormattedTextField getjFormattedTextField1() {
-        return jFormattedTextField1;
+        return txt_dataVenda;
     }
 
     public void setjFormattedTextField1(JFormattedTextField jFormattedTextField1) {
-        this.jFormattedTextField1 = jFormattedTextField1;
+        this.txt_dataVenda = jFormattedTextField1;
     }
 
     public JFormattedTextField getjFormattedTextField2() {
-        return jFormattedTextField2;
+        return txt_subTotal;
     }
 
     public void setjFormattedTextField2(JFormattedTextField jFormattedTextField2) {
-        this.jFormattedTextField2 = jFormattedTextField2;
+        this.txt_subTotal = jFormattedTextField2;
     }
 
     public JLabel getjLabel16() {
@@ -1550,14 +1836,6 @@ public class VendedorView extends javax.swing.JFrame {
         this.jPanel3 = jPanel3;
     }
 
-    public JScrollPane getjScrollPane1() {
-        return jScrollPane1;
-    }
-
-    public void setjScrollPane1(JScrollPane jScrollPane1) {
-        this.jScrollPane1 = jScrollPane1;
-    }
-
     public JScrollPane getjScrollPane2() {
         return jScrollPane2;
     }
@@ -1581,23 +1859,7 @@ public class VendedorView extends javax.swing.JFrame {
     public void setjT_estoque(JTable jT_estoque) {
         this.jT_estoque = jT_estoque;
     }
-
-    public JTextField getjTextField1() {
-        return jTextField1;
-    }
-
-    public void setjTextField1(JTextField jTextField1) {
-        this.jTextField1 = jTextField1;
-    }
-
-    public JTextField getjTextField2() {
-        return jTextField2;
-    }
-
-    public void setjTextField2(JTextField jTextField2) {
-        this.jTextField2 = jTextField2;
-    }
-
+    
     public JTextField getTxt_vendedor() {
         return txt_vendedor;
     }
@@ -1605,18 +1867,30 @@ public class VendedorView extends javax.swing.JFrame {
     public void setTxt_vendedor(JTextField txt_vendedor) {
         this.txt_vendedor = txt_vendedor;
     }
+
+    public JSpinner getjSpinner1() {
+        return jS_addCarinho;
+    }
+
+    public void setjSpinner1(JSpinner jSpinner1) {
+        this.jS_addCarinho = jSpinner1;
+    }
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup btnG_parceladoOuNao;
+    private javax.swing.JRadioButton btnR_aPrazo;
+    private javax.swing.JRadioButton btnR_aVista;
+    private javax.swing.JButton btn_addCarinho;
     private javax.swing.JButton btn_cadastro_cancelar;
     private javax.swing.JButton btn_cadastro_editar;
     private javax.swing.JButton btn_cadastro_salvar;
+    private javax.swing.JButton btn_removeCarrinho;
     private javax.swing.JButton btn_salvar;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JComboBox jCB_cliente;
-    private javax.swing.JFormattedTextField jFormattedTextField1;
-    private javax.swing.JFormattedTextField jFormattedTextField2;
+    private javax.swing.JComboBox jCB_formaPagamento;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1636,8 +1910,12 @@ public class VendedorView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -1662,18 +1940,21 @@ public class VendedorView extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JSpinner jS_addCarinho;
+    private javax.swing.JSpinner jS_quantidadeParcelas;
+    private javax.swing.JSpinner jS_removeCarrinho;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTable jT_carrinho;
     private javax.swing.JTable jT_estoque;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField txt_bairro;
     private javax.swing.JTextField txt_cargaHora_mes;
     private javax.swing.JTextField txt_cidade;
     private javax.swing.JFormattedTextField txt_cpf;
     private javax.swing.JFormattedTextField txt_dataEntrada;
     private javax.swing.JFormattedTextField txt_dataSaida;
+    private javax.swing.JFormattedTextField txt_dataVenda;
+    private javax.swing.JTextField txt_desconto;
     private javax.swing.JTextField txt_estado;
     private javax.swing.JTextField txt_funcao;
     private javax.swing.JFormattedTextField txt_horaEntrada;
@@ -1682,7 +1963,9 @@ public class VendedorView extends javax.swing.JFrame {
     private javax.swing.JTextField txt_numero;
     private javax.swing.JTextField txt_rua;
     private javax.swing.JFormattedTextField txt_salario;
+    private javax.swing.JFormattedTextField txt_subTotal;
     private javax.swing.JFormattedTextField txt_telefone;
+    private javax.swing.JFormattedTextField txt_valorAPagar;
     private javax.swing.JFormattedTextField txt_vendasRealizadas;
     private javax.swing.JTextField txt_vendedor;
     // End of variables declaration//GEN-END:variables

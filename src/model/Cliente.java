@@ -1,35 +1,43 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Alunos do Grupo
+ * Paulo Rogério Pereira Franco
+ * Gustavo Coutinho
+ *
  */
-package model;
-
-
-
+package PadariaTremBao.model;
 /**
- * @author Paulo
+ * Classe Cliente que irá modelar todos os clientes da padaria extende Pessoa
  */
-public class Cliente extends Pessoa implements Relatorio{
-    
+public class Cliente extends Pessoa{
+    //Atributos da classe
     private boolean gold;
     private boolean platina;
     private float valorCompras;
 
-    public Cliente(String nome, String telefone, String documento, String enderecoRua, String enderecoNumero, String enderecoBairro, String enderecoCidade, String enderecoEstado) {
-        super(nome, telefone, documento, enderecoRua, enderecoNumero, enderecoBairro, enderecoCidade, enderecoEstado);
+    //Contrutor da Classe atribuindo todos os valores aos atributos
+    public Cliente(String nome, String telefone, String documento, String rua, String numero, String bairro, String cidade, String estado) {
+        super(nome, telefone, documento, rua, numero, bairro, cidade, estado);
         this.gold = false;
         this.platina = false;
         this.valorCompras = 0;
     }
 
+    public Cliente(String nome, String telefone, String documento, String rua, String numero, String bairro, String cidade, String estado, boolean gold, boolean platina) {
+        super(nome, telefone, documento, rua, numero, bairro, cidade, estado);
+        this.gold = gold;
+        this.platina = platina;
+    }
+    
+    //Construtor da Classe atribuindo somente documento aos atributos
     public Cliente(String documento) {
         super(documento);
     }
 
+    //Contrustor da Classe vazio
     public Cliente() {
     }
 
+    //GETTERS e SETTERS dos atributos
     public boolean isGold() {
         return gold;
     }
@@ -56,21 +64,17 @@ public class Cliente extends Pessoa implements Relatorio{
     public void setValorCompras(float valorDaCompra) {
         this.valorCompras += valorDaCompra;
     }
-
+    
+    //Método que retorna as informações do Cliente
     @Override
-    public String getInfo() {
-        String txt = "";       
-        txt += "=====================================================================\n" +
-                "Informações Cliente: \n" +
-                "Nome: " + super.getNome() +"\n"+
-                "Telefone: " + super.getTelefone() +"\n"+
-                "Endereço: " + super.getEnderecoCompleto()+"\n"+
-                "Gold: " + isGold()+"\n"+
-                "Platina: " + isPlatina()+"\n"+
-                "=====================================================================\n";
-        return txt;    
-    
+    public String getInfo(){
+        String txt = super.getInfo();
+        txt+= "Valor de compras realizadas: R$" + this.getValorCompras() + "\n";
+        if(this.gold){
+            txt+= "Cliente é Gold\n";
+        }else if(this.platina){
+            txt+= "Cliente é Platinum\n";
+        }
+        return txt;
     }
-    
-    
 }

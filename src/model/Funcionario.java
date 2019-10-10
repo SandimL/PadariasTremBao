@@ -3,7 +3,7 @@
  * 
  * 
  */
-package model;
+package PadariaTremBao.model;
 /**
  * Classe Funcionário que extende a classe Pessoa por meio de Herança
  * Atributos adicionais Salario e Senha
@@ -33,6 +33,10 @@ public class Funcionario extends Pessoa{
         this.senha = senha;
     }
 
+    public Funcionario(String documento) {
+        super(documento);
+    }
+    
     //Construtor da classe Funcionario vazio
     public Funcionario() {
     }
@@ -69,5 +73,13 @@ public class Funcionario extends Pessoa{
     public boolean chekcLogin(Funcionario check){
         boolean valido = documento.equals(check.getDocumento()) && senha.equals(check.getSenha());
         return valido;
+    }
+    
+    @Override
+    public String getInfo(){
+        String txt = super.getInfo();
+        txt+= "Salário: R$" + this.getSalario() + "\n"+
+               "Horas trabalhadas no mês: " + this.getHorasTrabalhadas() + "\n";
+        return txt;
     }
 }

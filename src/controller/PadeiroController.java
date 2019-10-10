@@ -3,15 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package controller;
+package PadariaTremBao.controller;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import javax.swing.JOptionPane;
-import model.Banco;
-import view.PadeiroView;
+import PadariaTremBao.model.Banco;
+import PadariaTremBao.view.PadeiroView;
 
 /**
  *

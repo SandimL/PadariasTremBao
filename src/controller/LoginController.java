@@ -2,16 +2,17 @@
  * 
  * 
  */
-package controller;
+package PadariaTremBao.controller;
 
 import java.util.ArrayList;
-import model.Banco;
-import model.Funcionario;
-import model.Padeiro;
-import model.Vendedor;
-import view.LoginView;
-import view.PadeiroView;
-import view.VendedorView;
+import PadariaTremBao.model.Banco;
+import PadariaTremBao.model.Funcionario;
+import PadariaTremBao.model.Padeiro;
+import PadariaTremBao.model.Vendedor;
+import PadariaTremBao.view.GerenteView;
+import PadariaTremBao.view.LoginView;
+import PadariaTremBao.view.PadeiroView;
+import PadariaTremBao.view.VendedorView;
 
 /**
  *
@@ -46,7 +47,16 @@ public class LoginController {
             }else{
                 view.exibirMessagem("Senha incorreta");
             }
-        }       
+        }else if(Banco.procuraGerente(login)!=null){
+            if(Banco.procuraGerente(login).getSenha().equals(senha)){
+                view.exibirMessagem("Seja bem vindo!");
+                GerenteView gerenteView = new GerenteView(Banco.procuraGerente(login));
+                gerenteView.setVisible(true);
+                view.dispose();
+            }else{
+                view.exibirMessagem("Senha incorreta");
+            }
+        }          
         
     }
    

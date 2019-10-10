@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package view;
+package PadariaTremBao.view;
 
 import java.awt.CardLayout;
 import java.text.ParseException;
@@ -17,9 +17,9 @@ import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-import controller.PadeiroController;
-import model.Padeiro;
-import util.Validacao;
+import PadariaTremBao.controller.PadeiroController;
+import PadariaTremBao.model.Padeiro;
+import PadariaTremBao.util.Validacao;
 
 /**
  *
